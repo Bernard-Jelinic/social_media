@@ -1,52 +1,109 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+@extends('auth.login_register')
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+@section('login-register-content')
+    <!-- register start -->
+    <div class="sign_in_sec current" id="t-2">
+
+        <div class="signup-tab">
+            <i class="fa fa-long-arrow-left"></i>
+            <h2>johndoe@example.com</h2>
+            <ul>
+                <li data-tab="tab-3" class="current"><a href="#" title="">User</a></li>
+                <li data-tab="tab-4"><a href="#" title="">Company</a></li>
+            </ul>
         </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <div class="dff-tab current" id="tab-3">
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
+                <div class="row">
+                    <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                            <input type="text" id="name" name="name" placeholder="Full Name" :value="old('name')" required autofocus autocomplete="name">
+                            <i class="la la-user"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                            <input type="email" id="email" name="email" placeholder="Email" :value="old('email')" required autofocus autocomplete="username">
+                            <i class="la la-envelope"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                            <input type="text" name="country" placeholder="Country">
+                            <i class="la la-globe"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                            <select>
+                                <option>Category</option>
+                            </select>
+                            <i class="la la-dropbox"></i>
+                            <span><i class="fa fa-ellipsis-h"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                            <input type="password" id="password" name="password" placeholder="Password" required autocomplete="new-password">
+                            <i class="la la-lock"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                            <input type="password" id="password_confirmation" name="password_confirmation"
+                                placeholder="Repeat Password" required autocomplete="new-password">
+                            <i class="la la-lock"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 no-pdd">
+                        <button type="submit" value="submit">Get Started</button>
+                    </div>
+                </div>
+            </form>
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <div class="dff-tab" id="tab-4">
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
+                <div class="row">
+                    <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                            <input type="text" id="name" name="name" placeholder="Full Name" :value="old('name')" required autofocus autocomplete="name">
+                            <i class="la la-user"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                            <input type="text" name="company-name"
+                                placeholder="Company Name">
+                            <i class="la la-building"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                            <input type="text" name="country" placeholder="Country">
+                            <i class="la la-globe"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                            <input type="password" id="password" name="password" placeholder="Password" required autocomplete="new-password">
+                            <i class="la la-lock"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                            <input type="password" id="password_confirmation" name="password_confirmation"
+                                placeholder="Repeat Password" required autocomplete="new-password">
+                            <i class="la la-lock"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 no-pdd">
+                        <button type="submit" value="submit">Get Started</button>
+                    </div>
+                </div>
+            </form>
         </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ml-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </div>
+    <!-- register end -->
+@endsection

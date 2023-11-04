@@ -20,7 +20,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">
     </head>
 
-    <body class="{{ Route::is('login') ? 'sign-in' : '' }}">
+    <body class="{{ (Route::is('login') || Route::is('register')) ? 'sign-in' : '' }}">
         <!--theme-layout start-->
         <div class="wrapper">
             @yield('content')
