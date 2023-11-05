@@ -11,6 +11,17 @@ class AuthenticationTest extends TestCase
 {
     use RefreshDatabase;
 
+    /**
+     * Test that the root route redirects to the login route.
+     */
+    public function test_root_route_redirects_to_login_route()
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+    }
+
     public function test_login_screen_can_be_rendered(): void
     {
         $response = $this->get('/login');
