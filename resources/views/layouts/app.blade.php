@@ -13,6 +13,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/line-awesome.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/line-awesome-font-awesome.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.mCustomScrollbar.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/lib/slick/slick.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/lib/slick/slick-theme.css') }}">
@@ -31,6 +32,8 @@
     <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/popper.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/jquery.mCustomScrollbar.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/lib/slick/slick.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/scrollbar.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/script.js') }}"></script>
 </html>
