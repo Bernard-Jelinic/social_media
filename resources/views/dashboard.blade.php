@@ -342,6 +342,23 @@
                                     </ul>
                                 </div><!--post-st end-->
                             </div><!--post-topbar end-->
+
+                            <div class="post-bar">
+                                <div class="comment-section">
+                                    <div class="post-comment">
+                                        <div class="cm_img">
+                                            <img src="http://via.placeholder.com/40x40" alt="">
+                                        </div>
+                                        <div class="comment_box">
+                                            <form>
+                                                <input type="text" placeholder="Post something you're thinking about">
+                                                <button type="submit">Post</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="posts-section">
                                 <div class="post-bar">
                                     <div class="post_topbar">
