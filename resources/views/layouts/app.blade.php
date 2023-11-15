@@ -19,6 +19,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/lib/slick/slick-theme.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">
+        @livewireStyles
     </head>
 
     <body class="{{ (Route::is('login') || Route::is('register')) ? 'sign-in' : '' }}">
@@ -36,4 +37,5 @@
     <script type="text/javascript" src="{{ asset('assets/lib/slick/slick.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/scrollbar.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/script.js') }}"></script>
+    @livewireScripts
 </html>
