@@ -234,8 +234,10 @@
                                         </div>
                                     </div><!--username-dt end-->
                                     <div class="user-specs">
-                                        <h3>John Doe</h3>
-                                        <span>Graphic Designer at Self Employed</span>
+                                        <h3>{{ Auth::user()->first_name . Auth::user()->last_name }}</h3>
+                                        @if ( Auth::user()->headline )
+                                            <span>{{ Auth::user()->headline }}</span>
+                                        @endif
                                     </div>
                                 </div><!--user-profile end-->
                                 <ul class="user-fw-status">
@@ -248,7 +250,7 @@
                                         <span>155</span>
                                     </li>
                                     <li>
-                                        <a href="#" title="">View Profile</a>
+                                        <a href="{{ route('profile.edit') }}" title="">View Profile</a>
                                     </li>
                                 </ul>
                             </div><!--user-data end-->

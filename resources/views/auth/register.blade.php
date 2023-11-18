@@ -18,7 +18,13 @@
                 <div class="row">
                     <div class="col-lg-12 no-pdd">
                         <div class="sn-field">
-                            <input type="text" id="name" name="name" placeholder="Full Name" :value="old('name')" required autofocus autocomplete="name">
+                            <input type="text" id="first_name" name="first_name" placeholder="First Name" :value="old('first_name')" required autofocus autocomplete="first_name">
+                            <i class="la la-user"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 no-pdd">
+                        <div class="sn-field">
+                            <input type="text" id="last_name" name="last_name" placeholder="Last Name" :value="old('last_name')" required autofocus autocomplete="last_name">
                             <i class="la la-user"></i>
                         </div>
                     </div>

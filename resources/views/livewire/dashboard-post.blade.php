@@ -93,7 +93,7 @@
             <div class="profiles-slider">
                 <div class="user-profy">
                     <img src="http://via.placeholder.com/57x57" alt="">
-                    <h3>John Doe</h3>
+                    <h3>John Doe_1</h3>
                     <span>Graphic Designer</span>
                     <ul>
                         <li><a href="#" title="" class="followw">Follow</a></li>
@@ -104,7 +104,7 @@
                 </div><!--user-profy end-->
                 <div class="user-profy">
                     <img src="http://via.placeholder.com/57x57" alt="">
-                    <h3>John Doe</h3>
+                    <h3>John Doe_2</h3>
                     <span>Graphic Designer</span>
                     <ul>
                         <li><a href="#" title="" class="followw">Follow</a></li>
@@ -115,7 +115,7 @@
                 </div><!--user-profy end-->
                 <div class="user-profy">
                     <img src="http://via.placeholder.com/57x57" alt="">
-                    <h3>John Doe</h3>
+                    <h3>John Doe_3</h3>
                     <span>Graphic Designer</span>
                     <ul>
                         <li><a href="#" title="" class="followw">Follow</a></li>
@@ -126,7 +126,7 @@
                 </div><!--user-profy end-->
                 <div class="user-profy">
                     <img src="http://via.placeholder.com/57x57" alt="">
-                    <h3>John Doe</h3>
+                    <h3>John Doe_4</h3>
                     <span>Graphic Designer</span>
                     <ul>
                         <li><a href="#" title="" class="followw">Follow</a></li>
@@ -137,7 +137,7 @@
                 </div><!--user-profy end-->
                 <div class="user-profy">
                     <img src="http://via.placeholder.com/57x57" alt="">
-                    <h3>John Doe</h3>
+                    <h3>John Doe_5</h3>
                     <span>Graphic Designer</span>
                     <ul>
                         <li><a href="#" title="" class="followw">Follow</a></li>
@@ -148,7 +148,7 @@
                 </div><!--user-profy end-->
                 <div class="user-profy">
                     <img src="http://via.placeholder.com/57x57" alt="">
-                    <h3>John Doe</h3>
+                    <h3>John Doe_6</h3>
                     <span>Graphic Designer</span>
                     <ul>
                         <li><a href="#" title="" class="followw">Follow</a></li>
@@ -164,7 +164,7 @@
                 <div class="usy-dt">
                     <img src="http://via.placeholder.com/50x50" alt="">
                     <div class="usy-name">
-                        <h3>John Doe</h3>
+                        <h3>John Doe_7</h3>
                         <span><img src="{{asset('assets/images/clock.png') }}" alt="">3 min ago</span>
                     </div>
                 </div>
