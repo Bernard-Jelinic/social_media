@@ -318,9 +318,9 @@
                     <div class="col-lg-6">
                         <div class="main-ws-sec">
                             <div class="user-tab-sec">
-                                <h3>{{ $user->first_name . $user->last_name }}</h3>
+                                <h3>{{ $user->full_name }}</h3>
                                 <div class="star-descp">
-                                    @if ( $user->headline !== null )
+                                    @if ( !is_null($user->headline) )
                                         <span>{{ $user->headline }}</span>
                                     @endif
                                     <ul>

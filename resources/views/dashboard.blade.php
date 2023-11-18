@@ -234,8 +234,8 @@
                                         </div>
                                     </div><!--username-dt end-->
                                     <div class="user-specs">
-                                        <h3>{{ Auth::user()->first_name . Auth::user()->last_name }}</h3>
-                                        @if ( Auth::user()->headline )
+                                        <h3>{{ Auth::user()->full_name }}</h3>
+                                        @if ( !is_null(Auth::user()->headline) )
                                             <span>{{ Auth::user()->headline }}</span>
                                         @endif
                                     </div>
