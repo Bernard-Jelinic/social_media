@@ -4,12 +4,10 @@
 
 @include('partials.header')
 
-
 <section class="cover-sec">
     <img src="http://via.placeholder.com/1600x400" alt="">
     <a href="#" title=""><i class="fa fa-camera"></i> Change Image</a>
 </section>
-
 
 <main>
     <div class="main-section">
@@ -1162,7 +1160,6 @@
         <a href="#" title="" class="close-box"><i class="la la-close"></i></a>
     </div><!--overview-edit end-->
 </div><!--overview-box end-->
-
 
 <div class="overview-box" id="experience-box">
     <div class="overview-edit">
