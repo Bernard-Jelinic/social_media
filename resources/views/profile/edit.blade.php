@@ -132,37 +132,37 @@
                                     <ul>
                                         <li data-tab="feed-dd" class="active">
                                             <a href="#" title="">
-                                                <img src="images/ic1.png" alt="">
+                                                <img src="{{ asset('assets/images/ic1.png') }}" alt="">
                                                 <span>Feed</span>
                                             </a>
                                         </li>
                                         <li data-tab="info-dd">
                                             <a href="#" title="">
-                                                <img src="images/ic2.png" alt="">
+                                                <img src="{{ asset('assets/images/ic2.png') }}" alt="">
                                                 <span>Info</span>
                                             </a>
                                         </li>
                                         <li data-tab="saved-jobs">
                                             <a href="#" title="">
-                                                <img src="images/ic4.png" alt="">
+                                                <img src="{{ asset('assets/images/ic4.png') }}" alt="">
                                                 <span>Saved Jobs</span>
                                             </a>
                                         </li>
                                         <li data-tab="my-bids">
                                             <a href="#" title="">
-                                                <img src="images/ic5.png" alt="">
+                                                <img src="{{ asset('assets/images/ic5.png') }}" alt="">
                                                 <span>My Bids</span>
                                             </a>
                                         </li>
                                         <li data-tab="portfolio-dd">
                                             <a href="#" title="">
-                                                <img src="images/ic3.png" alt="">
+                                                <img src="{{ asset('assets/images/ic3.png') }}" alt="">
                                                 <span>Portfolio</span>
                                             </a>
                                         </li>
                                         <li data-tab="payment-dd">
                                             <a href="#" title="">
-                                                <img src="images/ic6.png" alt="">
+                                                <img src="{{ asset('assets/images/ic6.png') }}" alt="">
                                                 <span>Payment</span>
                                             </a>
                                         </li>
@@ -177,7 +177,7 @@
                                                 <img src="http://via.placeholder.com/50x50" alt="">
                                                 <div class="usy-name">
                                                     <h3>John Doe</h3>
-                                                    <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                    <span><img src="{{ asset('assets/images/clock.png') }}" alt="">3 min ago</span>
                                                 </div>
                                             </div>
                                             <div class="ed-opts">
@@ -193,8 +193,8 @@
                                         </div>
                                         <div class="epi-sec">
                                             <ul class="descp">
-                                                <li><img src="images/icon8.png" alt=""><span>Epic Coder</span></li>
-                                                <li><img src="images/icon9.png" alt=""><span>India</span></li>
+                                                <li><img src="{{ asset('assets/images/icon8.png') }}" alt=""><span>Epic Coder</span></li>
+                                                <li><img src="{{ asset('assets/images/icon9.png') }}" alt=""><span>India</span></li>
                                             </ul>
                                             <ul class="bk-links">
                                                 <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -220,10 +220,10 @@
                                             <ul class="like-com">
                                                 <li>
                                                     <a href="#"><i class="la la-heart"></i> Like</a>
-                                                    <img src="images/liked-img.png" alt="">
+                                                    <img src="{{ asset('assets/images/liked-img.png') }}" alt="">
                                                     <span>25</span>
                                                 </li> 
-                                                <li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
+                                                <li><a href="#" title="" class="com"><img src="{{ asset('assets/images/com.png') }}" alt=""> Comment 15</a></li>
                                             </ul>
                                             <a><i class="la la-eye"></i>Views 50</a>
                                         </div>
@@ -234,7 +234,7 @@
                                                 <img src="http://via.placeholder.com/50x50" alt="">
                                                 <div class="usy-name">
                                                     <h3>John Doe</h3>
-                                                    <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                    <span><img src="{{ asset('assets/images/clock.png') }}" alt="">3 min ago</span>
                                                 </div>
                                             </div>
                                             <div class="ed-opts">
@@ -250,8 +250,8 @@
                                         </div>
                                         <div class="epi-sec">
                                             <ul class="descp">
-                                                <li><img src="images/icon8.png" alt=""><span>Front End Developer</span></li>
-                                                <li><img src="images/icon9.png" alt=""><span>India</span></li>
+                                                <li><img src="{{ asset('assets/images/icon8.png') }}" alt=""><span>Front End Developer</span></li>
+                                                <li><img src="{{ asset('assets/images/icon9.png') }}" alt=""><span>India</span></li>
                                             </ul>
                                             <ul class="bk-links">
                                                 <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -277,10 +277,10 @@
                                             <ul class="like-com">
                                                 <li>
                                                     <a href="#"><i class="la la-heart"></i> Like</a>
-                                                    <img src="images/liked-img.png" alt="">
+                                                    <img src="{{ asset('assets/images/liked-img.png') }}" alt="">
                                                     <span>25</span>
                                                 </li> 
-                                                <li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
+                                                <li><a href="#" title="" class="com"><img src="{{ asset('assets/images/com.png') }}" alt=""> Comment 15</a></li>
                                             </ul>
                                             <a><i class="la la-eye"></i>Views 50</a>
                                         </div>
@@ -291,7 +291,7 @@
                                                 <img src="http://via.placeholder.com/50x50" alt="">
                                                 <div class="usy-name">
                                                     <h3>John Doe</h3>
-                                                    <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                    <span><img src="{{ asset('assets/images/clock.png') }}" alt="">3 min ago</span>
                                                 </div>
                                             </div>
                                             <div class="ed-opts">
@@ -307,8 +307,8 @@
                                         </div>
                                         <div class="epi-sec">
                                             <ul class="descp">
-                                                <li><img src="images/icon8.png" alt=""><span>Epic Coder</span></li>
-                                                <li><img src="images/icon9.png" alt=""><span>India</span></li>
+                                                <li><img src="{{ asset('assets/images/icon8.png')}}" alt=""><span>Epic Coder</span></li>
+                                                <li><img src="{{ asset('assets/images/icon9.png') }}" alt=""><span>India</span></li>
                                             </ul>
                                             <ul class="bk-links">
                                                 <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -334,10 +334,10 @@
                                             <ul class="like-com">
                                                 <li>
                                                     <a href="#"><i class="la la-heart"></i> Like</a>
-                                                    <img src="images/liked-img.png" alt="">
+                                                    <img src="{{ asset('assets/images/liked-img.png') }}" alt="">
                                                     <span>25</span>
                                                 </li> 
-                                                <li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
+                                                <li><a href="#" title="" class="com"><img src="{{ asset('assets/images/com.png') }}" alt=""> Comment 15</a></li>
                                             </ul>
                                             <a><i class="la la-eye"></i>Views 50</a>
                                         </div>
@@ -348,7 +348,7 @@
                                                 <img src="http://via.placeholder.com/50x50" alt="">
                                                 <div class="usy-name">
                                                     <h3>John Doe</h3>
-                                                    <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                    <span><img src="{{ asset('assets/images/clock.png') }}" alt="">3 min ago</span>
                                                 </div>
                                             </div>
                                             <div class="ed-opts">
@@ -364,8 +364,8 @@
                                         </div>
                                         <div class="epi-sec">
                                             <ul class="descp">
-                                                <li><img src="images/icon8.png" alt=""><span>Epic Coder</span></li>
-                                                <li><img src="images/icon9.png" alt=""><span>India</span></li>
+                                                <li><img src="{{ asset('assets/images/icon8.png') }}" alt=""><span>Epic Coder</span></li>
+                                                <li><img src="{{ asset('assets/images/icon9.png') }}" alt=""><span>India</span></li>
                                             </ul>
                                             <ul class="bk-links">
                                                 <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -391,10 +391,10 @@
                                             <ul class="like-com">
                                                 <li>
                                                     <a href="#"><i class="la la-heart"></i> Like</a>
-                                                    <img src="images/liked-img.png" alt="">
+                                                    <img src="{{ asset('assets/images/liked-img.png') }}" alt="">
                                                     <span>25</span>
                                                 </li> 
-                                                <li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
+                                                <li><a href="#" title="" class="com"><img src="{{ asset('assets/images/com.png') }}" alt=""> Comment 15</a></li>
                                             </ul>
                                             <a><i class="la la-eye"></i>Views 50</a>
                                         </div>
@@ -455,7 +455,7 @@
                                                 <img src="http://via.placeholder.com/50x50" alt="">
                                                 <div class="usy-name">
                                                     <h3>John Doe</h3>
-                                                    <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                    <span><img src="{{ asset('assets/images/clock.png') }}" alt="">3 min ago</span>
                                                 </div>
                                             </div>
                                             <div class="ed-opts">
@@ -471,8 +471,8 @@
                                         </div>
                                         <div class="epi-sec">
                                             <ul class="descp">
-                                                <li><img src="images/icon8.png" alt=""><span>Epic Coder</span></li>
-                                                <li><img src="images/icon9.png" alt=""><span>India</span></li>
+                                                <li><img src="{{ asset('assets/images/icon8.png') }}" alt=""><span>Epic Coder</span></li>
+                                                <li><img src="{{ asset('assets/images/icon9.png') }}" alt=""><span>India</span></li>
                                             </ul>
                                             <ul class="bk-links">
                                                 <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -498,10 +498,10 @@
                                             <ul class="like-com">
                                                 <li>
                                                     <a href="#"><i class="la la-heart"></i> Like</a>
-                                                    <img src="images/liked-img.png" alt="">
+                                                    <img src="{{ asset('assets/images/liked-img.png') }}" alt="">
                                                     <span>25</span>
                                                 </li> 
-                                                <li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
+                                                <li><a href="#" title="" class="com"><img src="{{ asset('assets/images/com.png') }}" alt=""> Comment 15</a></li>
                                             </ul>
                                             <a><i class="la la-eye"></i>Views 50</a>
                                         </div>
@@ -512,7 +512,7 @@
                                                 <img src="http://via.placeholder.com/50x50" alt="">
                                                 <div class="usy-name">
                                                     <h3>John Doe</h3>
-                                                    <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                    <span><img src="{{ asset('assets/images/clock.png') }}" alt="">3 min ago</span>
                                                 </div>
                                             </div>
                                             <div class="ed-opts">
@@ -528,8 +528,8 @@
                                         </div>
                                         <div class="epi-sec">
                                             <ul class="descp">
-                                                <li><img src="images/icon8.png" alt=""><span>Epic Coder</span></li>
-                                                <li><img src="images/icon9.png" alt=""><span>India</span></li>
+                                                <li><img src="{{ asset('assets/images/icon8.png') }}" alt=""><span>Epic Coder</span></li>
+                                                <li><img src="{{ asset('assets/images/icon9.png') }}" alt=""><span>India</span></li>
                                             </ul>
                                             <ul class="bk-links">
                                                 <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -555,10 +555,10 @@
                                             <ul class="like-com">
                                                 <li>
                                                     <a href="#"><i class="la la-heart"></i> Like</a>
-                                                    <img src="images/liked-img.png" alt="">
+                                                    <img src="{{ asset('assets/images/liked-img.png') }}" alt="">
                                                     <span>25</span>
                                                 </li> 
-                                                <li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
+                                                <li><a href="#" title="" class="com"><img src="{{ asset('assets/images/com.png') }}" alt=""> Comment 15</a></li>
                                             </ul>
                                             <a><i class="la la-eye"></i>Views 50</a>
                                         </div>
@@ -569,7 +569,7 @@
                                                 <img src="http://via.placeholder.com/50x50" alt="">
                                                 <div class="usy-name">
                                                     <h3>John Doe</h3>
-                                                    <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                    <span><img src="{{ asset('assets/images/clock.png') }}" alt="">3 min ago</span>
                                                 </div>
                                             </div>
                                             <div class="ed-opts">
@@ -585,8 +585,8 @@
                                         </div>
                                         <div class="epi-sec">
                                             <ul class="descp">
-                                                <li><img src="images/icon8.png" alt=""><span>Epic Coder</span></li>
-                                                <li><img src="images/icon9.png" alt=""><span>India</span></li>
+                                                <li><img src="{{ asset('assets/images/icon8.png') }}" alt=""><span>Epic Coder</span></li>
+                                                <li><img src="{{ asset('assets/images/icon9.png') }}" alt=""><span>India</span></li>
                                             </ul>
                                             <ul class="bk-links">
                                                 <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -612,10 +612,10 @@
                                             <ul class="like-com">
                                                 <li>
                                                     <a href="#"><i class="la la-heart"></i> Like</a>
-                                                    <img src="images/liked-img.png" alt="">
+                                                    <img src="{{ asset('assets/images/liked-img.png') }}" alt="">
                                                     <span>25</span>
                                                 </li> 
-                                                <li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
+                                                <li><a href="#" title="" class="com"><img src="{{ asset('assets/images/com.png') }}" alt=""> Comment 15</a></li>
                                             </ul>
                                             <a><i class="la la-eye"></i>Views 50</a>
                                         </div>
@@ -626,7 +626,7 @@
                                                 <img src="http://via.placeholder.com/50x50" alt="">
                                                 <div class="usy-name">
                                                     <h3>John Doe</h3>
-                                                    <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                    <span><img src="{{ asset('assets/images/clock.png') }}" alt="">3 min ago</span>
                                                 </div>
                                             </div>
                                             <div class="ed-opts">
@@ -642,8 +642,8 @@
                                         </div>
                                         <div class="epi-sec">
                                             <ul class="descp">
-                                                <li><img src="images/icon8.png" alt=""><span>Epic Coder</span></li>
-                                                <li><img src="images/icon9.png" alt=""><span>India</span></li>
+                                                <li><img src="{{ asset('assets/images/icon8.png') }}" alt=""><span>Epic Coder</span></li>
+                                                <li><img src="{{ asset('assets/images/icon9.png') }}" alt=""><span>India</span></li>
                                             </ul>
                                             <ul class="bk-links">
                                                 <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -669,16 +669,16 @@
                                             <ul class="like-com">
                                                 <li>
                                                     <a href="#"><i class="la la-heart"></i> Like</a>
-                                                    <img src="images/liked-img.png" alt="">
+                                                    <img src="{{ asset('assets/images/liked-img.png') }}" alt="">
                                                     <span>25</span>
                                                 </li> 
-                                                <li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
+                                                <li><a href="#" title="" class="com"><img src="{{ asset('assets/images/com.png') }}" alt=""> Comment 15</a></li>
                                             </ul>
                                             <a><i class="la la-eye"></i>Views 50</a>
                                         </div>
                                     </div><!--post-bar end-->
                                     <div class="process-comm">
-                                        <a href="#" title=""><img src="images/process-icon.png" alt=""></a>
+                                        <a href="#" title=""><img src="{{ asset('assets/images/process-icon.png') }}" alt=""></a>
                                     </div><!--process-comm end-->
                                 </div><!--posts-section end-->
                             </div><!--product-feed-tab end-->
@@ -690,7 +690,7 @@
                                                 <img src="http://via.placeholder.com/50x50" alt="">
                                                 <div class="usy-name">
                                                     <h3>John Doe</h3>
-                                                    <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                    <span><img src="{{ asset('assets/images/clock.png') }}" alt="">3 min ago</span>
                                                 </div>
                                             </div>
                                             <div class="ed-opts">
@@ -706,8 +706,8 @@
                                         </div>
                                         <div class="epi-sec">
                                             <ul class="descp">
-                                                <li><img src="images/icon8.png" alt=""><span>Frontend Developer</span></li>
-                                                <li><img src="images/icon9.png" alt=""><span>India</span></li>
+                                                <li><img src="{{ asset('assets/images/icon8.png') }}" alt=""><span>Frontend Developer</span></li>
+                                                <li><img src="{{ asset('assets/images/icon9.png') }}" alt=""><span>India</span></li>
                                             </ul>
                                             <ul class="bk-links">
                                                 <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -736,10 +736,10 @@
                                             <ul class="like-com">
                                                 <li>
                                                     <a href="#"><i class="la la-heart"></i> Like</a>
-                                                    <img src="images/liked-img.png" alt="">
+                                                    <img src="{{ asset('assets/images/liked-img.png') }}" alt="">
                                                     <span>25</span>
                                                 </li> 
-                                                <li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
+                                                <li><a href="#" title="" class="com"><img src="{{ asset('assets/images/com.png') }}" alt=""> Comment 15</a></li>
                                             </ul>
                                             <a><i class="la la-eye"></i>Views 50</a>
                                         </div>
@@ -750,7 +750,7 @@
                                                 <img src="http://via.placeholder.com/50x50" alt="">
                                                 <div class="usy-name">
                                                     <h3>John Doe</h3>
-                                                    <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                    <span><img src="{{ asset('assets/images/clock.png') }}" alt="">3 min ago</span>
                                                 </div>
                                             </div>
                                             <div class="ed-opts">
@@ -766,8 +766,8 @@
                                         </div>
                                         <div class="epi-sec">
                                             <ul class="descp">
-                                                <li><img src="images/icon8.png" alt=""><span>Frontend Developer</span></li>
-                                                <li><img src="images/icon9.png" alt=""><span>India</span></li>
+                                                <li><img src="{{ asset('assets/images/icon8.png') }}" alt=""><span>Frontend Developer</span></li>
+                                                <li><img src="{{ asset('assets/images/icon9.png') }}" alt=""><span>India</span></li>
                                             </ul>
                                             <ul class="bk-links">
                                                 <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -796,10 +796,10 @@
                                             <ul class="like-com">
                                                 <li>
                                                     <a href="#"><i class="la la-heart"></i> Like</a>
-                                                    <img src="images/liked-img.png" alt="">
+                                                    <img src="{{ asset('assets/images/liked-img.png') }}" alt="">
                                                     <span>25</span>
                                                 </li> 
-                                                <li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
+                                                <li><a href="#" title="" class="com"><img src="{{ asset('assets/images/com.png') }}" alt=""> Comment 15</a></li>
                                             </ul>
                                             <a><i class="la la-eye"></i>Views 50</a>
                                         </div>
@@ -810,7 +810,7 @@
                                                 <img src="http://via.placeholder.com/50x50" alt="">
                                                 <div class="usy-name">
                                                     <h3>John Doe</h3>
-                                                    <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                    <span><img src="{{ asset('assets/images/clock.png') }}" alt="">3 min ago</span>
                                                 </div>
                                             </div>
                                             <div class="ed-opts">
@@ -826,8 +826,8 @@
                                         </div>
                                         <div class="epi-sec">
                                             <ul class="descp">
-                                                <li><img src="images/icon8.png" alt=""><span>Frontend Developer</span></li>
-                                                <li><img src="images/icon9.png" alt=""><span>India</span></li>
+                                                <li><img src="{{ asset('assets/images/icon8.png') }}" alt=""><span>Frontend Developer</span></li>
+                                                <li><img src="{{ asset('assets/images/icon9.png') }}" alt=""><span>India</span></li>
                                             </ul>
                                             <ul class="bk-links">
                                                 <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -856,10 +856,10 @@
                                             <ul class="like-com">
                                                 <li>
                                                     <a href="#"><i class="la la-heart"></i> Like</a>
-                                                    <img src="images/liked-img.png" alt="">
+                                                    <img src="{{ asset('assets/images/liked-img.png') }}" alt="">
                                                     <span>25</span>
                                                 </li> 
-                                                <li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
+                                                <li><a href="#" title="" class="com"><img src="{{ asset('assets/images/com.png') }}" alt=""> Comment 15</a></li>
                                             </ul>
                                             <a><i class="la la-eye"></i>Views 50</a>
                                         </div>
@@ -870,7 +870,7 @@
                                                 <img src="http://via.placeholder.com/50x50" alt="">
                                                 <div class="usy-name">
                                                     <h3>John Doe</h3>
-                                                    <span><img src="images/clock.png" alt="">3 min ago</span>
+                                                    <span><img src="{{ asset('assets/images/clock.png') }}" alt="">3 min ago</span>
                                                 </div>
                                             </div>
                                             <div class="ed-opts">
@@ -886,8 +886,8 @@
                                         </div>
                                         <div class="epi-sec">
                                             <ul class="descp">
-                                                <li><img src="images/icon8.png" alt=""><span>Frontend Developer</span></li>
-                                                <li><img src="images/icon9.png" alt=""><span>India</span></li>
+                                                <li><img src="{{ asset('assets/images/icon8.png') }}" alt=""><span>Frontend Developer</span></li>
+                                                <li><img src="{{ asset('assets/images/icon9.png') }}" alt=""><span>India</span></li>
                                             </ul>
                                             <ul class="bk-links">
                                                 <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
@@ -916,16 +916,16 @@
                                             <ul class="like-com">
                                                 <li>
                                                     <a href="#"><i class="la la-heart"></i> Like</a>
-                                                    <img src="images/liked-img.png" alt="">
+                                                    <img src="{{ asset('assets/images/liked-img.png') }}" alt="">
                                                     <span>25</span>
                                                 </li> 
-                                                <li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
+                                                <li><a href="#" title="" class="com"><img src="{{ asset('assets/images/com.png') }}" alt=""> Comment 15</a></li>
                                             </ul>
                                             <a><i class="la la-eye"></i>Views 50</a>
                                         </div>
                                     </div><!--post-bar end-->
                                     <div class="process-comm">
-                                        <a href="#" title=""><img src="images/process-icon.png" alt=""></a>
+                                        <a href="#" title=""><img src="{{ asset('assets/images/process-icon.png') }}" alt=""></a>
                                     </div><!--process-comm end-->
                                 </div><!--posts-section end-->
                             </div><!--product-feed-tab end-->
@@ -937,61 +937,61 @@
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                 <div class="gallery_pt">
                                                     <img src="http://via.placeholder.com/271x174" alt="">
-                                                    <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                    <a href="#" title=""><img src="{{ asset('assets/images/all-out.png') }}" alt=""></a>
                                                 </div><!--gallery_pt end-->
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                 <div class="gallery_pt">
                                                     <img src="http://via.placeholder.com/170x170" alt="">
-                                                    <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                    <a href="#" title=""><img src="{{ asset('assets/images/all-out.png') }}" alt=""></a>
                                                 </div><!--gallery_pt end-->
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                 <div class="gallery_pt">
                                                     <img src="http://via.placeholder.com/170x170" alt="">
-                                                    <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                    <a href="#" title=""><img src="{{ asset('assets/images/all-out.png') }}" alt=""></a>
                                                 </div><!--gallery_pt end-->
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                 <div class="gallery_pt">
                                                     <img src="http://via.placeholder.com/170x170" alt="">
-                                                    <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                    <a href="#" title=""><img src="{{ asset('assets/images/all-out.png') }}" alt=""></a>
                                                 </div><!--gallery_pt end-->
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                 <div class="gallery_pt">
                                                     <img src="http://via.placeholder.com/170x170" alt="">
-                                                    <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                    <a href="#" title=""><img src="{{ asset('assets/images/all-out.png') }}" alt=""></a>
                                                 </div><!--gallery_pt end-->
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                 <div class="gallery_pt">
                                                     <img src="http://via.placeholder.com/170x170" alt="">
-                                                    <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                    <a href="#" title=""><img src="{{ asset('assets/images/all-out.png') }}" alt=""></a>
                                                 </div><!--gallery_pt end-->
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                 <div class="gallery_pt">
                                                     <img src="http://via.placeholder.com/170x170" alt="">
-                                                    <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                    <a href="#" title=""><img src="{{ asset('assets/images/all-out.png') }}" alt=""></a>
                                                 </div><!--gallery_pt end-->
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                 <div class="gallery_pt">
                                                     <img src="http://via.placeholder.com/170x170" alt="">
-                                                    <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                    <a href="#" title=""><img src="{{ asset('assets/images/all-out.png') }}" alt=""></a>
                                                 </div><!--gallery_pt end-->
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                 <div class="gallery_pt">
                                                     <img src="http://via.placeholder.com/170x170" alt="">
-                                                    <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                    <a href="#" title=""><img src="{{ asset('assets/images/all-out.png') }}" alt=""></a>
                                                 </div><!--gallery_pt end-->
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-6 col-6">
                                                 <div class="gallery_pt">
                                                     <img src="http://via.placeholder.com/170x170" alt="">
-                                                    <a href="#" title=""><img src="images/all-out.png" alt=""></a>
+                                                    <a href="#" title=""><img src="{{ asset('assets/images/all-out.png') }}" alt=""></a>
                                                 </div><!--gallery_pt end-->
                                             </div>
                                         </div>
@@ -1015,14 +1015,14 @@
                                         </li>
                                     </ul>
                                     <div class="lt-sec">
-                                        <img src="images/lt-icon.png" alt="">
+                                        <img src="{{ asset('assets/images/lt-icon.png') }}" alt="">
                                         <h4>All your transactions are saved here</h4>
                                         <a href="#" title="">Click Here</a>
                                     </div>
                                 </div><!--billing-method end-->
                                 <div class="add-billing-method">
                                     <h3>Add Billing Method</h3>
-                                    <h4><img src="images/dlr-icon.png" alt=""><span>With workwise payment protection , only pay for work delivered.</span></h4>
+                                    <h4><img src="{{ asset('assets/images/dlr-icon.png') }}" alt=""><span>With workwise payment protection , only pay for work delivered.</span></h4>
                                     <div class="payment_methods">
                                         <h4>Credit or Debit Cards</h4>
                                         <form>
@@ -1031,10 +1031,10 @@
                                                     <div class="cc-head">
                                                         <h5>Card Number</h5>
                                                         <ul>
-                                                            <li><img src="images/cc-icon1.png" alt=""></li>
-                                                            <li><img src="images/cc-icon2.png" alt=""></li>
-                                                            <li><img src="images/cc-icon3.png" alt=""></li>
-                                                            <li><img src="images/cc-icon4.png" alt=""></li>
+                                                            <li><img src="{{ asset('assets/images/cc-icon1.png') }}" alt=""></li>
+                                                            <li><img src="{{ asset('assets/images/cc-icon2.png') }}" alt=""></li>
+                                                            <li><img src="{{ asset('assets/images/cc-icon3.png') }}" alt=""></li>
+                                                            <li><img src="{{ asset('assets/images/cc-icon4.png') }}" alt=""></li>
                                                         </ul>
                                                     </div>
                                                     <div class="inpt-field pd-moree">
@@ -1104,7 +1104,7 @@
                             <div class="widget widget-portfolio">
                                 <div class="wd-heady">
                                     <h3>Portfolio</h3>
-                                    <img src="images/photo-icon.png" alt="">
+                                    <img src="{{ asset('assets/images/photo-icon.png') }}" alt="">
                                 </div>
                                 <div class="pf-gallery">
                                     <ul>
@@ -1144,8 +1144,8 @@
                 <li><a href="#" title="">Language</a></li>
                 <li><a href="#" title="">Copyright Policy</a></li>
             </ul>
-            <p><img src="images/copy-icon2.png" alt="">Copyright 2018</p>
-            <img class="fl-rgt" src="images/logo2.png" alt="">
+            <p><img src="{{ asset('assets/images/copy-icon2.png') }}" alt="">Copyright 2018</p>
+            <img class="fl-rgt" src="{{ asset('assets/images/logo2.png') }}" alt="">
         </div>
     </div>
 </footer><!--footer end-->
