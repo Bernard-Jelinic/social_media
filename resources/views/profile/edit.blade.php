@@ -16,38 +16,7 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="main-left-sidebar">
-                            <div class="user_profile">
-                                <div class="user-pro-img">
-                                    <img src="http://via.placeholder.com/170x170" alt="">
-                                    <a href="#" title=""><i class="fa fa-camera"></i></a>
-                                </div><!--user-pro-img end-->
-                                <div class="user_pro_status">
-                                    <ul class="flw-hr">
-                                        <li><a href="#" title="" class="flww"><i class="la la-plus"></i> Follow</a></li>
-                                        <li><a href="#" title="" class="hre">Hire</a></li>
-                                    </ul>
-                                    <ul class="flw-status">
-                                        <li>
-                                            <span>Following</span>
-                                            <b>34</b>
-                                        </li>
-                                        <li>
-                                            <span>Followers</span>
-                                            <b>155</b>
-                                        </li>
-                                    </ul>
-                                </div><!--user_pro_status end-->
-                                <ul class="social_links">
-                                    <li><a href="#" title=""><i class="la la-globe"></i> www.example.com</a></li>
-                                    <li><a href="#" title=""><i class="fa fa-facebook-square"></i> Http://www.facebook.com/john...</a></li>
-                                    <li><a href="#" title=""><i class="fa fa-twitter"></i> Http://www.Twitter.com/john...</a></li>
-                                    <li><a href="#" title=""><i class="fa fa-google-plus-square"></i> Http://www.googleplus.com/john...</a></li>
-                                    <li><a href="#" title=""><i class="fa fa-behance-square"></i> Http://www.behance.com/john...</a></li>
-                                    <li><a href="#" title=""><i class="fa fa-pinterest"></i> Http://www.pinterest.com/john...</a></li>
-                                    <li><a href="#" title=""><i class="fa fa-instagram"></i> Http://www.instagram.com/john...</a></li>
-                                    <li><a href="#" title=""><i class="fa fa-youtube"></i> Http://www.youtube.com/john...</a></li>
-                                </ul>
-                            </div><!--user_profile end-->
+                                <livewire:upload-profile-image />
                             <div class="suggestions full-width">
                                 <div class="sd-title">
                                     <h3>People Viewed Profile</h3>
@@ -1273,5 +1242,11 @@
         <a href="#" title="" class="close-box"><i class="la la-close"></i></a>
     </div><!--overview-edit end-->
 </div><!--overview-box end-->
+
+<script>
+    document.getElementById('uploadImageLink').addEventListener('click', function() {
+        document.getElementById('profile_image').click();
+    });
+</script>
 
 @endsection
