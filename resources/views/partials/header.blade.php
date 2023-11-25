@@ -157,9 +157,9 @@
             </div><!--menu-btn end-->
             <div class="user-account">
                 <div class="user-info">
-                    <img src="http://via.placeholder.com/30x30" alt="">
-                    <a href="#" title="">John</a>
-                    <i class="la la-sort-down"></i>
+                    <img style="width: 30px;" src="{{ auth()->user()->profile_image }}" alt="Profile image">
+                    <a href="#" title="">{{ auth()->user()->first_name }}</a>
+                    <!--<i class="la la-sort-down"></i>-->
                 </div>
                 <div class="user-account-settingss">
                     <h3>Online Status</h3>

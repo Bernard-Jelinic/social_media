@@ -5,8 +5,6 @@
             <p>This is preview image</p>
         @elseif ($profile_image && file_exists($profile_image))
             <img src="{{ $profile_image }}" alt="Profile image">
-        @else
-            <img src="http://via.placeholder.com/170x170" alt="Profile image">
         @endif
         <a href="#" id="uploadImageLink" title=""><i class="fa fa-camera"></i></a>
     </div><!--user-pro-img end-->

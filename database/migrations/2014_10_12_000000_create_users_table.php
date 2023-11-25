@@ -16,7 +16,7 @@ return new class extends Migration
             $table->char('first_name', 20);
             $table->char('last_name', 20);
             $table->char('headline', 150)->nullable();
-            $table->string('profile_image')->nullable();
+            $table->string('profile_image')->default('storage/users-avatar/avatar.png');
             $table->string('cover_image')->nullable();
             $table->char('email', 50)->unique();
             $table->timestamp('email_verified_at')->nullable();

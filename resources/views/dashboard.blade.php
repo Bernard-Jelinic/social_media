@@ -15,8 +15,8 @@
                             <div class="user-data full-width">
                                 <div class="user-profile">
                                     <div class="username-dt">
-                                        <div class="usr-pic">
-                                            <img src="http://via.placeholder.com/100x100" alt="">
+                                        <div class="user-pro-img">
+                                            <img src="{{ auth()->user()->profile_image }}" alt="Profile image">
                                         </div>
                                     </div><!--username-dt end-->
                                     <div class="user-specs">

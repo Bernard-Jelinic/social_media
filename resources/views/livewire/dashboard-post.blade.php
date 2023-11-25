@@ -15,7 +15,7 @@
         <div class="comment-section">
             <div class="post-comment">
                 <div class="cm_img">
-                    <img src="http://via.placeholder.com/40x40" alt="">
+                    <img style="width: 40px;" src="{{ auth()->user()->profile_image }}" alt="Profile image">
                 </div>
                 <div class="comment_box">
                     <form wire:submit="save">
