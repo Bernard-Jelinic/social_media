@@ -8,9 +8,24 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
+
+    /**
+     * Display the specified resource.
+     *
+     * @param string $id
+     * @return \Illuminate\View\View
+     */
+    public function show(string $id): View
+    {
+        return view('profile.edit', [
+            'user' => User::find($id)
+        ]);
+    }
+
     /**
      * Display the user's profile form.
      */

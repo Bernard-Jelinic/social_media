@@ -4,18 +4,27 @@
             <img src="{{ $tmp_profile_image->temporaryUrl() }}" alt="Preview Profile Image">
             <p>This is preview image</p>
         @elseif ($profile_image && file_exists($profile_image))
-            <img src="{{ $profile_image }}" alt="Profile image">
+            <img src="{{ asset($profile_image) }}" alt="Profile image">
         @endif
+        @if ($is_logged_in_user)
         <a href="#" id="uploadImageLink" title=""><i class="fa fa-camera"></i></a>
+        @endif
     </div><!--user-pro-img end-->
 
-    <form wire:submit="save">
-        <div style="display: none" class="form-group">
-            <input type="file" wire:model="tmp_profile_image" class="form-control" id="profile_image" name="image" />
-        </div>
-    
-        <button class="btn btn-primary" type="submit">Save profile picture</button>
-    </form>
+    @if ($is_logged_in_user)
+        <form wire:submit="save">
+            <div style="display: none" class="form-group">
+                <input type="file" wire:model="tmp_profile_image" class="form-control" id="profile_image" name="image" />
+            </div>
+        
+            <button class="btn btn-primary" type="submit">Save profile picture</button>
+        </form>
+        <script>
+            document.getElementById('uploadImageLink').addEventListener('click', function() {
+                document.getElementById('profile_image').click();
+            }); 
+        </script>
+    @endif
     <!--<div class="user_pro_status">
         <ul class="flw-hr">
             <li><a href="#" title="" class="flww"><i class="la la-plus"></i> Follow</a></li>

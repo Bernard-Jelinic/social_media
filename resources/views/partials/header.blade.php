@@ -157,7 +157,7 @@
             </div><!--menu-btn end-->
             <div class="user-account">
                 <div class="user-info">
-                    <img style="width: 30px;" src="{{ auth()->user()->profile_image }}" alt="Profile image">
+                    <img style="width: 30px;" src="{{ asset(auth()->user()->profile_image) }}" alt="Profile image">
                     <a href="#" title="">{{ auth()->user()->first_name }}</a>
                     <!--<i class="la la-sort-down"></i>-->
                 </div>

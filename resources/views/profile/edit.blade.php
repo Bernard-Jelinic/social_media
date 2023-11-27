@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="main-left-sidebar">
-                                <livewire:upload-profile-image />
+                                <livewire:upload-profile-image :user_profile="$user"/>
                             <div class="suggestions full-width">
                                 <div class="sd-title">
                                     <h3>People Viewed Profile</h3>
@@ -1242,11 +1242,4 @@
         <a href="#" title="" class="close-box"><i class="la la-close"></i></a>
     </div><!--overview-edit end-->
 </div><!--overview-box end-->
-
-<script>
-    document.getElementById('uploadImageLink').addEventListener('click', function() {
-        document.getElementById('profile_image').click();
-    });
-</script>
-
 @endsection
