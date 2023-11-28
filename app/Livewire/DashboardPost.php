@@ -4,19 +4,10 @@ namespace App\Livewire;
 
 use App\Models\Post;
 use Livewire\Component;
+use App\Livewire\PostComponent;
 
-class DashboardPost extends Component
+class DashboardPost extends PostComponent
 {
-    public $content = '';
-
-    public function save()
-    {
-        Post::create([
-            'user_id' => auth()->user()->id,
-            'content' => $this->content
-        ]);
-    }
-    
     public function render()
     {
         return view('livewire.dashboard-post');
