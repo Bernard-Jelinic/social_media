@@ -15,5 +15,6 @@ class PostComponent extends Component
             'user_id' => auth()->user()->id,
             'content' => $this->content
         ]);
+        $this->content = '';
     }
 }

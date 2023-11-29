@@ -22,7 +22,8 @@ class ProfileController extends Controller
     public function show(string $id): View
     {
         return view('profile.edit', [
-            'user' => User::find($id)
+            'user' => User::find($id),
+            'isProfileOfLoggedInUser' => false
         ]);
     }
 
@@ -33,6 +34,7 @@ class ProfileController extends Controller
     {
         return view('profile.edit', [
             'user' => $request->user(),
+            'isProfileOfLoggedInUser' => true
         ]);
     }
 

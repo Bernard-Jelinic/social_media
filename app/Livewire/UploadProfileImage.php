@@ -15,13 +15,13 @@ class UploadProfileImage extends Component
  
     #[Validate('image|max:1024')] // 1MB Max
     public $tmp_profile_image;
-    public $is_logged_in_user;
+    public $is_profile_of_logged_in_user;
     public $profile_image;
 
     public function mount($user_profile)
     {
-        $this->is_logged_in_user = ($user_profile->id == auth()->user()->id) ? true : false;
-        $this->profile_image = auth()->user()->profile_image;
+        $this->is_profile_of_logged_in_user = ($user_profile->id == auth()->user()->id) ? true : false;
+        $this->profile_image = $this->is_profile_of_logged_in_user ? auth()->user()->profile_image : $user_profile->profile_image;
     }
  
     public function save()

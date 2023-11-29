@@ -136,6 +136,11 @@
                                     </ul>
                                 </div><!-- tab-feed end-->
                             </div><!--user-tab-sec end-->
+
+                            @if ($isProfileOfLoggedInUser)
+                                <livewire:profile-post :user_profile="$user"/>
+                            @endif
+
                             <div class="product-feed-tab current" id="feed-dd">
                                 <div class="posts-section">
                                     <div class="post-bar">
@@ -143,7 +148,7 @@
                                             <div class="usy-dt">
                                                 <img src="http://via.placeholder.com/50x50" alt="">
                                                 <div class="usy-name">
-                                                    <h3>John Doe</h3>
+                                                    <h3>John Doe_1</h3>
                                                     <span><img src="{{ asset('assets/images/clock.png') }}" alt="">3 min ago</span>
                                                 </div>
                                             </div>
