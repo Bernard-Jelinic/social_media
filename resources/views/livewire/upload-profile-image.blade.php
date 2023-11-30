@@ -1,5 +1,6 @@
 <div class="user_profile">
     <div class="user-pro-img">
+
         @if (!$is_profile_of_logged_in_user)
             <img src="{{ asset($profile_image) }}" alt="Profile image">
         @elseif ( !is_null($tmp_profile_image) && $tmp_profile_image->temporaryUrl())
@@ -8,9 +9,11 @@
         @elseif ($profile_image && file_exists($profile_image))
             <img src="{{ asset($profile_image) }}" alt="Profile image">
         @endif
+
         @if ($is_profile_of_logged_in_user)
-        <a href="#" id="uploadImageLink" title=""><i class="fa fa-camera"></i></a>
+            <a href="#" id="uploadImageLink" title=""><i class="fa fa-camera"></i></a>
         @endif
+
     </div><!--user-pro-img end-->
 
     @if ($is_profile_of_logged_in_user)
@@ -27,22 +30,26 @@
             }); 
         </script>
     @endif
-    <!--<div class="user_pro_status">
+
+    @if (!$is_profile_of_logged_in_user)
+    <div class="user_pro_status">
         <ul class="flw-hr">
-            <li><a href="#" title="" class="flww"><i class="la la-plus"></i> Follow</a></li>
-            <li><a href="#" title="" class="hre">Hire</a></li>
+            <li><a href="#" title="" class="flww"><i class="la la-plus"></i> Add Friend</a></li>
+            <!--<li><a href="#" title="" class="hre">Hire</a></li>-->
         </ul>
         <ul class="flw-status">
             <li>
                 <span>Following</span>
                 <b>34</b>
             </li>
-            <li>
+            <!--<li>
                 <span>Followers</span>
                 <b>155</b>
-            </li>
+            </li>-->
         </ul>
-    </div>--><!--user_pro_status end-->
+    </div><!--user_pro_status end-->
+    @endif
+
     <ul class="social_links">
         <li><a href="#" title=""><i class="la la-globe"></i> www.example.com</a></li>
         <li><a href="#" title=""><i class="fa fa-facebook-square"></i> Http://www.facebook.com/john...</a></li>
