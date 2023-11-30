@@ -23,7 +23,7 @@ class ProfileController extends Controller
     {
         return view('profile.edit', [
             'user' => User::find($id),
-            'isProfileOfLoggedInUser' => false
+            'is_profile_of_logged_in_user' => false
         ]);
     }
 
@@ -34,7 +34,7 @@ class ProfileController extends Controller
     {
         return view('profile.edit', [
             'user' => $request->user(),
-            'isProfileOfLoggedInUser' => true
+            'is_profile_of_logged_in_user' => true
         ]);
     }
 

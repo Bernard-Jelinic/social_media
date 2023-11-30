@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="main-left-sidebar">
-                                <livewire:upload-profile-image :user_profile="$user"/>
+                                <livewire:upload-profile-image :is_profile_of_logged_in_user="$is_profile_of_logged_in_user" :user_profile="$user"/>
                             <div class="suggestions full-width">
                                 <div class="sd-title">
                                     <h3>People Viewed Profile</h3>
@@ -137,8 +137,8 @@
                                 </div><!-- tab-feed end-->
                             </div><!--user-tab-sec end-->
 
-                            @if ($isProfileOfLoggedInUser)
-                                <livewire:profile-post :user_profile="$user"/>
+                            @if ($is_profile_of_logged_in_user)
+                                <livewire:profile-post />
                             @endif
 
                             <div class="product-feed-tab current" id="feed-dd">

@@ -18,9 +18,9 @@ class UploadProfileImage extends Component
     public $is_profile_of_logged_in_user;
     public $profile_image;
 
-    public function mount($user_profile)
+    public function mount($is_profile_of_logged_in_user, $user_profile)
     {
-        $this->is_profile_of_logged_in_user = ($user_profile->id == auth()->user()->id) ? true : false;
+        $this->is_profile_of_logged_in_user = $is_profile_of_logged_in_user;
         $this->profile_image = $this->is_profile_of_logged_in_user ? auth()->user()->profile_image : $user_profile->profile_image;
     }
  
