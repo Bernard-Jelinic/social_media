@@ -27,7 +27,7 @@ class UploadProfileImageTest extends TestCase
         $fakeImage = UploadedFile::fake()->image('profile.jpg');
 
         // Livewire test
-        Livewire::test(UploadProfileImage::class)
+        Livewire::test(UploadProfileImage::class, ['is_profile_of_logged_in_user' => true, 'user_profile' => $user])
             ->set('tmp_profile_image', $fakeImage)
             ->call('save');
 
