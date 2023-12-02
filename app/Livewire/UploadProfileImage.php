@@ -38,4 +38,9 @@ class UploadProfileImage extends Component
             $this->profile_image = $user->profile_image;
         }
     }
+
+    public function render()
+    {
+        return view('livewire.upload-profile-image');
+    }
 }
