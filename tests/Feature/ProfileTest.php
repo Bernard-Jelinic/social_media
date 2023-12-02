@@ -98,4 +98,31 @@ class ProfileTest extends TestCase
 
         $this->assertNotNull($user->fresh());
     }
+
+    public function test_user_can_see_section_for_upload_profile_image(): void
+    {
+        // Create a user
+        $user = User::factory()->create();
+
+        // Acting as the authenticated user
+        $this->actingAs($user);
+
+        $this->get('/profile')
+            ->assertSee('a', 'id', 'uploadImageLink')
+            ->assertSeeText('Save profile picture');
+    }
+
+    public function test_user_can_not_see_section_for_upload_profile_image_of_another_profile(): void
+    {
+        // Create a user
+        $user = User::factory()->create();
+        $another_user = User::factory()->create();
+
+        // Acting as the authenticated user
+        $this->actingAs($user);
+
+        $this->get('/profile/' . $another_user->id)
+            ->assertSee('a', 'id', 'uploadImageLink', false)
+            ->assertDontSeeText('Save profile picture');
+    }
 }
