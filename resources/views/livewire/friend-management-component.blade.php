@@ -1,6 +1,26 @@
 <div class="user_pro_status">
     <ul class="flw-hr">
-        <li><a href="#" title="" class="flww"><i class="la la-plus"></i> Add Friend</a></li>
+        
+        @if ($request_in_process)
+            <li wire:click="cancelRequest">
+                <a href="#" title="" class="flww">
+                    <i class="la la-plus"></i>Cancel Request
+                </a>
+            </li>
+        @elseif ($request_accepted)
+            <li wire:click="deleteFriend">
+                <a href="#" title="" class="flww">
+                    <i class="la la-plus"></i>Delete Friend
+                </a>
+            </li>
+        @else
+            <li wire:click="addFriend">
+                <a href="#" title="" class="flww">
+                    <i class="la la-plus"></i>Add Friend
+                </a>
+            </li>
+        @endif
+
         <!--<li><a href="#" title="" class="hre">Hire</a></li>-->
     </ul>
     <ul class="flw-status">
