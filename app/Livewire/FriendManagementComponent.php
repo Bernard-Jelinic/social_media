@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Enums\FriendStatus;
 
 class FriendManagementComponent extends Component
 {
@@ -13,32 +14,30 @@ class FriendManagementComponent extends Component
     public function mount($user_profile): void
     {
         $this->user_profile = $user_profile;
-        // $friend = auth()->user()->friends()->where('receiver_id', $user_profile->id)->first()->pivot;
-        $friend = auth()->user()->friends()->withPivot('status_id')->where('receiver_id', $user_profile->id)->first();
+        $friend = auth()->user()->sentRequestTo()->withPivot('status')->where('receiver_id', $user_profile->id)->first();
         if ($friend !== null) {
             $friend = $friend->pivot;
-            if ($friend->status_id == 10) {
+            if ($friend->status == FriendStatus::IN_PROCESS) {
                 $this->request_in_process = true;
-            } elseif ($friend->status_id == 20) {
-                $this->$request_accepted = true;
             }
         }
     }
 
     public function addFriend(): void
     {
-        auth()->user()->friends()->attach($this->user_profile->id);
+        auth()->user()->sentRequestTo()->attach($this->user_profile->id);
         $this->request_in_process = true;
     }
 
-    public function cancelRequest(): void
+    public function cancelFriendRequest(): void
     {
-        dd( 'cancelRequest' );
+        auth()->user()->sentRequestTo()->detach($this->user_profile->id);
+        $this->request_in_process = false;
     }
 
-    public function deleteFriend(): void
+    public function deleteFriendRequest(): void
     {
-        dd( 'deleteFriend' );
+        dd( 'deleteFriendRequest' );
     }
 
     public function render(): \Illuminate\View\View

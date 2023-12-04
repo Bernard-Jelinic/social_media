@@ -65,8 +65,13 @@ class User extends Authenticatable
     /**
      * Returns a collection of User instances representing the user's friends.
      */
-    public function friends(): BelongsToMany
+    public function sentRequestTo(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'friends','sender_id', 'receiver_id');
+    }
+
+    public function receivedRequestFrom(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'friends','receiver_id', 'sender_id');
     }
 }

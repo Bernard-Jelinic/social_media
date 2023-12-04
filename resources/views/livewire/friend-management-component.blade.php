@@ -2,13 +2,13 @@
     <ul class="flw-hr">
         
         @if ($request_in_process)
-            <li wire:click="cancelRequest">
+            <li wire:click="cancelFriendRequest">
                 <a href="#" title="" class="flww">
                     <i class="la la-plus"></i>Cancel Request
                 </a>
             </li>
         @elseif ($request_accepted)
-            <li wire:click="deleteFriend">
+            <li wire:click="deleteFriendRequest">
                 <a href="#" title="" class="flww">
                     <i class="la la-plus"></i>Delete Friend
                 </a>

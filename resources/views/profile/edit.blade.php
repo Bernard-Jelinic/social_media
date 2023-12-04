@@ -150,6 +150,12 @@
                                                 <span>Payment</span>
                                             </a>
                                         </li>
+                                        <li data-tab="friends-request">
+                                            <a href="#" title="">
+                                                <img src="{{ asset('assets/images/ic6.png') }}" alt="">
+                                                <span>Friend requests</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div><!-- tab-feed end-->
                             </div><!--user-tab-sec end-->
@@ -1082,6 +1088,11 @@
                                         <h4>Add Paypal Account</h4>
                                     </div>
                                 </div><!--add-billing-method end-->
+                            </div><!--product-feed-tab end-->
+                            <div class="product-feed-tab" id="friends-request">
+                                <div class="add-billing-method">
+                                    <livewire:friend-request />
+                                </div>
                             </div><!--product-feed-tab end-->
                         </div><!--main-ws-sec end-->
                     </div>
