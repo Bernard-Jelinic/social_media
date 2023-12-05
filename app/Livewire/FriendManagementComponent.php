@@ -17,7 +17,7 @@ class FriendManagementComponent extends Component
         $friend = auth()->user()->sentRequestTo()->withPivot('status')->where('receiver_id', $user_profile->id)->first();
         if ($friend !== null) {
             $friend = $friend->pivot;
-            if ($friend->status == FriendStatus::IN_PROCESS) {
+            if ($friend->status == FriendStatus::IN_PROCESS->value) {
                 $this->request_in_process = true;
             }
         }

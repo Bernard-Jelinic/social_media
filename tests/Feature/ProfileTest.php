@@ -125,4 +125,37 @@ class ProfileTest extends TestCase
             ->assertSee('a', 'id', 'uploadImageLink', false)
             ->assertDontSeeText('Save profile picture');
     }
+
+    public function test_user_can_see_section_for_adding_friend(): void
+    {
+        // // Create two user
+        $user = User::factory()->create();
+        $another_user = User::factory()->create();
+
+        // // Acting as the authenticated user
+        $this->actingAs($user);
+
+        $this->get('/profile/' . $another_user->id)
+            ->assertSee('a')
+            ->assertSeeText('Add Friend');
+    }
+
+    public function test_user_can_see_section_for_cancel_friend_request(): void
+    {
+        // // Create two user
+        $user = User::factory()->create();
+        $another_user = User::factory()->create();
+
+        // // Acting as the authenticated user
+        $this->actingAs($user);
+
+        // // Creating relationship sentRequestTo
+        $user->sentRequestTo()->attach($another_user->id);
+
+        $evo_ga = $user->sentRequestTo()->withPivot('status')->where('receiver_id', $another_user->id)->first();
+
+        $this->get('/profile/' . $another_user->id)
+            ->assertSee('a')
+            ->assertSeeText('Cancel Request');
+    }
 }
