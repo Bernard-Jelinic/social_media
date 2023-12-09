@@ -91,72 +91,29 @@
                 <i class="la la-ellipsis-v"></i>
             </div>
             <div class="profiles-slider">
+
+                @foreach ($random_users as $random_user)
                 <div class="user-profy">
-                    <img src="http://via.placeholder.com/57x57" alt="">
-                    <h3>John Doe_1</h3>
-                    <span>Graphic Designer</span>
+                    <img style="width: 57px;" src="{{ asset($random_user->profile_image) }}" alt="">
+                    <h3>{{ $random_user->full_name }}</h3>
+                    <span>{{ $random_user->headline !== null ? $random_user->headline : '' }}</span>
                     <ul>
-                        <li><a href="#" title="" class="followw">Follow</a></li>
-                        <li><a href="#" title="" class="envlp"><img src="{{asset('assets/images/envelop.png') }}" alt=""></a></li>
-                        <li><a href="#" title="" class="hire">hire</a></li>
+                        <li>
+                            <a href="#" title="" class="followw">Follow</a>
+                        </li>
+                        <li>
+                            <a href="#" title="" class="envlp">
+                                <img src="{{asset('assets/images/envelop.png') }}" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="" class="hire">hire</a>
+                        </li>
                     </ul>
-                    <a href="#" title="">View Profile</a>
+                    <a href="{{ route('profile.show', $random_user->id) }}" title="">View Profile</a>
                 </div><!--user-profy end-->
-                <div class="user-profy">
-                    <img src="http://via.placeholder.com/57x57" alt="">
-                    <h3>John Doe_2</h3>
-                    <span>Graphic Designer</span>
-                    <ul>
-                        <li><a href="#" title="" class="followw">Follow</a></li>
-                        <li><a href="#" title="" class="envlp"><img src="{{asset('assets/images/envelop.png') }}" alt=""></a></li>
-                        <li><a href="#" title="" class="hire">hire</a></li>
-                    </ul>
-                    <a href="#" title="">View Profile</a>
-                </div><!--user-profy end-->
-                <div class="user-profy">
-                    <img src="http://via.placeholder.com/57x57" alt="">
-                    <h3>John Doe_3</h3>
-                    <span>Graphic Designer</span>
-                    <ul>
-                        <li><a href="#" title="" class="followw">Follow</a></li>
-                        <li><a href="#" title="" class="envlp"><img src="{{asset('assets/images/envelop.png') }}" alt=""></a></li>
-                        <li><a href="#" title="" class="hire">hire</a></li>
-                    </ul>
-                    <a href="#" title="">View Profile</a>
-                </div><!--user-profy end-->
-                <div class="user-profy">
-                    <img src="http://via.placeholder.com/57x57" alt="">
-                    <h3>John Doe_4</h3>
-                    <span>Graphic Designer</span>
-                    <ul>
-                        <li><a href="#" title="" class="followw">Follow</a></li>
-                        <li><a href="#" title="" class="envlp"><img src="{{asset('assets/images/envelop.png') }}" alt=""></a></li>
-                        <li><a href="#" title="" class="hire">hire</a></li>
-                    </ul>
-                    <a href="#" title="">View Profile</a>
-                </div><!--user-profy end-->
-                <div class="user-profy">
-                    <img src="http://via.placeholder.com/57x57" alt="">
-                    <h3>John Doe_5</h3>
-                    <span>Graphic Designer</span>
-                    <ul>
-                        <li><a href="#" title="" class="followw">Follow</a></li>
-                        <li><a href="#" title="" class="envlp"><img src="{{asset('assets/images/envelop.png') }}" alt=""></a></li>
-                        <li><a href="#" title="" class="hire">hire</a></li>
-                    </ul>
-                    <a href="#" title="">View Profile</a>
-                </div><!--user-profy end-->
-                <div class="user-profy">
-                    <img src="http://via.placeholder.com/57x57" alt="">
-                    <h3>John Doe_6</h3>
-                    <span>Graphic Designer</span>
-                    <ul>
-                        <li><a href="#" title="" class="followw">Follow</a></li>
-                        <li><a href="#" title="" class="envlp"><img src="{{asset('assets/images/envelop.png') }}" alt=""></a></li>
-                        <li><a href="#" title="" class="hire">hire</a></li>
-                    </ul>
-                    <a href="#" title="">View Profile</a>
-                </div><!--user-profy end-->
+                @endforeach
+
             </div><!--profiles-slider end-->
         </div><!--top-profiles end-->
         <div class="post-bar">

@@ -20,9 +20,16 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $jobTitle = fake()->jobTitle();
+
+        while (strlen($jobTitle) > 20) {
+            $jobTitle = fake()->jobTitle();
+        }
+
         return [
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
+            'headline' => $jobTitle,
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),

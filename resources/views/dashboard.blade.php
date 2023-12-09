@@ -118,7 +118,7 @@
                         </div><!--main-left-sidebar end-->
                     </div>
                     <div class="col-lg-6 col-md-8 no-pd">
-                        <livewire:dashboard-post />
+                        <livewire:dashboard-post :random_users="$random_users"/>
                     </div>
                     <div class="col-lg-3 pd-right-none no-pd">
                         <div class="right-sidebar">
