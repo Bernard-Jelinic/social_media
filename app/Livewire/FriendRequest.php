@@ -18,7 +18,7 @@ class FriendRequest extends Component
     {
         $friend = auth()->user()->receivedRequestFrom()->withPivot('status')->where('sender_id', $sender_id)->first();
         if ($friend !== null) {
-            $friend->pivot->status = FriendStatus::ACCEPTED;
+            $friend->pivot->status = FriendStatus::ACCEPTED->value;
             $friend->pivot->save();
         }
     }

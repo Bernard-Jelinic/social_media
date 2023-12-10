@@ -126,7 +126,7 @@ class ProfileTest extends TestCase
             ->assertDontSeeText('Save profile picture');
     }
 
-    public function test_user_can_see_section_for_adding_friend(): void
+    public function test_user_can_see_button_for_adding_friend(): void
     {
         // // Create two user
         $user = User::factory()->create();
@@ -140,7 +140,7 @@ class ProfileTest extends TestCase
             ->assertSeeText('Add Friend');
     }
 
-    public function test_user_can_see_section_for_cancel_friend_request(): void
+    public function test_user_can_see_button_for_cancel_friend_request(): void
     {
         // // Create two user
         $user = User::factory()->create();
@@ -152,10 +152,26 @@ class ProfileTest extends TestCase
         // // Creating relationship sentRequestTo
         $user->sentRequestTo()->attach($another_user->id);
 
-        $evo_ga = $user->sentRequestTo()->withPivot('status')->where('receiver_id', $another_user->id)->first();
-
         $this->get('/profile/' . $another_user->id)
             ->assertSee('a')
             ->assertSeeText('Cancel Request');
+    }
+
+    public function test_user_can_see_buttons_for_deny_and_accept_friend_request(): void
+    {
+        // // Create two user
+        $user = User::factory()->create();
+        $another_user = User::factory()->create();
+
+        // // Creating relationship sentRequestTo
+        $user->sentRequestTo()->attach($another_user->id);
+
+        // // Acting as the authenticated user
+        $this->actingAs($another_user);
+
+        $this->get('/profile/' . $user->id)
+            ->assertSee('a')
+            ->assertSeeText('Deny')
+            ->assertSeeText('Accept');
     }
 }

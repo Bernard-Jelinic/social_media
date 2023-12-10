@@ -10,6 +10,7 @@ class FriendManagementComponent extends Component
     public $user_profile;
     public $request_in_process = false;
     public $request_accepted = false;
+    public $is_this_sent_request = false;
 
     public function mount($user_profile): void
     {
@@ -17,8 +18,21 @@ class FriendManagementComponent extends Component
         $friend = auth()->user()->sentRequestTo()->withPivot('status')->where('receiver_id', $user_profile->id)->first();
         if ($friend !== null) {
             $friend = $friend->pivot;
+            $this->is_this_sent_request = true;
             if ($friend->status == FriendStatus::IN_PROCESS->value) {
                 $this->request_in_process = true;
+            } else if($friend->status == FriendStatus::ACCEPTED->value){
+                $this->request_accepted = true;
+            }
+        } else {
+            $friend = auth()->user()->receivedRequestFrom()->withPivot('status')->where('sender_id', $user_profile->id)->first();
+            if ($friend !== null) {
+                $friend = $friend->pivot;
+                if ($friend->status == FriendStatus::IN_PROCESS->value) {
+                    $this->request_in_process = true;
+                } else if($friend->status == FriendStatus::ACCEPTED->value){
+                    $this->request_accepted = true;
+                }
             }
         }
     }
@@ -33,6 +47,11 @@ class FriendManagementComponent extends Component
     {
         auth()->user()->sentRequestTo()->detach($this->user_profile->id);
         $this->request_in_process = false;
+    }
+
+    public function acceptFriendRequest(): void
+    {
+        dd( 'acceptFriendRequest' );
     }
 
     public function deleteFriendRequest(): void
