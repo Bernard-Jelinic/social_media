@@ -166,13 +166,14 @@
 
                             <div class="product-feed-tab current" id="feed-dd">
                                 <div class="posts-section">
+                                    @foreach ($user->posts as $post)
                                     <div class="post-bar">
                                         <div class="post_topbar">
                                             <div class="usy-dt">
-                                                <img src="http://via.placeholder.com/50x50" alt="">
+                                                <img style="width: 50px" src="{{ asset($user->profile_image) }}" alt="">
                                                 <div class="usy-name">
-                                                    <h3>John Doe_1</h3>
-                                                    <span><img src="{{ asset('assets/images/clock.png') }}" alt="">3 min ago</span>
+                                                    <h3>{{ $user->full_name }}</h3>
+                                                    <span><img src="{{ asset('assets/images/clock.png') }}" alt="">{{ $post->created_at->diffForHumans() }}</span>
                                                 </div>
                                             </div>
                                             <div class="ed-opts">
@@ -188,7 +189,7 @@
                                         </div>
                                         <div class="epi-sec">
                                             <ul class="descp">
-                                                <li><img src="{{ asset('assets/images/icon8.png') }}" alt=""><span>Epic Coder</span></li>
+                                                <li><img src="{{ asset('assets/images/icon8.png') }}" alt=""><span>{{ $user->headline }}</span></li>
                                                 <li><img src="{{ asset('assets/images/icon9.png') }}" alt=""><span>India</span></li>
                                             </ul>
                                             <ul class="bk-links">
@@ -202,7 +203,7 @@
                                                 <li><a href="#" title="">Full Time</a></li>
                                                 <li><span>$30 / hr</span></li>
                                             </ul>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id magna sit amet... <a href="#" title="">view more</a></p>
+                                            <p>{{ $post->content }}<!--<a href="#" title="">view more</a>--></p>
                                             <ul class="skill-tags">
                                                 <li><a href="#" title="">HTML</a></li>
                                                 <li><a href="#" title="">PHP</a></li>
@@ -223,7 +224,8 @@
                                             <a><i class="la la-eye"></i>Views 50</a>
                                         </div>
                                     </div><!--post-bar end-->
-                                    <div class="post-bar">
+                                    @endforeach
+                                    <!--<div class="post-bar">
                                         <div class="post_topbar">
                                             <div class="usy-dt">
                                                 <img src="http://via.placeholder.com/50x50" alt="">
@@ -279,8 +281,8 @@
                                             </ul>
                                             <a><i class="la la-eye"></i>Views 50</a>
                                         </div>
-                                    </div><!--post-bar end-->
-                                    <div class="post-bar">
+                                    </div>--><!--post-bar end-->
+                                    <!--<div class="post-bar">
                                         <div class="post_topbar">
                                             <div class="usy-dt">
                                                 <img src="http://via.placeholder.com/50x50" alt="">
@@ -336,8 +338,8 @@
                                             </ul>
                                             <a><i class="la la-eye"></i>Views 50</a>
                                         </div>
-                                    </div><!--post-bar end-->
-                                    <div class="post-bar">
+                                    </div>--><!--post-bar end-->
+                                    <!--<div class="post-bar">
                                         <div class="post_topbar">
                                             <div class="usy-dt">
                                                 <img src="http://via.placeholder.com/50x50" alt="">
@@ -393,7 +395,7 @@
                                             </ul>
                                             <a><i class="la la-eye"></i>Views 50</a>
                                         </div>
-                                    </div><!--post-bar end-->
+                                    </div>--><!--post-bar end-->
                                     <div class="process-comm">
                                         <div class="spinner">
                                             <div class="bounce1"></div>
