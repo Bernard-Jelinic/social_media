@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Country;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -22,6 +23,7 @@ class UserSeeder extends Seeder
         User::create([
             'first_name' => 'Bernard',
             'last_name' => 'Jelinić',
+            'country_id' => Country::where('name', 'Croatia')->first()->id,
             'headline' => $jobTitle,
             'email' => 'jelinic.bernard@gmail.com',
             'password' => '123456789'

@@ -190,7 +190,7 @@
                                         <div class="epi-sec">
                                             <ul class="descp">
                                                 <li><img src="{{ asset('assets/images/icon8.png') }}" alt=""><span>{{ $user->headline }}</span></li>
-                                                <li><img src="{{ asset('assets/images/icon9.png') }}" alt=""><span>India</span></li>
+                                                <li><img src="{{ asset('assets/images/icon9.png') }}" alt=""><span>{{ $user->country->name }}</span></li>
                                             </ul>
                                             <ul class="bk-links">
                                                 <li><a href="#" title=""><i class="la la-bookmark"></i></a></li>
