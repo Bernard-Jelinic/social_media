@@ -18,6 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('receiver_id');
             $table->foreign('receiver_id')->references('id')->on('users')->onDelete('cascade');
 
+            $table->primary(['sender_id', 'receiver_id']);
+
             $table->tinyInteger('status')->default(10);
         });
     }
