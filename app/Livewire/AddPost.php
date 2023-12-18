@@ -5,10 +5,10 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Livewire\PostComponent;
 
-class ProfilePost extends PostComponent
+class AddPost extends PostComponent
 {
     public function render()
     {
-        return view('livewire.profile-post');
+        return view('livewire.add-post');
     }
 }

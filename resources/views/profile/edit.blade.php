@@ -161,7 +161,7 @@
                             </div><!--user-tab-sec end-->
 
                             @if ($is_profile_of_logged_in_user)
-                                <livewire:profile-post />
+                                <livewire:add-post />
                             @endif
 
                             <div class="product-feed-tab current" id="feed-dd">
