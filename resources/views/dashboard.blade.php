@@ -118,7 +118,20 @@
                         </div><!--main-left-sidebar end-->
                     </div>
                     <div class="col-lg-6 col-md-8 no-pd">
-                        <livewire:dashboard-post :random_users="$random_users"/>
+                        <div class="main-ws-sec">
+                            <div class="post-topbar">
+                                <div class="user-picy">
+                                    <img src="http://via.placeholder.com/100x100" alt="">
+                                </div>
+                                <div class="post-st">
+                                    <ul>
+                                        <li><a class="post_project" href="#" title="">Post a Project</a></li>
+                                        <li><a class="post-jb active" href="#" title="">Post a Job</a></li>
+                                    </ul>
+                                </div><!--post-st end-->
+                            </div><!--post-topbar end-->
+                            <livewire:central-post is_profile_of_logged_in_user="true" :user="auth()->user()" show_top_profiles="true"/>
+                        </div>
                     </div>
                     <div class="col-lg-3 pd-right-none no-pd">
                         <div class="right-sidebar">

@@ -20,8 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $random_users = User::inRandomOrder()->whereNotIn('id', [auth()->user()->id])->limit(10)->get();
-    return view('dashboard', compact('random_users'));
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
