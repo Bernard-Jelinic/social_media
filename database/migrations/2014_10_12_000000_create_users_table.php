@@ -17,7 +17,7 @@ return new class extends Migration
             $table->char('last_name', 20);
             $table->char('headline', 150)->nullable();
 
-            $table->unsignedBigInteger('country_id');
+            $table->unsignedBigInteger('country_id')->nullable()->default(null);
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
 
             $table->string('profile_image')->default('storage/users-avatar/avatar.png');
