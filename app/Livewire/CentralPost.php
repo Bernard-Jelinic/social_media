@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\User;
 use Livewire\Component;
+use Livewire\Attributes\On;
 
 class CentralPost extends Component
 {
@@ -18,6 +19,12 @@ class CentralPost extends Component
         $this->user = $user;
         $this->show_top_profiles = $show_top_profiles;
         $this->random_users = User::inRandomOrder()->whereNotIn('id', [auth()->user()->id])->limit(10)->get();
+    }
+
+    #[On('get-posts')]
+    public function getPosts()
+    {
+        $this->user = User::find(auth()->user()->id);
     }
 
     public function render()

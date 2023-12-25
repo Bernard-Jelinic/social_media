@@ -16,5 +16,7 @@ class PostComponent extends Component
             'content' => $this->content
         ]);
         $this->content = '';
+
+        $this->dispatch('get-posts');
     }
 }
