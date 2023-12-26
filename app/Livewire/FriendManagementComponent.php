@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Enums\FriendStatus;
 
 class FriendManagementComponent extends Component
@@ -59,7 +60,7 @@ class FriendManagementComponent extends Component
         dd( 'deleteFriendRequest' );
     }
 
-    public function render(): \Illuminate\View\View
+    public function render(): View
     {
         return view('livewire.friend-management-component');
     }

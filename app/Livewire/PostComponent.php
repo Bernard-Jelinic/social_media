@@ -9,7 +9,7 @@ class PostComponent extends Component
 {
     public $content = '';
 
-    public function savePost()
+    public function savePost(): void
     {
         Post::create([
             'user_id' => auth()->user()->id,

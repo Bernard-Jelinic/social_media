@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Illuminate\View\View;
 use App\Enums\FriendStatus;
 
 class FriendRequest extends Component
@@ -31,7 +32,7 @@ class FriendRequest extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.friend-request');
     }

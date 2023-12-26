@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\User;
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\Attributes\On;
 
 class CentralPost extends Component
@@ -22,12 +23,12 @@ class CentralPost extends Component
     }
 
     #[On('get-posts')]
-    public function getPosts()
+    public function getPosts(): void
     {
         $this->user = User::find(auth()->user()->id);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.central-post');
     }
