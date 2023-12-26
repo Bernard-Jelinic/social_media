@@ -5,11 +5,11 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Post;
 
-class PostComponent extends Component
+class PostBaseComponent extends Component
 {
     public $content = '';
 
-    public function savePost(): void
+    public function addPost(): void
     {
         Post::create([
             'user_id' => auth()->user()->id,

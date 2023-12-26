@@ -160,7 +160,7 @@
                                 </div><!-- tab-feed end-->
                             </div><!--user-tab-sec end-->
 
-                            <livewire:central-post :is_profile_of_logged_in_user="$is_profile_of_logged_in_user" :user="$user"/>
+                            <livewire:post-central :is_profile_of_logged_in_user="$is_profile_of_logged_in_user" :user="$user"/>
 
                             <div class="product-feed-tab" id="info-dd">
                                 <div class="user-profile-ov">

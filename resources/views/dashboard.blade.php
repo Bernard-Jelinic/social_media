@@ -130,7 +130,7 @@
                                     </ul>
                                 </div><!--post-st end-->
                             </div><!--post-topbar end-->
-                            <livewire:central-post is_profile_of_logged_in_user="true" :user="auth()->user()" show_top_profiles="true"/>
+                            <livewire:post-central is_profile_of_logged_in_user="true" :user="auth()->user()" show_top_profiles="true"/>
                         </div>
                     </div>
                     <div class="col-lg-3 pd-right-none no-pd">

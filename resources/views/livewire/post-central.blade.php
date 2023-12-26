@@ -1,13 +1,13 @@
 <div>
     @if ($is_profile_of_logged_in_user)
-        <livewire:add-post />
+        <livewire:post-add />
     @endif
 
     <div class="product-feed-tab current" id="feed-dd">
         <div class="posts-section">
             @foreach ($user->posts->reverse() as $key=>$post)
                 {{-- top profiles section --}}
-                {{-- @if ($key == 1 && $show_top_profiles)
+                @if ($key == 1 && $show_top_profiles && count($user->posts) > 2)
                     <div class="top-profiles">
                         <div class="pf-hd">
                             <h3>Top Profiles</h3>
@@ -39,7 +39,7 @@
             
                         </div><!--profiles-slider end-->
                     </div><!--top-profiles end-->
-                @endif --}}
+                @endif
                 {{-- <livewire:post :post="$post" :user="$post->user"/> --}}
                 {{-- start --}}
                 <div class="post-bar">

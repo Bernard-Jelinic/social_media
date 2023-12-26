@@ -4,12 +4,12 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use Illuminate\View\View;
-use App\Livewire\PostComponent;
+use App\Livewire\PostBaseComponent;
 
-class AddPost extends PostComponent
+class PostAdd extends PostBaseComponent
 {
     public function render(): View
     {
-        return view('livewire.add-post');
+        return view('livewire.post-add');
     }
 }

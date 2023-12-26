@@ -5,7 +5,7 @@
                 <img style="width: 40px;" src="{{ asset(auth()->user()->profile_image) }}" alt="Profile image">
             </div>
             <div class="comment_box">
-                <form wire:submit="savePost">
+                <form wire:submit="addPost">
                     <input type="text" wire:model="content" placeholder="Post something you're thinking about">
                     <button type="submit">Post</button>
                 </form>

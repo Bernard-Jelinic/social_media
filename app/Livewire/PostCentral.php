@@ -7,7 +7,7 @@ use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\Attributes\On;
 
-class CentralPost extends Component
+class PostCentral extends Component
 {
     public $is_profile_of_logged_in_user;
     public $user;
@@ -30,6 +30,6 @@ class CentralPost extends Component
 
     public function render(): View
     {
-        return view('livewire.central-post');
+        return view('livewire.post-central');
     }
 }
