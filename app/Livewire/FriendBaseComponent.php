@@ -19,18 +19,7 @@ class FriendBaseComponent extends Component
         $this->request_in_process = false;
     }
 
-    public function acceptFriendRequest(): void
-    {
-        dd( 'acceptFriendRequest' );
-    }
-
-    public function deleteFriendRequest(): void
-    {
-        dd( 'deleteFriendRequest' );
-    }
-
-    // // ove funkcije ispod su iz friendRequest.php filea
-    public function confirm($sender_id): void
+    public function acceptFriendRequest($sender_id): void
     {
         $friend = auth()->user()->receivedRequestFrom()->withPivot('status')->where('sender_id', $sender_id)->first();
         if ($friend !== null) {
@@ -39,7 +28,7 @@ class FriendBaseComponent extends Component
         }
     }
 
-    public function remove($sender_id): void
+    public function denyFriendRequest($sender_id): void
     {
         $friend = auth()->user()->receivedRequestFrom()->withPivot('status')->where('sender_id', $sender_id)->first();
         if ($friend !== null) {

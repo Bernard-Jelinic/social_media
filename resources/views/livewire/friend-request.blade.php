@@ -11,8 +11,12 @@
                 <tr>
                     <td>{{ $friendRequest->full_name }}</td>
                     <td>
-                        <button wire:click="confirm({{ $friendRequest->id }})" type="button" class="btn btn-primary">Confirm</button>
-                        <button wire:click="remove({{ $friendRequest->id }})" type="button" class="btn btn-danger">Remove</button>
+                        <button wire:click="acceptFriendRequest({{ $friendRequest->id }})" type="button" class="btn btn-primary">
+                            <i class="la la-check"></i>Accept
+                        </button>
+                        <button wire:click="denyFriendRequest({{ $friendRequest->id }})" type="button" class="btn btn-danger">
+                            <i class="la la-close"></i>Deny
+                        </button>
                     </td>
                 </tr>
             @endforeach
