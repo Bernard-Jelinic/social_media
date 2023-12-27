@@ -20,7 +20,7 @@
                                 <livewire:upload-profile-image :is_profile_of_logged_in_user="$is_profile_of_logged_in_user" :user_profile="$user"/>
                                 
                                 @if (!$is_profile_of_logged_in_user)
-                                    <livewire:friend-management-component :user_profile="$user"/>
+                                    <livewire:friend-management :user_profile="$user"/>
                                 @endif
 
                                 <ul class="social_links">

@@ -2,11 +2,11 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
+use App\Livewire\FriendBaseComponent;
 use Illuminate\View\View;
 use App\Enums\FriendStatus;
 
-class FriendManagementComponent extends Component
+class FriendManagement extends FriendBaseComponent
 {
     public $user_profile;
     public $request_in_process = false;
@@ -38,30 +38,8 @@ class FriendManagementComponent extends Component
         }
     }
 
-    public function addFriend(): void
-    {
-        auth()->user()->sentRequestTo()->attach($this->user_profile->id);
-        $this->request_in_process = true;
-    }
-
-    public function cancelFriendRequest(): void
-    {
-        auth()->user()->sentRequestTo()->detach($this->user_profile->id);
-        $this->request_in_process = false;
-    }
-
-    public function acceptFriendRequest(): void
-    {
-        dd( 'acceptFriendRequest' );
-    }
-
-    public function deleteFriendRequest(): void
-    {
-        dd( 'deleteFriendRequest' );
-    }
-
     public function render(): View
     {
-        return view('livewire.friend-management-component');
+        return view('livewire.friend-management');
     }
 }

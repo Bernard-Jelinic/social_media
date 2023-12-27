@@ -5,7 +5,7 @@ namespace Tests\Feature\Livewire;
 use Tests\TestCase;
 use App\Models\User;
 use Livewire\Livewire;
-use App\Livewire\FriendManagementComponent;
+use App\Livewire\FriendManagement;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -24,7 +24,7 @@ class FriendManagementTest extends TestCase
         $this->actingAs($user);
 
         // // Livewire test
-        Livewire::test(FriendManagementComponent::class, ['user_profile' => $another_user])
+        Livewire::test(FriendManagement::class, ['user_profile' => $another_user])
             ->call('addFriend');
 
         $this->assertTrue(true);
@@ -41,11 +41,11 @@ class FriendManagementTest extends TestCase
         $this->actingAs($user);
 
         // // first you need to add friend to have option to cancel friend request
-        Livewire::test(FriendManagementComponent::class, ['user_profile' => $another_user])
+        Livewire::test(FriendManagement::class, ['user_profile' => $another_user])
             ->call('addFriend');
 
         // // Livewire test
-        Livewire::test(FriendManagementComponent::class, ['user_profile' => $another_user])
+        Livewire::test(FriendManagement::class, ['user_profile' => $another_user])
             ->call('cancelFriendRequest');
 
         $this->assertTrue(true);
