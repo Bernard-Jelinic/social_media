@@ -12,7 +12,7 @@ class FriendRequest extends FriendBaseComponent
 
     public function mount(): void
     {
-        $this->friendRequests = auth()->user()->receivedRequestFrom()->get();
+        $this->friendRequests = auth()->user()->receivedRequestFrom()->where('status', 10)->get();
     }
 
     public function render(): View
