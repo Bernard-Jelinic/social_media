@@ -36,17 +36,19 @@
                     </div>
                     <div class="col-lg-12 no-pdd">
                         <div class="sn-field">
-                            <input type="text" name="country" placeholder="Country">
-                            <i class="la la-globe"></i>
+                            <input type="text" name="headline" placeholder="Headline">
+                            <i class="la la-dropbox"></i>
                         </div>
                     </div>
                     <div class="col-lg-12 no-pdd">
                         <div class="sn-field">
-                            <select>
-                                <option>Category</option>
+                            <select name="country_id">
+                                <option>Select country</option>
+                                @foreach ($countries as $country)
+                                    <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                @endforeach
                             </select>
-                            <i class="la la-dropbox"></i>
-                            <span><i class="fa fa-ellipsis-h"></i></span>
+                            <i class="la la-globe"></i>
                         </div>
                     </div>
                     <div class="col-lg-12 no-pdd">

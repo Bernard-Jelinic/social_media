@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Models\Country;
 
 class RegisteredUserController extends Controller
 {
@@ -20,7 +21,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $countries = Country::all();
+        return view('auth.register', compact('countries'));
     }
 
     /**
@@ -33,6 +35,7 @@ class RegisteredUserController extends Controller
         $request->validate([
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
+            'headline' => ['string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -40,6 +43,8 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
+            'headline' => $request->headline,
+            'country_id' => $request->country_id,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
