@@ -2,7 +2,7 @@
 
 @section('login-register-content')
     <!-- login start -->
-    <div class="sign_in_sec current" id="tab-1">
+    <div class="sign_in_sec current">
 
         <h3>Sign in</h3>
         <form method="POST" action="{{ route('login') }}">

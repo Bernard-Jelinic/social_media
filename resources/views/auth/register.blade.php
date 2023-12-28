@@ -2,7 +2,7 @@
 
 @section('login-register-content')
     <!-- register start -->
-    <div class="sign_in_sec current" id="t-2">
+    <div class="sign_in_sec current">
 
         <div class="signup-tab">
             <i class="fa fa-long-arrow-left"></i>

@@ -2747,6 +2747,72 @@ select {
 	visibility: visible;
 }
 
+/* =============== signup start ============== */
+.sign-in-up {
+	float: left;
+	width: 100%;
+	/* border: 1px solid #e5e5e5; */
+	text-align: center;
+	padding: 15px 0;
+	margin-bottom: 20px;
+	position: relative;
+	/* margin-top: -30px; */
+}
+
+.sign-in-up>i {
+	position: absolute;
+	top: 15px;
+	left: 13px;
+	color: #000;
+	font-size: 14px;
+}
+
+.sign-in-up h2 {
+	color: #000000;
+	font-size: 14px;
+	font-weight: 700;
+	margin-bottom: 15px;
+}
+
+.sign-in-up ul {
+	float: left;
+	width: 100%;
+}
+
+.sign-in-up ul li {
+	display: inline-block;
+	margin-right: -4px;
+}
+
+.sign-in-up ul li a {
+	color: #000000;
+	font-size: 14px;
+	font-weight: 600;
+	background-color: #e5e5e5;
+	padding: 10px 15px;
+	-webkit-border-radius: 3px 0px 0px 3px;
+	-moz-border-radius: 3px 0px 0px 3px;
+	-ms-border-radius: 3px 0px 0px 3px;
+	-o-border-radius: 3px 0px 0px 3px;
+	border-radius: 3px 0px 0px 3px;
+	display: inline-block;
+}
+
+.sign-in-up ul li.current a {
+	background-color: #e44d3a;
+	color: #fff;
+}
+
+.sign-in-up ul li:last-child a {
+	-webkit-border-radius: 0px 3px 3px 0px;
+	-moz-border-radius: 0px 3px 3px 0px;
+	-ms-border-radius: 0px 3px 3px 0px;
+	-o-border-radius: 0px 3px 3px 0px;
+	border-radius: 0px 3px 3px 0px;
+}
+
+/* =============== signup end ============== */
+
 /* =============== signup-tab ============== */
 
 .signup-tab {

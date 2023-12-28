@@ -14,12 +14,12 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="login-sec">
-                            <ul class="sign-control">
-                                <li data-tab="tab-1" class="{{ Route::is('login') ? 'current' : '' }}">
+                        <div class="login-sec sign-in-up">
+                            <ul style="{{ Route::is('login') ? 'margin-bottom: 30px;' : 'margin-bottom: 60px;' }} ">
+                                <li class="{{ Route::is('login') ? 'current' : '' }}">
                                     <a href="{{ route('login') }}" title="">Sign in</a>
                                 </li>
-                                <li data-tab="tab-2" class="{{ Route::is('register') ? 'current' : '' }}">
+                                <li class="{{ Route::is('register') ? 'current' : '' }}">
                                     <a href="{{ route('register') }}" title="">Sign up</a>
                                 </li>
                             </ul>
