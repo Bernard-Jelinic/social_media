@@ -5,11 +5,9 @@
     <div class="sign_in_sec current">
 
         <div class="signup-tab">
-            <i class="fa fa-long-arrow-left"></i>
-            <h2>johndoe@example.com</h2>
             <ul>
                 <li data-tab="tab-3" class="current"><a href="#" title="">User</a></li>
-                <li data-tab="tab-4"><a href="#" title="">Company</a></li>
+                <li data-tab="tab-4"><a href="#" title="">Business Page</a></li>
             </ul>
         </div>
         <div class="dff-tab current" id="tab-3">
@@ -30,12 +28,6 @@
                     </div>
                     <div class="col-lg-12 no-pdd">
                         <div class="sn-field">
-                            <input type="email" id="email" name="email" placeholder="Email" :value="old('email')" required autofocus autocomplete="username">
-                            <i class="la la-envelope"></i>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 no-pdd">
-                        <div class="sn-field">
                             <input type="text" name="headline" placeholder="Headline">
                             <i class="la la-dropbox"></i>
                         </div>
@@ -43,7 +35,7 @@
                     <div class="col-lg-12 no-pdd">
                         <div class="sn-field">
                             <select name="country_id">
-                                <option>Select country</option>
+                                <option value="null">Select country</option>
                                 @foreach ($countries as $country)
                                     <option value="{{ $country->id }}">{{ $country->name }}</option>
                                 @endforeach
@@ -53,44 +45,8 @@
                     </div>
                     <div class="col-lg-12 no-pdd">
                         <div class="sn-field">
-                            <input type="password" id="password" name="password" placeholder="Password" required autocomplete="new-password">
-                            <i class="la la-lock"></i>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 no-pdd">
-                        <div class="sn-field">
-                            <input type="password" id="password_confirmation" name="password_confirmation"
-                                placeholder="Repeat Password" required autocomplete="new-password">
-                            <i class="la la-lock"></i>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 no-pdd">
-                        <button type="submit" value="submit">Get Started</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="dff-tab" id="tab-4">
-            <form method="POST" action="{{ route('register') }}">
-                @csrf
-                <div class="row">
-                    <div class="col-lg-12 no-pdd">
-                        <div class="sn-field">
-                            <input type="text" id="name" name="name" placeholder="Full Name" :value="old('name')" required autofocus autocomplete="name">
-                            <i class="la la-user"></i>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 no-pdd">
-                        <div class="sn-field">
-                            <input type="text" name="company-name"
-                                placeholder="Company Name">
-                            <i class="la la-building"></i>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 no-pdd">
-                        <div class="sn-field">
-                            <input type="text" name="country" placeholder="Country">
-                            <i class="la la-globe"></i>
+                            <input type="email" id="email" name="email" placeholder="Email" required autofocus autocomplete="username">
+                            <i class="la la-envelope"></i>
                         </div>
                     </div>
                     <div class="col-lg-12 no-pdd">
@@ -107,11 +63,12 @@
                         </div>
                     </div>
                     <div class="col-lg-12 no-pdd">
-                        <button type="submit" value="submit">Get Started</button>
+                        <button type="submit" value="submit">Register</button>
                     </div>
                 </div>
             </form>
         </div>
+        <livewire:register-page :countries="$countries"/>
     </div>
     <!-- register end -->
 @endsection

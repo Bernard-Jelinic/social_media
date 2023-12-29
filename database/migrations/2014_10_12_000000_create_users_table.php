@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->boolean('is_business')->default(false);
             $table->char('first_name', 20);
-            $table->char('last_name', 20);
+            $table->char('last_name', 20)->nullable();
             $table->char('headline', 150)->nullable();
 
             $table->unsignedBigInteger('country_id')->nullable()->default(null);
