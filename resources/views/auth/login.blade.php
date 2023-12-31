@@ -9,15 +9,20 @@
             @csrf
             <div class="row">
                 <div class="col-lg-12 no-pdd">
+                    @error('email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <div class="sn-field">
-                        <input type="email" name="email" placeholder="Email" :value="old('email')" required autofocus autocomplete="username">
+                        <input type="email" name="email" placeholder="Email" :value="old('email')" required autofocus>
                         <i class="la la-envelope"></i>
                     </div>
                 </div>
-
+                @error('password')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
                 <div class="col-lg-12 no-pdd">
                     <div class="sn-field">
-                        <input id="password" type="password" name="password" placeholder="Password" required autocomplete="current-password">
+                        <input id="password" type="password" name="password" placeholder="Password" required>
                         <i class="la la-lock"></i>
                     </div>
                 </div>
