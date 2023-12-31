@@ -2,12 +2,18 @@
     <form wire:submit="register">
         <div class="row">
             <div class="col-lg-12 no-pdd">
+                @error('first_name')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
                 <div class="sn-field">
                     <input type="text" wire:model="first_name" placeholder="Name">
                     <i class="la la-building"></i>
                 </div>
             </div>
             <div class="col-lg-12 no-pdd">
+                @error('headline')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
                 <div class="sn-field">
                     <input type="text" wire:model="headline" placeholder="Headline">
                     <i class="la la-dropbox"></i>
@@ -23,12 +29,18 @@
                 <i class="la la-globe"></i>
             </div>
             <div class="col-lg-12 no-pdd">
+                @error('email')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
                 <div class="sn-field">
                     <input type="email" wire:model="email" placeholder="Email" required autofocus autocomplete="username">
                     <i class="la la-envelope"></i>
                 </div>
             </div>
             <div class="col-lg-12 no-pdd">
+                @error('password')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
                 <div class="sn-field">
                     <input type="password" wire:model="password" placeholder="Password" required autocomplete="new-password">
                     <i class="la la-lock"></i>
