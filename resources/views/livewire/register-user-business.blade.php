@@ -1,4 +1,4 @@
-<div>
+<div class="sign_in_sec current">
     <div class="signup-tab">
         <ul>
             <li wire:click="differentTab" class="{{ $isRegisterUserForm == false ? 'current' : '' }}"><a href="#" title="">User</a></li>
