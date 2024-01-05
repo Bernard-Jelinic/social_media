@@ -28,6 +28,7 @@ class UserFactory extends Factory
         }
 
         return [
+            'is_business' => fake()->boolean,
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'headline' => $jobTitle,
