@@ -14,7 +14,7 @@ class FriendManagementTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function user_can_add_friend(): void
+    public function user_can_add_friend_and_the_component_is_refreshed(): void
     {
         // // Create two user
         $user = User::factory()->create();
@@ -25,7 +25,7 @@ class FriendManagementTest extends TestCase
 
         // // Livewire test
         Livewire::test(FriendManagement::class, ['user_profile' => $another_user])
-            ->call('addFriend', $another_user->toArray() );
+            ->call('addFriendAndRefresh', $another_user->toArray() );
 
         $this->assertTrue(true);
     }
@@ -42,7 +42,7 @@ class FriendManagementTest extends TestCase
 
         // // first you need to add friend to have option to cancel friend request
         Livewire::test(FriendManagement::class, ['user_profile' => $another_user])
-            ->call('addFriend', $another_user->toArray() );
+            ->call('addFriendAndRefresh', $another_user->toArray() );
 
         // // Livewire test
         Livewire::test(FriendManagement::class, ['user_profile' => $another_user])
