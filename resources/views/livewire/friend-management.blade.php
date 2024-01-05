@@ -27,7 +27,7 @@
                 </a>
             </li>
         @else
-            <li wire:click="addFriend({{ $user_profile }})">
+            <li wire:click="addFriendAndRefresh({{ $user_profile }})">
                 <a href="#" title="" class="flww">
                     <i class="la la-plus"></i>Add Friend
                 </a>

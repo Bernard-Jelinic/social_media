@@ -13,6 +13,12 @@ class FriendBaseComponent extends Component
         $this->request_in_process = true;
     }
 
+    public function addFriendAndRefresh(array $user): void
+    {
+        $this->addFriend($user);
+        $this->get();
+    }
+
     public function cancelFriendRequest(): void
     {
         auth()->user()->sentRequestTo()->detach($this->user_profile->id);

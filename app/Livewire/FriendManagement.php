@@ -16,7 +16,12 @@ class FriendManagement extends FriendBaseComponent
     public function mount($user_profile): void
     {
         $this->user_profile = $user_profile;
-        $friend = auth()->user()->sentRequestTo()->withPivot('status')->where('receiver_id', $user_profile->id)->first();
+        $this->get();
+    }
+
+    public function get(): void
+    {
+        $friend = auth()->user()->sentRequestTo()->withPivot('status')->where('receiver_id', $this->user_profile->id)->first();
         if ($friend !== null) {
             $friend = $friend->pivot;
             $this->is_this_sent_request = true;
@@ -26,7 +31,7 @@ class FriendManagement extends FriendBaseComponent
                 $this->request_accepted = true;
             }
         } else {
-            $friend = auth()->user()->receivedRequestFrom()->withPivot('status')->where('sender_id', $user_profile->id)->first();
+            $friend = auth()->user()->receivedRequestFrom()->withPivot('status')->where('sender_id', $this->user_profile->id)->first();
             if ($friend !== null) {
                 $friend = $friend->pivot;
                 if ($friend->status == FriendStatus::IN_PROCESS->value) {

@@ -34,12 +34,6 @@ class FriendSuggestions extends FriendBaseComponent
             ->get();
     }
 
-    public function addSuggestionFriend(array $suggestion): void
-    {
-        $this->addFriend($suggestion);
-        $this->get();
-    }
-
     public function render()
     {
         return view('livewire.friend-suggestions');
