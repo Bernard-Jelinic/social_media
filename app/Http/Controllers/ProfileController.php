@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\User;
+use App\Models\ProfileView;
 
 class ProfileController extends Controller
 {
@@ -21,9 +22,22 @@ class ProfileController extends Controller
      */
     public function show(string $id): View
     {
+        $users_profile = User::find($id);
+        $is_profile_of_logged_in_user = true;
+
+        if ($users_profile->id !== Auth::id()) {
+            $is_profile_of_logged_in_user = false;
+            $visitorId = Auth::id();
+            $profileView = new ProfileView();
+            $profileView->user_id = $users_profile->id;
+            $profileView->visitor_id = $visitorId;
+            $profileView->viewed_at = now()->toDateTimeString();
+            $profileView->save();
+        }
+
         return view('profile.edit', [
-            'user' => User::find($id),
-            'is_profile_of_logged_in_user' => false
+            'user' => $users_profile,
+            'is_profile_of_logged_in_user' => $is_profile_of_logged_in_user
         ]);
     }
 
