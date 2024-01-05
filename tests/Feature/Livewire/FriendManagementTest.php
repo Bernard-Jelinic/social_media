@@ -25,7 +25,7 @@ class FriendManagementTest extends TestCase
 
         // // Livewire test
         Livewire::test(FriendManagement::class, ['user_profile' => $another_user])
-            ->call('addFriend');
+            ->call('addFriend', $another_user->toArray() );
 
         $this->assertTrue(true);
     }
@@ -42,7 +42,7 @@ class FriendManagementTest extends TestCase
 
         // // first you need to add friend to have option to cancel friend request
         Livewire::test(FriendManagement::class, ['user_profile' => $another_user])
-            ->call('addFriend');
+            ->call('addFriend', $another_user->toArray() );
 
         // // Livewire test
         Livewire::test(FriendManagement::class, ['user_profile' => $another_user])

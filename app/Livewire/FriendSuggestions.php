@@ -3,13 +3,18 @@
 namespace App\Livewire;
 
 use App\Models\User;
-use Livewire\Component;
+use App\Livewire\FriendBaseComponent;
 
-class FriendSuggestions extends Component
+class FriendSuggestions extends FriendBaseComponent
 {
     public $suggestions;
 
     public function mount(): void
+    {
+        $this->get();
+    }
+
+    public function get(): void
     {
         $currentUser = auth()->user();
         $this->suggestions = User::whereNotIn('id', function ($query) use ($currentUser) {
@@ -27,6 +32,12 @@ class FriendSuggestions extends Component
             ->inRandomOrder()
             ->take(6)
             ->get();
+    }
+
+    public function addSuggestionFriend(array $suggestion): void
+    {
+        $this->addFriend($suggestion);
+        $this->get();
     }
 
     public function render()

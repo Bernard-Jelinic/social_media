@@ -7,9 +7,9 @@ use App\Enums\FriendStatus;
 
 class FriendBaseComponent extends Component
 {
-    public function addFriend(): void
+    public function addFriend(array $user): void
     {
-        auth()->user()->sentRequestTo()->attach($this->user_profile->id);
+        auth()->user()->sentRequestTo()->attach($user['id']);
         $this->request_in_process = true;
     }
 

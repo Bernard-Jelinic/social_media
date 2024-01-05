@@ -10,7 +10,7 @@
                     <h4>{{ $suggestion->full_name }}</h4>
                     <span>{{ $suggestion->headline }}</span>
                 </div>
-                <span><i class="la la-plus"></i></span>
+                <span wire:click="addSuggestionFriend({{ $suggestion }})"><i class="la la-plus"></i></span>
             </div>    
         @endforeach
     </div><!--suggestions-list end-->
