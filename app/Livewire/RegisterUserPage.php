@@ -8,7 +8,7 @@ use App\Livewire\Forms\RegisterBusinessForm;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 
-class RegisterUserBusiness extends Component
+class RegisterUserPage extends Component
 {
     public RegisterUserForm $registerUserForm;
     public RegisterBusinessForm $registerBusinessForm;
@@ -45,6 +45,6 @@ class RegisterUserBusiness extends Component
 
     public function render()
     {
-        return view('livewire.register-user-business');
+        return view('livewire.register-user-page');
     }
 }

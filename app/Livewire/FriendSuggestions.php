@@ -27,7 +27,7 @@ class FriendSuggestions extends FriendBaseComponent
                     ->from('friends')
                     ->where('sender_id', $currentUser->id);
             })
-            ->where('is_business', false)
+            ->where('is_page', false)
             ->whereNot('id', auth()->user()->id)
             ->inRandomOrder()
             ->take(6)

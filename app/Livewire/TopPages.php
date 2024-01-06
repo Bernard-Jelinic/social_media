@@ -16,7 +16,7 @@ class TopPages extends Component
 
     public function get(): void
     {
-        $this->most_repeating_records = User::where('is_business', true)
+        $this->most_repeating_records = User::where('is_page', true)
                                             ->withCount('profileViews')
                                             ->orderByDesc('profile_views_count')
                                             ->take(5)

@@ -12,7 +12,7 @@ class RegisterBusinessForm extends Form
     public ?User $user;
 
     public $first_name;
-    public $is_business = true;
+    public $is_page = true;
     public $headline;
     public $country_id;
     public $email;

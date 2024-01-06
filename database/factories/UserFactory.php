@@ -21,9 +21,9 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
-        $is_business = fake()->boolean;
+        $is_page = fake()->boolean;
 
-        if ($is_business) {
+        if ($is_page) {
             $first_name = fake()->company();
             $last_name = fake()->companySuffix();
             $headline = fake()->catchPhrase();
@@ -38,7 +38,7 @@ class UserFactory extends Factory
         }
 
         return [
-            'is_business' => $is_business,
+            'is_page' => $is_page,
             'first_name' => $first_name,
             'last_name' => $last_name,
             'headline' => $headline,

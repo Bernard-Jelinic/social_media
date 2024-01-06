@@ -2,6 +2,6 @@
 
 @section('login-register-content')
     <!-- register start -->
-    <livewire:register-user-business :countries="$countries"/>
+    <livewire:register-user-page :countries="$countries"/>
     <!-- register end -->
 @endsection

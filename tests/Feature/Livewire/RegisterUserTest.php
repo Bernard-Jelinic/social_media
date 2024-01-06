@@ -8,7 +8,7 @@ use Livewire\Livewire;
 use App\Models\Country;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\CountrySeeder;
-use App\Livewire\RegisterUserBusiness;
+use App\Livewire\RegisterUserPage;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -20,7 +20,7 @@ class RegisterUserTest extends TestCase
     public function register_user_business_component_exists_on_register_page()
     {
         $this->get('/register')
-            ->assertSeeLivewire(RegisterUserBusiness::class);
+            ->assertSeeLivewire(RegisterUserPage::class);
     }
 
     /** @test */
@@ -31,7 +31,7 @@ class RegisterUserTest extends TestCase
 
         $users = $this->assertEquals(0, User::count());
     
-        Livewire::test(RegisterUserBusiness::class, ['countries' => $countries])
+        Livewire::test(RegisterUserPage::class, ['countries' => $countries])
             ->set('registerUserForm.first_name', 'Bernard')
             ->set('registerUserForm.last_name', 'Jelinić')
             ->set('registerUserForm.headline', 'Ja sam glavni developer')
@@ -50,7 +50,7 @@ class RegisterUserTest extends TestCase
         $this->seed(CountrySeeder::class);
         $countries = Country::all();
     
-        Livewire::test(RegisterUserBusiness::class, ['countries' => $countries])
+        Livewire::test(RegisterUserPage::class, ['countries' => $countries])
             ->call('registerUser')
             ->assertHasErrors(
                 'registerUserForm.first_name',
@@ -77,7 +77,7 @@ class RegisterUserTest extends TestCase
             'password' => '123456789'
         ]);
     
-        Livewire::test(RegisterUserBusiness::class, ['countries' => $countries])
+        Livewire::test(RegisterUserPage::class, ['countries' => $countries])
             ->set('registerUserForm.first_name', 'Bernard_1')
             ->set('registerUserForm.last_name', 'Jelinić_1')
             ->set('registerUserForm.headline', 'Ja sam glavni developer')
@@ -106,7 +106,7 @@ class RegisterUserTest extends TestCase
             'password' => '123456789'
         ]);
     
-        Livewire::test(RegisterUserBusiness::class, ['countries' => $countries])
+        Livewire::test(RegisterUserPage::class, ['countries' => $countries])
             ->set('registerUserForm.first_name', 'Bernard_1')
             ->set('registerUserForm.last_name', 'Jelinić_1')
             ->set('registerUserForm.headline', 'Ja sam glavni developer')
@@ -129,7 +129,7 @@ class RegisterUserTest extends TestCase
 
         $users = $this->assertEquals(0, User::count());
     
-        Livewire::test(RegisterUserBusiness::class, ['countries' => $countries])
+        Livewire::test(RegisterUserPage::class, ['countries' => $countries])
             ->set('registerUserForm.first_name', 'Bernard')
             ->set('registerUserForm.last_name', 'Jelinić')
             ->set('registerUserForm.headline', 'Ja sam glavni developer')
@@ -151,7 +151,7 @@ class RegisterUserTest extends TestCase
 
         $users = $this->assertEquals(0, User::count());
     
-        Livewire::test(RegisterUserBusiness::class, ['countries' => $countries])
+        Livewire::test(RegisterUserPage::class, ['countries' => $countries])
             ->set('registerBusinessForm.first_name', 'Google LLC')
             ->set('registerBusinessForm.headline', 'Our mission is to organize the world’s information and make it universally accessible and useful.')
             ->set('registerBusinessForm.country_id', '1')
@@ -169,7 +169,7 @@ class RegisterUserTest extends TestCase
         $this->seed(CountrySeeder::class);
         $countries = Country::all();
     
-        Livewire::test(RegisterUserBusiness::class, ['countries' => $countries])
+        Livewire::test(RegisterUserPage::class, ['countries' => $countries])
             ->call('registerBusiness')
             ->assertHasErrors(
                 'registerBusinessForm.first_name',
@@ -193,7 +193,7 @@ class RegisterUserTest extends TestCase
                 'password' => '123456789'
             ]);
         
-            Livewire::test(RegisterUserBusiness::class, ['countries' => $countries])
+            Livewire::test(RegisterUserPage::class, ['countries' => $countries])
                 ->set('registerBusinessForm.first_name', 'Google LLC_1')
                 ->set('registerBusinessForm.headline', 'Our mission is to organize the world’s information and make it universally accessible and useful._1')
                 ->set('registerBusinessForm.email', 'google@gmail.com')
@@ -218,7 +218,7 @@ class RegisterUserTest extends TestCase
             'password' => '123456789'
         ]);
     
-        Livewire::test(RegisterUserBusiness::class, ['countries' => $countries])
+        Livewire::test(RegisterUserPage::class, ['countries' => $countries])
             ->set('registerBusinessForm.first_name', 'Google LLC_1')
             ->set('registerBusinessForm.headline', 'Our mission is to organize the world’s information and make it universally accessible and useful._1')
             ->set('registerBusinessForm.email', 'google_1@gmail.com')
@@ -238,7 +238,7 @@ class RegisterUserTest extends TestCase
 
         $users = $this->assertEquals(0, User::count());
     
-        Livewire::test(RegisterUserBusiness::class, ['countries' => $countries])
+        Livewire::test(RegisterUserPage::class, ['countries' => $countries])
             ->set('registerBusinessForm.first_name', 'Google LLC')
             ->set('registerBusinessForm.headline', 'Our mission is to organize the world’s information and make it universally accessible and useful.')
             ->set('registerBusinessForm.country_id', '1')

@@ -2,7 +2,7 @@
     <div class="signup-tab">
         <ul>
             <li wire:click="differentTab" class="{{ $isRegisterUserForm == false ? 'current' : '' }}"><a href="#" title="">User</a></li>
-            <li wire:click="differentTab" class="{{ $isRegisterUserForm == true ? 'current' : '' }}"><a href="#" title="">Business Page</a></li>
+            <li wire:click="differentTab" class="{{ $isRegisterUserForm == true ? 'current' : '' }}"><a href="#" title="">Page</a></li>
         </ul>
     </div>
     @if($isRegisterUserForm == false)
