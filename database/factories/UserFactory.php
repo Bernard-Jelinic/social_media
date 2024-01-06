@@ -21,17 +21,27 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
-        $jobTitle = fake()->jobTitle();
+        $is_business = fake()->boolean;
 
-        while (strlen($jobTitle) > 20) {
-            $jobTitle = fake()->jobTitle();
+        if ($is_business) {
+            $first_name = fake()->company();
+            $last_name = fake()->companySuffix();
+            $headline = fake()->catchPhrase();
+        } else {
+            $first_name = fake()->firstName();
+            $last_name = fake()->lastName();
+            $headline = fake()->jobTitle();
+
+            while (strlen($headline) > 20) {
+                $headline = fake()->jobTitle();
+            }
         }
 
         return [
-            'is_business' => fake()->boolean,
-            'first_name' => fake()->firstName(),
-            'last_name' => fake()->lastName(),
-            'headline' => $jobTitle,
+            'is_business' => $is_business,
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'headline' => $headline,
             'country_id' => (Country::inRandomOrder()->first() == null) ? null : Country::inRandomOrder()->first()->id,
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
