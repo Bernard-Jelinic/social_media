@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             CountrySeeder::class,
             UserSeeder::class,
             PostSeeder::class,
+            ProfileViewSeeder::class,
         ]);
     }
 }
