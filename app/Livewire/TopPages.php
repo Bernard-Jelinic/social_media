@@ -7,7 +7,8 @@ use Livewire\Component;
 
 class TopPages extends Component
 {
-    public $most_repeating_records;
+    public $users;
+    public $title;
 
     public function mount(): void
     {
@@ -16,16 +17,17 @@ class TopPages extends Component
 
     public function get(): void
     {
-        $this->most_repeating_records = User::where('is_page', true)
+        $this->users = User::where('is_page', true)
                                             ->withCount('profileViews')
                                             ->orderByDesc('profile_views_count')
                                             ->take(5)
                                             ->get();
+        $this->title = 'Top Pages';
 
     }
 
     public function render()
     {
-        return view('livewire.top-pages');
+        return view('livewire.shared.pages.pages-sidebar');
     }
 }

@@ -1,9 +1,9 @@
 <div class="widget widget-jobs">
     <div class="sd-title">
-        <h3>Top Pages</h3>
+        <h3>{{ $title }}</h3>
     </div>
     <div class="jobs-list">
-        @foreach ($most_repeating_records as $user)
+        @foreach ($users as $user)
             <div class="job-info">
                 <div class="job-details">
                     <h3>{{ $user->full_name }}</h3>

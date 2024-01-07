@@ -78,40 +78,7 @@
                     <div class="col-lg-3 pd-right-none no-pd">
                         <div class="right-sidebar">
                             <livewire:top-pages/>
-                            <div class="widget widget-jobs">
-                                <div class="sd-title">
-                                    <h3>Most Viewed This Week</h3>
-                                </div>
-                                <div class="jobs-list">
-                                    <div class="job-info">
-                                        <div class="job-details">
-                                            <h3>Senior Product Designer</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                        </div>
-                                        <div class="hr-rate">
-                                            <span>$25/hr</span>
-                                        </div>
-                                    </div><!--job-info end-->
-                                    <div class="job-info">
-                                        <div class="job-details">
-                                            <h3>Senior UI / UX Designer</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                        </div>
-                                        <div class="hr-rate">
-                                            <span>$25/hr</span>
-                                        </div>
-                                    </div><!--job-info end-->
-                                    <div class="job-info">
-                                        <div class="job-details">
-                                            <h3>Junior Seo Designer</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                        </div>
-                                        <div class="hr-rate">
-                                            <span>$25/hr</span>
-                                        </div>
-                                    </div><!--job-info end-->
-                                </div><!--jobs-list end-->
-                            </div><!--widget-jobs end-->
+                            <livewire:pages-most-view-this-week/>
                         </div><!--right-sidebar end-->
                     </div>
                 </div>
