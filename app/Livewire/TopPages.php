@@ -18,10 +18,10 @@ class TopPages extends Component
     public function get(): void
     {
         $this->users = User::where('is_page', true)
-                                            ->withCount('profileViews')
-                                            ->orderByDesc('profile_views_count')
-                                            ->take(5)
-                                            ->get();
+                            ->withCount('profileViews')
+                            ->orderByDesc('profile_views_count')
+                            ->take(5)
+                            ->get();
         $this->title = 'Top Pages';
 
     }
