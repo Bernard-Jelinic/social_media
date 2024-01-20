@@ -2,9 +2,11 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use App\Models\User;
+use App\Models\ProfileView;
+use App\Livewire\ProfileViewers;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ProfileTest extends TestCase
 {
@@ -173,5 +175,32 @@ class ProfileTest extends TestCase
             ->assertSee('a')
             ->assertSeeText('Deny')
             ->assertSeeText('Accept');
+    }
+
+    public function test_user_can_see_profile_viewers_component_on_his_profile(): void
+    {
+        // // Create two user
+        $user = User::factory()->create();
+
+        $another_user = User::factory()->create();
+        // // Acting as the created $another_user
+        $this->actingAs($another_user);
+        $this->get('/profile/' . $user->id );
+
+        $this->actingAs($user);
+        $this->get('/profile')
+                ->assertSeeLivewire(ProfileViewers::class);
+    }
+
+    public function test_another_user_can_not_see_profile_viewers_component_on_profile_of_another_user(): void
+    {
+        // // Create two user
+        $user = User::factory()->create();
+
+        $another_user = User::factory()->create();
+        // // Acting as the created $another_user
+        $this->actingAs($another_user);
+        $this->get('/profile/' . $user->id )
+                ->assertDontSeeLivewire(ProfileViewers::class);
     }
 }
