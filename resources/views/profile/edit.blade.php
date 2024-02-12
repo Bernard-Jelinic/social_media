@@ -33,19 +33,11 @@
                         <div class="main-ws-sec">
                             <div class="user-tab-sec">
                                 <h3>{{ $user->full_name }}</h3>
-                                <div class="star-descp">
-                                    @if ( !is_null($user->headline) )
+                                @if ( !is_null($user->headline) )
+                                    <div class="star-descp">
                                         <span>{{ $user->headline }}</span>
+                                    </div><!--star-descp end-->
                                     @endif
-                                    <ul>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star-half-o"></i></li>
-                                    </ul>
-                                    <a href="#" title="">Status</a>
-                                </div><!--star-descp end-->
                                 <div class="tab-feed st2">
                                     <ul>
                                         <li data-tab="feed-dd" class="active">

@@ -1,4 +1,9 @@
 <div>
+    @if ( count($friendRequests) == 0 )
+        <div class="alert alert-primary" style="margin-bottom: 0px;">
+            There is no friend requests
+        </div>
+    @else
     <table class="table table-hover">
         <thead>
             <tr>
@@ -22,4 +27,5 @@
             @endforeach
         </tbody>
     </table>
+    @endif
 </div>

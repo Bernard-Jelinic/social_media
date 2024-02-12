@@ -22,7 +22,9 @@
                 <input type="file" wire:model="tmp_profile_image" class="form-control" id="profile_image" name="image" />
             </div>
         
-            <button class="btn btn-primary" type="submit">Save profile picture</button>
+            <div style="padding-bottom: 28px;">
+                <button class="btn btn-primary" type="submit">Save profile picture</button>
+            </div>
         </form>
         <script>
             document.getElementById('uploadImageLink').addEventListener('click', function() {
