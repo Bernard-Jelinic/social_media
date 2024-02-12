@@ -38,8 +38,8 @@
     </ul>
     <ul class="flw-status">
         <li>
-            <span>Following</span>
-            <b>34</b>
+            <span>Number of friends</span>
+            <b>{{ $number_of_friends }}</b>
         </li>
         <!--<li>
             <span>Followers</span>
