@@ -61,7 +61,7 @@ php artisan db:seed
 
 ### Tests
 
-Tests are written and can be run
+Tests are written and can be run with the following
 
 ```
 php artisan test
