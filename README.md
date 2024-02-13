@@ -59,6 +59,14 @@ To add the dummy posts, users and friends, run the following
 php artisan db:seed
 ```
 
+### Tests
+
+Tests are written and can be run
+
+```
+php artisan test
+```
+
 ### Running Then App
 
 Upload the files to your document root, Valet folder or run
