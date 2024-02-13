@@ -87,7 +87,7 @@ class RegisterUserTest extends TestCase
             ->set('registerUserForm.password_confirmation', '123456789_1')
             ->call('registerUser')
             ->assertHasErrors(
-                ['registerUserForm.email' => ['unique:users,email']]
+                ['registerUserForm.email' => ['The email has already been taken.']]
             );
     }
 
@@ -116,7 +116,7 @@ class RegisterUserTest extends TestCase
             ->set('registerUserForm.password_confirmation', '123456789')
             ->call('registerUser')
             ->assertHasErrors(
-                ['registerUserForm.password' => ['confirmed']]
+                ['registerUserForm.password' => ['The password field confirmation does not match.']]
             );
     }
 
@@ -201,7 +201,7 @@ class RegisterUserTest extends TestCase
                 ->set('registerBusinessForm.password_confirmation', '123456789_1')
                 ->call('registerBusiness')
                 ->assertHasErrors(
-                    ['registerBusinessForm.email' => ['unique:users,email']]
+                    ['registerBusinessForm.email' => ['The email has already been taken.']]
                 );
         }
     
@@ -226,7 +226,7 @@ class RegisterUserTest extends TestCase
             ->set('registerBusinessForm.password_confirmation', '123456789')
             ->call('registerBusiness')
             ->assertHasErrors(
-                ['registerBusinessForm.password' => ['confirmed']]
+                ['registerBusinessForm.password' => ['The password field confirmation does not match.']]
             );
     }
 
