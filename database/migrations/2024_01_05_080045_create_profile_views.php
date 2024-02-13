@@ -17,8 +17,8 @@ return new class extends Migration
             $table->timestamp('viewed_at')->nullable();
     
             // Add foreign keys to reference the `users` table
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('visitor_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('visitor_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

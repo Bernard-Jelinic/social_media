@@ -113,7 +113,7 @@ class User extends Authenticatable
      *
      * @return Illuminate\Support\Collection A collection of User objects representing the $userId user's friends.
      */
-    public static function friends(int $userId): Object
+    public static function friends(int $userId): \Illuminate\Database\Eloquent\Collection
     {
         return User::whereHas('sentRequestTo', function ($query) use ($userId) {
             $query->where('status', 20)

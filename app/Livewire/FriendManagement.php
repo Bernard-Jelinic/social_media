@@ -23,7 +23,7 @@ class FriendManagement extends FriendBaseComponent
 
     public function get(): void
     {
-        $this->number_of_friends = count(User::friends(auth()->user()->id));
+        $this->number_of_friends = count(User::friends($this->user_profile->id));
 
         $friend = auth()->user()->sentRequestTo()->withPivot('status')->where('receiver_id', $this->user_profile->id)->first();
         if ($friend !== null) {
