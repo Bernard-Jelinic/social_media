@@ -13,20 +13,16 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="{{ route('dashboard') }}" title="">
-                            <span><img src="{{asset('assets/images/icon1.png') }}" alt=""></span>
+                        <a href="{{ route('dashboard') }}" title="Home">
+                            <span><img src="{{asset('assets/images/icon1.png') }}" alt="Home"></span>
                             Home
                         </a>
                     </li>
                     <li>
-                        <a href="companies.html" title="">
-                            <span><img src="{{asset('assets/images/icon2.png') }}" alt=""></span>
-                            Companies
+                        <a href="{{ route('pages.index') }}" title="Pages">
+                            <span><img src="{{asset('assets/images/icon2.png') }}" alt="Pages"></span>
+                            Pages
                         </a>
-                        <ul>
-                            <li><a href="companies.html" title="">Companies</a></li>
-                            <li><a href="company-profile.html" title="">Company Profile</a></li>
-                        </ul>
                     </li>
                     <li>
                         <a href="projects.html" title="">
