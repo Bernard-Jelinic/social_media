@@ -12,13 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('profile_views', function (Blueprint $table) {
-            $table->unsignedBigInteger('visitor_id');
-            $table->unsignedBigInteger('user_id');
+            $table->foreignId('visitor_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamp('viewed_at')->nullable();
-    
-            // Add foreign keys to reference the `users` table
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('visitor_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
