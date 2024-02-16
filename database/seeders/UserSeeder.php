@@ -28,7 +28,5 @@ class UserSeeder extends Seeder
             'email' => 'jelinic.bernard@gmail.com',
             'password' => '123456789'
         ]);
-
-        User::factory(14)->create();
     }
 }
