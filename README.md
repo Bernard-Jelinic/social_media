@@ -32,6 +32,12 @@ copy .env.example .env or cp .env.example .env
 php artisan key:generate
 ```
 
+### Create a symlink from public/storage to storage/app/public
+
+```
+php artisan storage:link
+```
+
 ### Create an empty database for our application
 
 Create an empty database for your project using the database tools you prefer.
