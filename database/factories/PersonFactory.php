@@ -32,6 +32,7 @@ class PersonFactory extends Factory
             'last_name' => fake()->lastName(),
             'headline' => $headline,
             'country_id' => (Country::inRandomOrder()->first() == null) ? null : Country::inRandomOrder()->first()->id,
+            'profile_image' => 'storage/default_images/person.png',
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
