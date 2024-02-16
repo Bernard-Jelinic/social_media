@@ -11,7 +11,7 @@ class PageTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_global_scope_is_page_is_true()
+    public function test_global_scope_is_page_is_implemented()
     {
         // Create pages with is_page=true and is_page=false
         $validPage = User::factory()->create(['is_page' => true]);

@@ -12,6 +12,20 @@ class PersonTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_global_scope_is_page_is_implemented()
+    {
+        // Create persons with is_page=true and is_page=false
+        $validPerson = Person::factory()->create();
+        $invalidPerson = Page::factory()->create();
+
+        // Apply the scope
+        $persons = Person::all();
+
+        // Assert that only the valid page is included
+        $this->assertCount(1, $persons);
+        $this->assertTrue($persons->first()->is($validPerson));
+    }
+
     public function test_friends_returns_existing_friends()
     {
         // Create two users and make them friends (status 20)
@@ -27,12 +41,8 @@ class PersonTest extends TestCase
 
         // Assert that the correct number of friends are returned
         $this->assertCount(2, $friends);
-
-        if ($friend1->id == $friends[0]->id && $friend2->id == $friends[1]->id) {
-            $this->assertTrue(true);
-        } else {
-            $this->assertFalse(false);
-        }
+        $this->assertTrue($friends->first()->is($friend1));
+        $this->assertTrue($friends[1]->is($friend2));
     }
 
     public function test_friends_returns_empty_collection_with_no_friends()
@@ -63,17 +73,7 @@ class PersonTest extends TestCase
 
         // Assert that only the non-page friend is returned
         $this->assertCount(1, $friends);
-
-        if ($friend1->id == $friends[0]->id) {
-            $this->assertTrue(true);
-        } else {
-            $this->assertFalse(false);
-        }
-
-        if ($friend2->id !== $friends[0]->id) {
-            $this->assertTrue(true);
-        } else {
-            $this->assertFalse(false);
-        }
+        $this->assertTrue($friends->first()->is($friend1));
+        $this->assertFalse($friends->first()->is($friend2));
     }
 }
