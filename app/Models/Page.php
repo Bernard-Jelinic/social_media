@@ -7,7 +7,6 @@ use App\Models\User;
 
 class Page extends User
 {
-
     /**
      * The "booted" method of the model.
      */

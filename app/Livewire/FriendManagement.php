@@ -4,6 +4,8 @@ namespace App\Livewire;
 
 use App\Models\User;
 use App\Livewire\FriendBaseComponent;
+use App\Models\Person;
+use App\Models\Page;
 use Illuminate\View\View;
 use App\Enums\FriendStatus;
 
@@ -14,6 +16,7 @@ class FriendManagement extends FriendBaseComponent
     public $request_accepted = false;
     public $is_this_sent_request = false;
     public $number_of_friends = 0;
+    public $model = User::class;
 
     public function mount($user_profile): void
     {
@@ -23,7 +26,12 @@ class FriendManagement extends FriendBaseComponent
 
     public function get(): void
     {
-        $this->number_of_friends = count(User::friends($this->user_profile->id));
+        if ($this->user_profile->is_page){
+            $this->model = Page::class;
+        } else {
+            $this->model = Person::class;
+            $this->number_of_friends = count($this->model::friends($this->user_profile->id));
+        }
 
         $friend = auth()->user()->sentRequestTo()->withPivot('status')->where('receiver_id', $this->user_profile->id)->first();
         if ($friend !== null) {
