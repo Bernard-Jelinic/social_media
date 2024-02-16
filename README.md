@@ -11,7 +11,7 @@ git clone https://github.com/Bernard-Jelinic/social_media.git
 ### cd into your project
 
 ```
-cd social-media
+cd social_media
 ```
 
 ### Install Composer Dependencies
@@ -23,7 +23,11 @@ composer install
 ### Create a copy of your .env file
 
 ```
-copy .env.example .env or cp .env.example .env
+copy .env.example .env
+```
+or
+```
+cp .env.example .env
 ```
 
 ### Generate an app encryption key
@@ -51,7 +55,7 @@ In the .env file fill in the DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, and DB_
 
 ### Migrations
 
-To create all the nessesary tables and columns, run the following
+To create all the necessary tables and columns, run the following
 
 ```
 php artisan migrate
