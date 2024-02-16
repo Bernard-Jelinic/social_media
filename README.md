@@ -5,7 +5,7 @@
 ### Clone GitHub repo for this project locally
 
 ```
-git clone https://github.com/Bernard-Jelinic/social-media.git
+git clone https://github.com/Bernard-Jelinic/social_media.git
 ```
 
 ### cd into your project
