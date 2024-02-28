@@ -25,6 +25,7 @@ class PageFactory extends Factory
             'first_name' => fake()->company(),
             'last_name' => fake()->companySuffix(),
             'headline' => fake()->catchPhrase(),
+            'about' => fake()->paragraph(),
             'country_id' => (Country::inRandomOrder()->first() == null) ? null : Country::inRandomOrder()->first()->id,
             'profile_image' => 'assets/images/default_images/page.png',
             'email' => fake()->unique()->safeEmail(),

@@ -25,6 +25,7 @@ class UserSeeder extends Seeder
             'last_name' => 'Jelinić',
             'country_id' => Country::where('name', 'Croatia')->first()->id,
             'headline' => $jobTitle,
+            'about' => fake()->paragraph(),
             'email' => 'jelinic.bernard@gmail.com',
             'password' => '123456789'
         ]);
