@@ -4,15 +4,15 @@
     </div>
     <div class="jobs-list">
         @foreach ($users as $user)
-            <div class="job-info">
-                <div class="job-details">
-                    <h3>{{ $user->full_name }}</h3>
-                    <p>{{ $user->headline }}</p>
-                </div>
-                <div class="hr-rate">
-                    <img style="width: 35px;" src="{{ asset($user->profile_image) }}" alt="Profile image">
-                </div>
-            </div><!--job-info end-->
+            <a class="job-info" href="{{ route('profile.show', $user->id) }}">
+                    <div class="job-details">
+                        <h3>{{ $user->full_name }}</h3>
+                        <p>{{ $user->headline }}</p>
+                    </div>
+                    <div class="hr-rate">
+                        <img style="width: 35px;" src="{{ asset($user->profile_image) }}" alt="Profile image">
+                    </div>
+            </a><!--job-info end-->
         @endforeach
     </div><!--jobs-list end-->
 </div><!--widget-jobs end-->
