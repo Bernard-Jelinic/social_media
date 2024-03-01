@@ -73,7 +73,7 @@
                             <div class="product-feed-tab" id="info-dd">
                                 <div class="user-profile-ov">
                                     <h3><a href="#" title="" class="overview-open">Overview</a> <a href="#" title="" class="overview-open"><i class="fa fa-pencil"></i></a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor aliquam felis, nec condimentum ipsum commodo id. Vivamus sit amet augue nec urna efficitur tincidunt. Vivamus consectetur aliquam lectus commodo viverra. Nunc eu augue nec arcu efficitur faucibus. Aliquam accumsan ac magna convallis bibendum. Quisque laoreet augue eget augue fermentum scelerisque. Vivamus dignissim mollis est dictum blandit. Nam porta auctor neque sed congue. Nullam rutrum eget ex at maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget vestibulum lorem.</p>
+                                    <p>{{ $user->about }}</p>
                                 </div><!--user-profile-ov end-->
                                 <div class="user-profile-ov st2">
                                     <h3><a href="#" title="" class="exp-bx-open">Experience </a><a href="#" title="" class="exp-bx-open"><i class="fa fa-pencil"></i></a> <a href="#" title="" class="exp-bx-open"><i class="fa fa-plus-square"></i></a></h3>
@@ -244,7 +244,7 @@
         <h3>Overview</h3>
         <span>5000 character left</span>
         <form>
-            <textarea></textarea>
+            <textarea>{{ $user->about }}</textarea>
             <button type="submit" class="save">Save</button>
             <button type="submit" class="cancel">Cancel</button>
         </form>
