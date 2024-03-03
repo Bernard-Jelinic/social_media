@@ -88,7 +88,7 @@
                                       </div><!--notification-info -->
                                   </div>
                                   <div class="view-all-nots">
-                                      <a href="messages.html" title="">View All Messsages</a>
+                                      <a href="{{ route('messages.index') }}" title="View All Messages">View All Messsages</a>
                                   </div>
                             </div><!--nott-list end-->
                         </div><!--notification-box end-->
