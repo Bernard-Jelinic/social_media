@@ -5696,6 +5696,8 @@ a:hover {
 	float: left;
 	width: 100%;
 	height: 604px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 /* ============== message-send-area ============ */
@@ -6301,6 +6303,46 @@ a:hover {
 	-webkit-animation-delay: -0.16s;
 	animation-delay: -0.16s;
 }
+
+/* modified-message-box-start */
+.msg_cotainer{
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 10px;
+	border-radius: 25px;
+	background-color: #82ccdd;
+	padding: 10px;
+	position: relative;
+	min-width: 100px;
+	}
+.msg_cotainer_send{
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-right: 10px;
+	border-radius: 25px;
+	background-color: #78e08f;
+	padding: 10px;
+	position: relative;
+	min-width: 100px;
+}
+.msg_time{
+	position: absolute;
+	left: 0;
+	bottom: -15px;
+	color: rgba(255,255,255,0.5);
+	font-size: 10px;
+}
+.msg_time_send{
+	position: absolute;
+	right:0;
+	bottom: -15px;
+	color: rgba(255,255,255,0.5);
+	font-size: 10px;
+}
+.msg_head{
+	position: relative;
+}
+/* modified-message-box-end */
 
 @-webkit-keyframes sk-bouncedelay {
 
