@@ -4,28 +4,34 @@ namespace App\Livewire;
 
 use Musonza\Chat\Models\Conversation;
 use Livewire\Component;
+use Illuminate\Http\Request;
 
 class ChatConversation extends Component
 {
     public $selected_conversation;
     public $selected_participant;
 
-    public function mount(): void
+    public function mount(Request $request): void
     {
-        $participantId = auth()->user()->id;
 
-        $conversation = Conversation::whereHas('messages', function ($query) use ($participantId) {
-            $query->where('participation_id', $participantId);
-        })->latest('updated_at')->first();
-
-        if ($conversation) {
-            $messages = $conversation->messages()->orderBy('created_at', 'asc')->get();
-            // Process messages as shown previously
+        if ($request->route('conversation_id')) {
+            $conversation = Conversation::find($request->route('conversation_id'));
         } else {
-            // Handle the case where no conversation is found for the participant
+            $participantId = auth()->user()->id;
+
+            $conversation = Conversation::whereHas('messages', function ($query) use ($participantId) {
+                $query->where('participation_id', $participantId);
+            })->latest('updated_at')->first();
+    
+            if ($conversation) {
+                $messages = $conversation->messages()->orderBy('created_at', 'asc')->get();
+                $conversation = Conversation::find($conversation->id);
+                // Process messages as shown previously
+            } else {
+                // Handle the case where no conversation is found for the participant
+            }
         }
 
-        $conversation = Conversation::find($conversation->id);
         $this->selected_conversation = $conversation->messages()->orderBy('created_at', 'asc')->get();
 
         foreach ($this->selected_conversation as $conversation) {

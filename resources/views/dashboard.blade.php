@@ -2,8 +2,6 @@
 
 @section('content')
 
-@include('partials.header')
-
 <main>
     <div class="main-section">
         <div class="container">

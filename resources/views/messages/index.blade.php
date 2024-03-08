@@ -2,8 +2,6 @@
 
 @section('content')
 
-    @include('partials.header')
-
     <section class="messages-page">
         <div class="container">
             <div class="messages-sec">

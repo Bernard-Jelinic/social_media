@@ -58,16 +58,17 @@
                             </div>
                             <div class="nott-list">
                                 <div class="notfication-details">
-                                      <div class="noty-user-img">
-                                          <img src="{{asset('assets/images/resources/ny-img1.png') }}" alt="tttttttttttttt">
-                                      </div>
-                                      <div class="notification-info">
-                                          <h3><a href="messages.html" title="">Jassica William</a> </h3>
-                                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
-                                          <span>2 min ago</span>
-                                      </div><!--notification-info -->
-                                  </div>
-                                  <div class="notfication-details">
+                                    <div class="noty-user-img">
+                                        <img src="{{asset('assets/images/resources/ny-img1.png') }}" alt="tttttttttttttt">
+                                    </div>
+                                    <div class="notification-info">
+                                        <h3><a href="messages.html" title="">Jassica William</a> </h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
+                                        <span>2 min ago</span>
+                                    </div><!--notification-info -->
+                                </div>
+
+                                <div class="notfication-details">
                                       <div class="noty-user-img">
                                           <img src="{{asset('assets/images/resources/ny-img2.png') }}" alt="ttttttttttttttttttt">
                                       </div>
@@ -76,20 +77,40 @@
                                           <p>Lorem ipsum dolor sit amet.</p>
                                           <span>2 min ago</span>
                                       </div><!--notification-info -->
-                                  </div>
-                                  <div class="notfication-details">
-                                      <div class="noty-user-img">
-                                          <img src="{{asset('assets/images/resources/ny-img3.png') }}" alt="ttttttttttttttttttttttttt">
-                                      </div>
-                                      <div class="notification-info">
-                                          <h3><a href="messages.html" title="">Jassica William</a></h3>
-                                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.</p>
-                                          <span>2 min ago</span>
-                                      </div><!--notification-info -->
-                                  </div>
-                                  <div class="view-all-nots">
-                                      <a href="{{ route('messages.index') }}" title="View All Messages">View All Messsages</a>
-                                  </div>
+                                </div>
+
+                                <div class="notfication-details">
+                                    <div class="noty-user-img">
+                                        <img src="{{asset('assets/images/resources/ny-img3.png') }}" alt="ttttttttttttttttttttttttt">
+                                    </div>
+                                    <div class="notification-info">
+                                        <h3><a href="messages.html" title="">Jassica William</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.</p>
+                                        <span>2 min ago</span>
+                                    </div><!--notification-info -->
+                                </div>
+
+                                @foreach ($conversations as $conversation)
+                                    @php
+                                        $last_message = $conversation->messages[count($conversation->messages) - 1];
+                                    @endphp
+                                    <div class="notfication-details">
+                                        <a href="{{ route('messages.index', $last_message->conversation_id) }}">
+                                            <div class="noty-user-img">
+                                                <img src="{{asset('assets/images/resources/ny-img1.png') }}" alt="tttttttttttttt">
+                                            </div>
+                                            <div class="notification-info">
+                                                <h3>{{ substr($last_message->participation->messageable->full_name, 0, 20) }}{{ (strlen($last_message->participation->messageable->full_name) > 20) ? '...' : '' }}</h3>
+                                                <p>{{ $last_message->body }}</p>
+                                                <span>{{ $last_message->created_at->diffForHumans() }}</span>
+                                            </div><!--notification-info -->
+                                        </a>
+                                    </div>
+                                @endforeach
+
+                                <div class="view-all-nots">
+                                    <a href="{{ route('messages.index') }}" title="View All Messages">View All Messsages</a>
+                                </div>
                             </div><!--nott-list end-->
                         </div><!--notification-box end-->
                     </li>

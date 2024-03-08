@@ -2,8 +2,6 @@
 
 @section('content')
 
-    @include('partials.header')
-
     <section class="companies-info">
         <div class="container">
             <div class="company-title">

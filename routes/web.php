@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('pages', PageController::class);
 
-    Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
+    Route::get('/messages/{conversation_id?}', [MessageController::class, 'index'])->name('messages.index');
 });
 
 require __DIR__.'/auth.php';
