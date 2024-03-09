@@ -25,7 +25,9 @@
     <body class="{{ (Route::is('login') || Route::is('register')) ? 'sign-in' : '' }}">
         <!--theme-layout start-->
         <div class="wrapper">
-            <livewire:header/>
+            @if (auth()->user())
+                <livewire:header/>
+            @endif
             @yield('content')
         </div>
         <!--theme-layout end-->
