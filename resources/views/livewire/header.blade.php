@@ -57,39 +57,6 @@
                                 <a href="#" title="">Clear all</a>
                             </div>
                             <div class="nott-list">
-                                <div class="notfication-details">
-                                    <div class="noty-user-img">
-                                        <img src="{{asset('assets/images/resources/ny-img1.png') }}" alt="tttttttttttttt">
-                                    </div>
-                                    <div class="notification-info">
-                                        <h3><a href="messages.html" title="">Jassica William</a> </h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
-                                        <span>2 min ago</span>
-                                    </div><!--notification-info -->
-                                </div>
-
-                                <div class="notfication-details">
-                                      <div class="noty-user-img">
-                                          <img src="{{asset('assets/images/resources/ny-img2.png') }}" alt="ttttttttttttttttttt">
-                                      </div>
-                                      <div class="notification-info">
-                                          <h3><a href="messages.html" title="">Jassica William</a></h3>
-                                          <p>Lorem ipsum dolor sit amet.</p>
-                                          <span>2 min ago</span>
-                                      </div><!--notification-info -->
-                                </div>
-
-                                <div class="notfication-details">
-                                    <div class="noty-user-img">
-                                        <img src="{{asset('assets/images/resources/ny-img3.png') }}" alt="ttttttttttttttttttttttttt">
-                                    </div>
-                                    <div class="notification-info">
-                                        <h3><a href="messages.html" title="">Jassica William</a></h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.</p>
-                                        <span>2 min ago</span>
-                                    </div><!--notification-info -->
-                                </div>
-
                                 @foreach ($conversations as $conversation)
                                     @php
                                         $last_message = $conversation->messages[count($conversation->messages) - 1];

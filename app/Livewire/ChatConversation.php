@@ -10,6 +10,7 @@ class ChatConversation extends Component
 {
     public $selected_conversation;
     public $selected_participant;
+    public $is_message_exist = false;
 
     public function mount(Request $request): void
     {
@@ -27,16 +28,19 @@ class ChatConversation extends Component
                 $messages = $conversation->messages()->orderBy('created_at', 'asc')->get();
                 $conversation = Conversation::find($conversation->id);
                 // Process messages as shown previously
+                $this->is_message_exist = true;
             } else {
                 // Handle the case where no conversation is found for the participant
             }
         }
 
-        $this->selected_conversation = $conversation->messages()->orderBy('created_at', 'asc')->get();
-
-        foreach ($this->selected_conversation as $conversation) {
-            if ( auth()->user()->id !== $conversation->id ) {
-                $this->selected_participant = \App\Models\User::find($conversation->id);
+        if ($this->is_message_exist) {
+            $this->selected_conversation = $conversation->messages()->orderBy('created_at', 'asc')->get();
+    
+            foreach ($this->selected_conversation as $conversation) {
+                if ( auth()->user()->id !== $conversation->id ) {
+                    $this->selected_participant = \App\Models\User::find($conversation->id);
+                }
             }
         }
     }
