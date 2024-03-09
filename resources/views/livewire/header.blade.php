@@ -59,12 +59,17 @@
                             <div class="nott-list">
                                 @foreach ($conversations as $conversation)
                                     @php
+                                        foreach ($conversation->participants as $participant) {
+                                            if ($participant->id !== auth()->user()->id) {
+                                                $user_for_profile_picture = \App\Models\User::find($participant->id);
+                                            }
+                                        }
                                         $last_message = $conversation->messages[count($conversation->messages) - 1];
                                     @endphp
                                     <div class="notfication-details">
                                         <a href="{{ route('messages.index', $last_message->conversation_id) }}">
                                             <div class="noty-user-img">
-                                                <img src="{{asset('assets/images/resources/ny-img1.png') }}" alt="tttttttttttttt">
+                                                <img src="{{ asset($user_for_profile_picture->profile_image) }}" alt="Users profile image">
                                             </div>
                                             <div class="notification-info">
                                                 <h3>{{ substr($last_message->participation->messageable->full_name, 0, 20) }}{{ (strlen($last_message->participation->messageable->full_name) > 20) ? '...' : '' }}</h3>
