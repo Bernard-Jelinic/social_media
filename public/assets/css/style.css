@@ -5697,7 +5697,7 @@ a:hover {
 	width: 100%;
 	height: 604px;
 	padding-left: 30px;
-	padding-right: 30px;
+	/* padding-right: 30px; */
 }
 
 /* ============== message-send-area ============ */
