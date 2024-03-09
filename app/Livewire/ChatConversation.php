@@ -17,6 +17,7 @@ class ChatConversation extends Component
 
         if ($request->route('conversation_id')) {
             $conversation = Conversation::find($request->route('conversation_id'));
+            $this->is_message_exist = true;
         } else {
             $participantId = auth()->user()->id;
 

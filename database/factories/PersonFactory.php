@@ -26,12 +26,18 @@ class PersonFactory extends Factory
             $headline = fake()->jobTitle();
         }
 
+        $about = fake()->paragraph();
+
+        while (strlen($about) > 255){
+            $about = fake()->paragraph();
+        }
+
         return [
             'is_page' => false,
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'headline' => $headline,
-            'about' => fake()->paragraph(),
+            'about' => $about,
             'country_id' => (Country::inRandomOrder()->first() == null) ? null : Country::inRandomOrder()->first()->id,
             'profile_image' => 'assets/images/default_images/person.png',
             'email' => fake()->unique()->safeEmail(),

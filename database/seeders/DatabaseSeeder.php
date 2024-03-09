@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             CountrySeeder::class,
             UserSeeder::class,
             PersonSeeder::class,
+            MessageSeeder::class,
             PageSeeder::class,
             PostSeeder::class,
             ProfileViewSeeder::class,
