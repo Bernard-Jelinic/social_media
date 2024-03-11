@@ -1,30 +1,23 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Livewire;
 
 use Tests\TestCase;
-use App\Models\User;
 use App\Models\Person;
+use App\Models\Page;
+use App\Livewire\ChatConversation;
 use Musonza\Chat\Facades\ChatFacade as Chat;
+use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class MessageTest extends TestCase
+class ChatConversationTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_messages_page_is_displayed(): void
+    /** @test */
+    public function chat_conversation_component_exists_on_messages_page()
     {
-        $user = User::factory()->create();
-
-        $response = $this
-            ->actingAs($user)
-            ->get('/messages');
-
-        $response->assertOk();
-    }
-
-    public function test_specific_message_page_is_displayed(): void
-    {
+        // // Create two users
         $person_1 = Person::factory()->create();
         $person_2 = Person::factory()->create();
 
@@ -34,10 +27,11 @@ class MessageTest extends TestCase
         Chat::message('Hello')->from($person_1)->to($conversation)->send();
         Chat::message('Hello to you to')->from($person_2)->to($conversation)->send();
 
-        $response = $this
-            ->actingAs($person_1)
-            ->get('/messages/' . $person_1->id);
+        // // Acting as the authenticated user
+        $this->actingAs($person_1);
 
-        $this->assertTrue(true);
+        $this->get('/messages')
+            ->assertSeeLivewire(ChatConversation::class);
+
     }
 }
