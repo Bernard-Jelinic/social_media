@@ -186,7 +186,7 @@
                     <div class="col-lg-3">
                         <div class="right-sidebar">
                             <div class="message-btn">
-                                <a href="#" title=""><i class="fa fa-envelope"></i> Message</a>
+                                <a href="{{ route('messages.createOpenConversation', ['participant_one' => auth()->id(), 'participant_two' => $user->id] ) }}" title="Message"><i class="fa fa-envelope"></i> Message</a>
                             </div>
                             <div class="widget widget-portfolio">
                                 <div class="wd-heady">

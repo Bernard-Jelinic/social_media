@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('pages', PageController::class);
 
     Route::get('/messages/{conversation_id?}', [MessageController::class, 'index'])->name('messages.index');
+    Route::get('/messages/create-open-conversation/{participant_one}/{participant_two}', [MessageController::class, 'createOpenConversation'])->name('messages.createOpenConversation');
 });
 
 require __DIR__.'/auth.php';
