@@ -34,6 +34,7 @@ class PersonFactory extends Factory
 
         return [
             'is_page' => false,
+            'is_online' => fake()->boolean,
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'headline' => $headline,

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Person>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Page>
  */
 class PageFactory extends Factory
 {
@@ -20,12 +20,25 @@ class PageFactory extends Factory
      */
     public function definition(): array
     {
+        $headline = fake()->jobTitle();
+
+        while (strlen($headline) > 20) {
+            $headline = fake()->jobTitle();
+        }
+
+        $about = fake()->paragraph();
+
+        while (strlen($about) > 255){
+            $about = fake()->paragraph();
+        }
+
         return [
             'is_page' => true,
+            'is_online' => fake()->boolean,
             'first_name' => fake()->company(),
             'last_name' => fake()->companySuffix(),
-            'headline' => fake()->catchPhrase(),
-            'about' => fake()->paragraph(),
+            'headline' => $headline,
+            'about' => $about,
             'country_id' => (Country::inRandomOrder()->first() == null) ? null : Country::inRandomOrder()->first()->id,
             'profile_image' => 'assets/images/default_images/page.png',
             'email' => fake()->unique()->safeEmail(),

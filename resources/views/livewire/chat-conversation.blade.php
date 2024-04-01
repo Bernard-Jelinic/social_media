@@ -7,7 +7,13 @@
                 </div>
                 <div class="usr-mg-info">
                     <h3>{{ $selected_participant['full_name'] }}</h3>
-                    <p>Online</p>
+                    @if ($selected_participant['is_online'] == true)
+                        <span class="logged-out" style="color: green">●</span>
+                        Online
+                    @else
+                        <span class="logged-out" style="color: red">●</span>
+                        Offline
+                    @endif
                 </div><!--usr-mg-info end-->
             </div>
             <a href="#" title=""><i class="fa fa-ellipsis-v"></i></a>

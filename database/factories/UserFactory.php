@@ -22,7 +22,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         $is_page = fake()->boolean;
-
+        
         if ($is_page) {
             $first_name = fake()->company();
             $last_name = fake()->companySuffix();
@@ -31,7 +31,7 @@ class UserFactory extends Factory
             $first_name = fake()->firstName();
             $last_name = fake()->lastName();
             $headline = fake()->jobTitle();
-
+            
             while (strlen($headline) > 20) {
                 $headline = fake()->jobTitle();
             }
@@ -39,6 +39,7 @@ class UserFactory extends Factory
 
         return [
             'is_page' => $is_page,
+            'is_online' => fake()->boolean,
             'first_name' => $first_name,
             'last_name' => $last_name,
             'headline' => $headline,
