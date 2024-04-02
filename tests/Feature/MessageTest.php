@@ -40,4 +40,46 @@ class MessageTest extends TestCase
 
         $this->assertTrue(true);
     }
+
+    public function test_show_if_user_is_online(): void
+    {
+        $person_1 = Person::factory()->create();
+        $person_1->is_online = true;
+        $person_1->save();
+
+        $person_2 = Person::factory()->create();
+        $person_2->is_online = true;
+        $person_2->save();
+
+        $participants = [$person_1, $person_2];
+        $conversation = Chat::createConversation($participants)->makeDirect();
+
+        Chat::message('Hello')->from($person_1)->to($conversation)->send();
+        Chat::message('Hello to you to')->from($person_2)->to($conversation)->send();
+
+        $this->actingAs($person_1)
+            ->get('/messages/' . $person_1->id)
+            ->assertSeeText('Online');
+    }
+
+    public function test_show_if_user_is_offline(): void
+    {
+        $person_1 = Person::factory()->create();
+        $person_1->is_online = false;
+        $person_1->save();
+
+        $person_2 = Person::factory()->create();
+        $person_2->is_online = false;
+        $person_2->save();
+
+        $participants = [$person_1, $person_2];
+        $conversation = Chat::createConversation($participants)->makeDirect();
+
+        Chat::message('Hello')->from($person_1)->to($conversation)->send();
+        Chat::message('Hello to you to')->from($person_2)->to($conversation)->send();
+
+        $this->actingAs($person_1)
+            ->get('/messages/' . $person_1->id)
+            ->assertSeeText('Offline');
+    }
 }
