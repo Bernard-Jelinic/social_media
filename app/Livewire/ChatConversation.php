@@ -13,21 +13,27 @@ class ChatConversation extends Component
     public $selected_conversation;
     public $selected_participant;
     public $is_message_exist = false;
+    public $conversation_id;
 
     public function mount(Request $request): void
     {
 
-        // // if in url exist conversation_id
+        // // if in url conversation_id exist
         if ($request->route('conversation_id')) {
+
+            $this->conversation_id = $request->route('conversation_id');
+
             $conversation = Conversation::find($request->route('conversation_id'));
             $this->is_message_exist = true;
         } else {
-            // // if in url don't exist conversation_id
+            // // if in url conversation_id don't exist
             $participantId = auth()->user()->id;
 
             $conversation = Conversation::whereHas('messages', function ($query) use ($participantId) {
                 $query->where('participation_id', $participantId);
             })->latest('updated_at')->first();
+
+            $this->conversation_id = $conversation->id;
     
             if ($conversation) {
                 $conversation = Conversation::find($conversation->id);
@@ -42,7 +48,7 @@ class ChatConversation extends Component
             $this->selected_conversation = $conversation->messages()->orderBy('created_at', 'asc')->get();
 
             if (count($this->selected_conversation)) {
-                for ($i=0; $i < count($this->selected_conversation); $i++) { 
+                for ($i=0; $i < count($this->selected_conversation); $i++) {
                     $conversation = $this->selected_conversation[$i];
                     if ( auth()->user()->id !== $conversation->id ) {
                         $this->selected_participant = User::find($conversation->id);
