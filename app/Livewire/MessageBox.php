@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Person;
 use App\Models\Page;
 use Livewire\Component;
+use App\Events\MessageSent;
 use Musonza\Chat\Facades\ChatFacade as Chat;
 
 class MessageBox extends Component
@@ -35,6 +36,7 @@ class MessageBox extends Component
             ->send();
 
         $this->messageText = "";
+        event(new MessageSent());
     }
 
     public function render()

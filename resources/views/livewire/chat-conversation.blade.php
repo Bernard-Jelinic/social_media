@@ -48,4 +48,12 @@
         <livewire:message-box :conversation_id="$conversation_id"/>
 
     @endif
+        @script
+            <script>
+                Echo.channel('message')
+                    .listen('.sent.message', () => {
+                        $wire.getter()
+                    });
+            </script>
+        @endscript
 </div><!--main-conversation-box end-->

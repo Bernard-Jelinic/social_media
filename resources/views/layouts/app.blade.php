@@ -20,6 +20,29 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">
         @livewireStyles
+
+        @if (auth()->user())
+        {{-- START PUSHER --}}
+        <script src="{{ asset('assets/js/pusher.min.js') }}"></script>
+        <script src="{{ asset('assets/js/echo.iife.js') }}"></script>
+        <script>
+            // Enable pusher logging - don't include this in production
+            Pusher.logToConsole = true;
+            window.Echo = new Echo({
+                broadcaster: 'pusher',
+                key: '{{ env('PUSHER_APP_KEY') }}',
+                cluster: '{{ env('PUSHER_APP_CLUSTER') }}',
+                encrypted: 'true',
+                authEndpoint: '{{ asset('broadcasting/auth') }}',
+                auth: {
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    }
+                }
+            })
+        </script>
+        {{-- END PUSHER --}}
+        @endif
     </head>
 
     <body class="{{ (Route::is('login') || Route::is('register')) ? 'sign-in' : '' }}">
