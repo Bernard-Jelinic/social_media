@@ -18,7 +18,7 @@ class MessageTest extends TestCase
 
         $response = $this
             ->actingAs($user)
-            ->get('/messages');
+                        ->get('/messages');
 
         $response->assertOk();
     }
@@ -34,9 +34,8 @@ class MessageTest extends TestCase
         Chat::message('Hello')->from($person_1)->to($conversation)->send();
         Chat::message('Hello to you to')->from($person_2)->to($conversation)->send();
 
-        $response = $this
-            ->actingAs($person_1)
-            ->get('/messages/' . $person_1->id);
+        $this->actingAs($person_1)
+            ->get('/messages/' . $conversation->id);
 
         $this->assertTrue(true);
     }
@@ -58,7 +57,7 @@ class MessageTest extends TestCase
         Chat::message('Hello to you to')->from($person_2)->to($conversation)->send();
 
         $this->actingAs($person_1)
-            ->get('/messages/' . $person_1->id)
+            ->get('/messages/' . $conversation->id)
             ->assertSeeText('Online');
     }
 
@@ -79,7 +78,7 @@ class MessageTest extends TestCase
         Chat::message('Hello to you to')->from($person_2)->to($conversation)->send();
 
         $this->actingAs($person_1)
-            ->get('/messages/' . $person_1->id)
+            ->get('/messages/' . $conversation->id)
             ->assertSeeText('Offline');
     }
 }
