@@ -52,7 +52,7 @@
             <script>
                 Echo.channel('message')
                     .listen('.sent.message', () => {
-                        $wire.getter()
+                        $wire.refreshComponent()
                     });
             </script>
         @endscript

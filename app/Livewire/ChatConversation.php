@@ -17,10 +17,10 @@ class ChatConversation extends Component
 
     public function mount(Request $request): void
     {
-        $this->getter($request);
+        $this->refreshComponent($request);
     }
 
-    public function getter(Request $request): void
+    public function refreshComponent(Request $request): void
     {
         // // if in url conversation_id exist
         if ($request->route('conversation_id')) {
