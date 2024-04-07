@@ -53,6 +53,20 @@ We will want to allow Laravel to connect to the database that you just created i
 
 In the .env file fill in the DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, and DB_PASSWORD options to match the credentials of the database you just created. This will allow us to run migrations and seed the database in the next step.
 
+### Install Pusher Channels
+
+Create a Pusher account, if you have not already.
+When Composer is done, we will need to configure Laravel to use Pusher as its broadcast driver, to do this, open the .env file that is in the root directory of your Laravel installation. Update the values to correspond with the configuration below:
+
+```
+BROADCAST_DRIVER=pusher
+
+// Get the credentials from your pusher dashboard
+PUSHER_APP_ID=XXXXX
+PUSHER_APP_KEY=XXXXXXX
+PUSHER_APP_SECRET=XXXXXXX
+```
+
 ### Migrations
 
 To create all the necessary tables and columns, run the following
