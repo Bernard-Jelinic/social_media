@@ -32,5 +32,6 @@ class MessageSeeder extends Seeder
         Chat::message('Hello to you to_4')->from($person_2)->to($conversation)->send();
         Chat::message('Hello_5')->from($person_1)->to($conversation)->send();
         Chat::message('Hello to you to_5')->from($person_2)->to($conversation)->send();
+        Chat::message('Hello to you to_5 again')->from($person_2)->to($conversation)->send();
     }
 }
