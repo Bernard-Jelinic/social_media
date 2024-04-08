@@ -20,6 +20,9 @@
         </div><!--message-bar-head end-->
 
         <div class="messages-line">
+            @php
+                $last_profile_image = "";
+            @endphp
             @foreach ($selected_conversation as $message)
                 @if ($message->participation_id == auth()->id())
                     <div class="d-flex justify-content-end mb-4">
@@ -28,20 +31,33 @@
                             <span class="msg_time">{{ $message->created_at->diffForHumans() }}</span>
                         </div>
                         <div class="img_cont_msg">
-                            <img style="height: 50px" src="{{ asset($message->participation->messageable->profile_image) }}" class="rounded-circle user_img_msg">
-                        </div>
+                            @if ($message->participation->messageable->id !== $last_profile_image)
+                                <img style="height: 50px" src="{{ asset($message->participation->messageable->profile_image) }}" class="rounded-circle user_img_msg">
+                            @else
+                                {{-- in case if one user send multiple messages, only show profile image once --}}
+                                <div style="width: 50px"></div>
+                            @endif
+                            </div>
                     </div>
                 @else
                     <div class="d-flex justify-content-start mb-4">
                         <div class="img_cont_msg">
-                            <img style="height: 50px" src="{{ asset($message->participation->messageable->profile_image) }}" class="rounded-circle user_img_msg">
+                            @if ($message->participation->messageable->id !== $last_profile_image)
+                                <img style="height: 50px" src="{{ asset($message->participation->messageable->profile_image) }}" class="rounded-circle user_img_msg">
+                            @else
+                                {{-- in case if one user send multiple messages, only show profile image once --}}
+                                <div style="width: 50px"></div>
+                            @endif
                         </div>
-                        <div class="msg_cotainer message-dt">
-                            {{ $message->body }}
-                            <span class="msg_time">{{ $message->created_at->diffForHumans() }}</span>
-                        </div>
+                            <div class="msg_cotainer message-dt">
+                                {{ $message->body }}
+                                <span class="msg_time">{{ $message->created_at->diffForHumans() }}</span>
+                            </div>
                     </div>
                 @endif
+                @php
+                    $last_profile_image = $message->participation->messageable->id;
+                @endphp
             @endforeach
         </div><!--messages-line end-->
 
