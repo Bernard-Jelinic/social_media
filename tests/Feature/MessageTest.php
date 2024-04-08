@@ -14,10 +14,16 @@ class MessageTest extends TestCase
 
     public function test_messages_page_is_displayed(): void
     {
-        $user = User::factory()->create();
+        $person_1 = Person::factory()->create();
+        $person_2 = Person::factory()->create();
 
-        $response = $this
-            ->actingAs($user)
+        $participants = [$person_1, $person_2];
+        $conversation = Chat::createConversation($participants)->makeDirect();
+
+        Chat::message('Hello')->from($person_1)->to($conversation)->send();
+        Chat::message('Hello to you to')->from($person_2)->to($conversation)->send();
+
+        $response = $this->actingAs($person_1)
                         ->get('/messages');
 
         $response->assertOk();
