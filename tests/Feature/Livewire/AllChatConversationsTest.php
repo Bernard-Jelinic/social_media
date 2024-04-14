@@ -4,16 +4,16 @@ namespace Tests\Feature\Livewire;
 
 use Tests\TestCase;
 use App\Models\Person;
-use App\Livewire\ChatConversation;
+use App\Livewire\AllChatConversations;
 use Musonza\Chat\Facades\ChatFacade as Chat;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ChatConversationTest extends TestCase
+class AllChatConversationsTest extends TestCase
 {
     use RefreshDatabase;
 
     /** @test */
-    public function chat_conversation_component_exists_on_messages_page()
+    public function all_chat_conversations_component_exists_on_messages_page(): void
     {
         // // Create two users
         $person_1 = Person::factory()->create();
@@ -29,6 +29,6 @@ class ChatConversationTest extends TestCase
         $this->actingAs($person_1);
 
         $this->get('/messages')
-            ->assertSeeLivewire(ChatConversation::class);
+                ->assertSeeLivewire(AllChatConversations::class);
     }
 }
