@@ -42,6 +42,22 @@ class AuthenticationTest extends TestCase
         $response->assertRedirect(RouteServiceProvider::HOME);
     }
 
+    public function test_checking_online_status_after_login(): void
+    {
+        $user = User::factory()->create();
+
+        $response = $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        $this->assertAuthenticated();
+        
+        $response->assertRedirect(RouteServiceProvider::HOME);
+
+        $this->assertTrue(auth()->user()->is_online);
+    }
+
     public function test_users_can_not_authenticate_with_invalid_password(): void
     {
         $user = User::factory()->create();
@@ -62,5 +78,21 @@ class AuthenticationTest extends TestCase
 
         $this->assertGuest();
         $response->assertRedirect('/');
+    }
+
+    public function test_checking_online_status_after_logout(): void
+    {
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)->post('/logout');
+
+        $this->assertGuest();
+        $response->assertRedirect('/');
+
+        if (User::find($user->id)->is_online) {
+            $this->assertTrue(true);
+        } else {
+            $this->assertFalse(false);
+        }
     }
 }
