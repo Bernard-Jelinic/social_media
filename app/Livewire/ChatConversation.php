@@ -37,15 +37,15 @@ class ChatConversation extends Component
                 $query->where('participation_id', $participantId);
             })->latest('updated_at')->first();
 
-            $this->conversation_id = $conversation->id;
-    
-            if ($conversation) {
-                $conversation = Conversation::find($conversation->id);
-                // Process messages as shown previously
-                $this->is_message_exist = true;
-            } else {
-                // Handle the case where no conversation is found for the participant
-            }
+                $this->conversation_id = $conversation->id;
+        
+                if ($conversation) {
+                    $conversation = Conversation::find($conversation->id);
+                    // Process messages as shown previously
+                    $this->is_message_exist = true;
+                } else {
+                    // Handle the case where no conversation is found for the participant
+                }
         }
 
         if ($this->is_message_exist) {
@@ -67,6 +67,13 @@ class ChatConversation extends Component
                 $this->selected_participant = User::find($conversations[0]->messageable_id);
             }
         }
+    }
+
+    public function deleteConversation()
+    {
+        DB::table('chat_conversations')
+            ->where('id', $this->conversation_id)
+            ->delete();
     }
 
     public function render()

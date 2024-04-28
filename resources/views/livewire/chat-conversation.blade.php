@@ -15,10 +15,15 @@
                     @else
                         <span class="logged-out" style="color: red">●</span>
                         Offline
-                    @endif
+                @endif
                 </div><!--usr-mg-info end-->
             </div>
-            <a href="#" title=""><i class="fa fa-ellipsis-v"></i></a>
+            <div class="ed-opts">
+                <a href="#" title="" class="ed-opts-open"><i class="la la-ellipsis-v"></i></a>
+                <ul class="ed-options">
+                    <li><a href="#" wire:click="deleteConversation" title="Delete conversation">Delete conversation</a></li>
+                </ul>
+            </div>
         </div><!--message-bar-head end-->
 
         <div class="messages-line">
