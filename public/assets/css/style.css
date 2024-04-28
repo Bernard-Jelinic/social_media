@@ -5695,7 +5695,8 @@ a:hover {
 .messages-line {
 	float: left;
 	width: 100%;
-	height: 604px;
+	/* line below is commented because of problem with the case when user send message */
+	/* height: 604px; */
 	padding-left: 30px;
 	/* padding-right: 30px; */
 }
