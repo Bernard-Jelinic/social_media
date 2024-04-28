@@ -6,7 +6,7 @@ use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Musonza\Chat\Facades\ChatFacade as Chat;
 
-class AllChatConversations extends Component
+class LeftSideAllChatConversations extends Component
 {
     public $conversations;
     public $display_user;
@@ -49,6 +49,6 @@ class AllChatConversations extends Component
 
     public function render()
     {
-        return view('livewire.all-chat-conversations');
+        return view('livewire.left-side-all-chat-conversations');
     }
 }

@@ -6,7 +6,7 @@
         <div class="container">
             <div class="messages-sec">
                 <div class="row">
-                    @livewire('all-chat-conversations')
+                    @livewire('left-side-all-chat-conversations')
                     <div class="col-lg-8 col-md-12 pd-right-none pd-left-none">
                         @livewire('chat-conversation')
                     </div>

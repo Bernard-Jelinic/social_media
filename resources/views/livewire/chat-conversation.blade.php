@@ -3,10 +3,12 @@
         <div class="message-bar-head card-header msg_head">
             <div class="usr-msg-details">
                 <div class="usr-ms-img">
-                    <img src="{{ asset($selected_participant['profile_image']) }}" alt="">
-                </div>
+                    <a href="{{ route('profile.show', $selected_participant['id']) }}">
+                        <img src="{{ asset($selected_participant['profile_image']) }}" alt="Profile image">
+                    </a>
+                    </div>
                 <div class="usr-mg-info">
-                    <h3>{{ $selected_participant['full_name'] }}</h3>
+                    <h3>{{ $selected_participant['full_name'] }}--</h3>
                     @if ($selected_participant['is_online'] == true)
                         <span class="logged-out" style="color: green">●</span>
                         Online
