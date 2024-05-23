@@ -3,20 +3,34 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use Musonza\Chat\Models\Conversation;
-use Illuminate\Http\Request;
+use App\Models\ChatConversation;
 
 class Header extends Component
 {
     public $conversations;
 
-    public function mount()
+    public function mount(): void
     {
-        $participant = auth()->user(); // Replace $participantId with actual ID
+        $this->refreshComponent();
+    }
 
-        $this->conversations = Conversation::whereHas('messages', function ($query) use ($participant) {
-            $query->where('participation_id', $participant->id); // Adjust based on participant model
-        })->latest('updated_at')->limit(3)->get();
+    public function refreshComponent(): void
+    {
+        $user_id = auth()->user()->id;
+        $this->conversations = ChatConversation::with([
+            'messages' => function ($query) {
+                $query->orderBy('created_at', 'desc');
+                $query->limit(1);
+                $query->with('chatParticipant.user');
+            },
+            'chatParticipants' => function($query) use ($user_id) {
+                $query->where('user_id', $user_id);
+            }
+        ])
+        ->whereHas('chatParticipants', function($query) use ($user_id) {
+            $query->where('user_id', $user_id);
+        })
+        ->get();
     }
 
     public function render()

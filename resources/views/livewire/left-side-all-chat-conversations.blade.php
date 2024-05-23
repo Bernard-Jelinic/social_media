@@ -10,22 +10,26 @@
         <div class="messages-list">
             <ul>
                 @foreach ($conversations as $conversation)
-                    <a href="{{ route('messages.index', $conversation['last_message']->conversation_id) }}">
-                        <li class="active">
-                            <div class="usr-msg-details">
-                                <div class="usr-ms-img">
-                                    <img src="{{ asset($conversation['display_user']['profile_image']) }}" alt="Profile image">
-                                    <span class="msg-status"></span>
-                                </div>
-                                <div class="usr-mg-info">
-                                    <h3>{{ $conversation['display_user']['full_name'] }}</h3>
-                                    <p>{{ $conversation['last_message']->body }} <img src="images/smley.png" alt=""></p>
-                                </div><!--usr-mg-info end-->
-                                <span class="posted_time">{{ \Carbon\Carbon::parse($conversation['last_message']->created_at)->diffForHumans() }}</span>
-                                <span class="msg-notifc">1</span>
-                            </div><!--usr-msg-details end-->
-                        </li>
-                    </a>
+                    @if (count($conversation->messages) > 0)
+                        <a href="{{ route('messages.index', $conversation->id) }}">
+                            <li class="active">
+                                <div class="usr-msg-details">
+                                    <div class="usr-ms-img">
+                                        <img src="{{ asset($conversation->messages[0]->chatParticipant->user->profile_image) }}" alt="Profile image">
+                                        <span class="msg-status"></span>
+                                    </div>
+                                    <div class="usr-mg-info">
+                                        <h3>{{ $conversation->messages[0]->chatParticipant->user->full_name }}</h3>
+                                        <p>{{ $conversation->messages[0]->body }}
+                                            <img src="images/smley.png" alt="">
+                                        </p>
+                                    </div><!--usr-mg-info end-->
+                                    <span class="posted_time">{{ \Carbon\Carbon::parse($conversation->messages[0]->created_at)->diffForHumans() }}</span>
+                                    <span class="msg-notifc">1</span>
+                                </div><!--usr-msg-details end-->
+                            </li>
+                        </a>
+                    @endif
                 @endforeach
             </ul>
         </div><!--messages-list end-->

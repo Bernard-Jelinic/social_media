@@ -1,0 +1,30 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('chat_messages', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->foreignId('chat_conversation_id')->constrained('chat_conversations')->cascadeOnDelete();
+            $table->foreignId('chat_participant_id')->constrained('users')->cascadeOnDelete();
+            $table->text('body');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('chat_messages');
+    }
+};
