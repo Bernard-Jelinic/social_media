@@ -196,3 +196,11 @@
         </div><!--header-data end-->
     </div>
 </header><!--header end-->
+@script
+<script>
+    Echo.channel('message')
+        .listen('.sent.message', () => {
+            $wire.refreshComponent()
+        });
+</script>
+@endscript

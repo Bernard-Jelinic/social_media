@@ -35,3 +35,11 @@
         </div><!--messages-list end-->
     </div><!--msgs-list end-->
 </div>
+@script
+<script>
+    Echo.channel('message')
+        .listen('.sent.message', () => {
+            $wire.refreshComponent()
+        });
+</script>
+@endscript
