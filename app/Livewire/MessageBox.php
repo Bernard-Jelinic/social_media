@@ -3,7 +3,6 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Events\MessageSent;
 use App\Models\ChatMessage;
 use App\Models\ChatConversation;
 
@@ -28,7 +27,6 @@ class MessageBox extends Component
         ]);
 
         $this->messageText = "";
-        event(new MessageSent());
     }
 
     public function render()

@@ -75,8 +75,12 @@
             <script>
                 Echo.channel('message')
                     .listen('.sent.message', () => {
-                        $wire.refreshComponent()
+                        refreshLivewireComponent()
                     });
+                function refreshLivewireComponent() {
+                    $wire.refreshComponent()
+                }
+                setInterval(refreshLivewireComponent, 60000)
             </script>
         @endscript
 </div><!--main-conversation-box end-->

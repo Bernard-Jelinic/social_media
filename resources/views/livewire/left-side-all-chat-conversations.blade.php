@@ -38,8 +38,12 @@
 @script
 <script>
     Echo.channel('message')
-        .listen('.sent.message', () => {
-            $wire.refreshComponent()
-        });
+    .listen('.sent.message', () => {
+        refreshLivewireComponent()
+    });
+    function refreshLivewireComponent() {
+        $wire.refreshComponent()
+    }
+    setInterval(refreshLivewireComponent, 60000)
 </script>
 @endscript
