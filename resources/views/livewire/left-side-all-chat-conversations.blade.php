@@ -12,7 +12,7 @@
                 @foreach ($conversations as $conversation)
                     @if (count($conversation->messages) > 0)
                         <a href="{{ route('messages.index', $conversation->id) }}">
-                            <li class="active">
+                            <li class="{{ $conversation->number_of_unread_messages > 0 ? 'active' : '' }}">
                                 <div class="usr-msg-details">
                                     <div class="usr-ms-img">
                                         <img src="{{ asset($conversation->messages[0]->chatParticipant->user->profile_image) }}" alt="Profile image">
@@ -25,7 +25,7 @@
                                         </p>
                                     </div><!--usr-mg-info end-->
                                     <span class="posted_time">{{ \Carbon\Carbon::parse($conversation->messages[0]->created_at)->diffForHumans() }}</span>
-                                    <span class="msg-notifc">1</span>
+                                    <span class="{{ $conversation->number_of_unread_messages > 0 ? "msg-notifc" : "" }}">{{ $conversation->number_of_unread_messages ? $conversation->number_of_unread_messages : '' }}</span>
                                 </div><!--usr-msg-details end-->
                             </li>
                         </a>

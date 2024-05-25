@@ -17,7 +17,7 @@ class ChatConversation extends Model
      *
      * @var array<string, string>
      */
-    public $appends = ['conversation_user'];
+    public $appends = ['conversation_user', 'number_of_unread_messages'];
 
     /**
      * Additional attribute
@@ -29,6 +29,11 @@ class ChatConversation extends Model
                                 ->first();
 
         return User::find($conversation_user->user_id);
+    }
+
+    function getNumberOfUnreadMessagesAttribute()
+    {
+        return ChatMessage::where(['chat_conversation_id' => $this->id, 'is_read' => false])->count();
     }
 
     /**

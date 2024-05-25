@@ -8,8 +8,6 @@ use App\Models\ChatConversation;
 class LeftSideAllChatConversations extends Component
 {
     public $conversations;
-    public $display_user;
-    public $last_chat_message;
 
     public function mount(): void
     {
