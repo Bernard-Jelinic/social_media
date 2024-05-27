@@ -10,8 +10,11 @@ class MessageController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->route('conversation_id') !== null) {
+            ChatConversation::markAllMessagesAsRead($request->route('conversation_id'));
+        }
         return view('messages.index');
     }
 

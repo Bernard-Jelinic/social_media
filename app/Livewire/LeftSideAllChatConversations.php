@@ -19,8 +19,8 @@ class LeftSideAllChatConversations extends Component
         $user_id = auth()->user()->id;
         $this->conversations = ChatConversation::with([
             'messages' => function ($query) {
-                $query->orderBy('created_at', 'desc');
-                $query->limit(1);
+                // $query->orderBy('created_at', 'desc');
+                // $query->limit(1);
                 $query->with('chatParticipant.user');
             },
             'chatParticipants' => function($query) use ($user_id) {
