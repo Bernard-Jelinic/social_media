@@ -71,16 +71,16 @@
         <livewire:message-box :conversation_id="$conversation_id"/>
 
     @endif
-        @script
-            <script>
-                Echo.channel('message')
-                    .listen('.sent.message', () => {
-                        refreshLivewireComponent()
-                    });
-                function refreshLivewireComponent() {
-                    $wire.refreshComponent()
-                }
-                setInterval(refreshLivewireComponent, 60000)
-            </script>
-        @endscript
+    @script
+        <script>
+            Echo.private('message.' + {{ auth()->user()->id }})
+                .listen('.sent.message', function(data) {
+                    refreshLivewireComponent()
+                })
+            function refreshLivewireComponent() {
+                $wire.refreshComponent()
+            }
+            setInterval(refreshLivewireComponent, 60000)
+        </script>
+    @endscript
 </div><!--main-conversation-box end-->

@@ -197,14 +197,14 @@
     </div>
 </header><!--header end-->
 @script
-<script>
-    Echo.channel('message')
-        .listen('.sent.message', () => {
-            refreshLivewireComponent()
-        });
+    <script>
+        Echo.private('message.' + {{ auth()->user()->id }})
+            .listen('.sent.message', function(data) {
+                refreshLivewireComponent()
+            })
         function refreshLivewireComponent() {
             $wire.refreshComponent()
         }
         setInterval(refreshLivewireComponent, 60000)
-</script>
+    </script>
 @endscript

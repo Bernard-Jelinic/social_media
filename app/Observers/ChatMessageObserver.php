@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Events\MessageSent;
 use App\Models\ChatMessage;
+use App\Models\ChatParticipant;
 
 class ChatMessageObserver
 {
@@ -12,7 +13,12 @@ class ChatMessageObserver
      */
     public function created(ChatMessage $chatMessage): void
     {
-        event(new MessageSent());
+        $chatParticipants = ChatParticipant::where('chat_conversation_id', $chatMessage->chat_conversation_id)
+                                            ->get('user_id');
+
+        foreach ($chatParticipants as $chatParticipant) {
+            event(new MessageSent($chatParticipant->user_id));
+        }
     }
 
     /**
@@ -20,7 +26,12 @@ class ChatMessageObserver
      */
     public function updated(ChatMessage $chatMessage): void
     {
-        event(new MessageSent());
+        $chatParticipants = ChatParticipant::where('chat_conversation_id', $chatMessage->chat_conversation_id)
+                                            ->get('user_id');
+
+        foreach ($chatParticipants as $chatParticipant) {
+            event(new MessageSent($chatParticipant->user_id));
+        }
     }
 
     /**
@@ -28,7 +39,12 @@ class ChatMessageObserver
      */
     public function deleted(ChatMessage $chatMessage): void
     {
-        event(new MessageSent());
+        $chatParticipants = ChatParticipant::where('chat_conversation_id', $chatMessage->chat_conversation_id)
+                                            ->get('user_id');
+
+        foreach ($chatParticipants as $chatParticipant) {
+            event(new MessageSent($chatParticipant->user_id));
+        }
     }
 
     /**
