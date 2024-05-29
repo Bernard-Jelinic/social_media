@@ -2,35 +2,13 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-use App\Models\ChatConversation;
+use App\Livewire\ChatBaseComponent;
 
-class LeftSideAllChatConversations extends Component
+class LeftSideAllChatConversations extends ChatBaseComponent
 {
-    public $conversations;
-
     public function mount(): void
     {
         $this->refreshComponent();
-    }
-    
-    public function refreshComponent(): void
-    {
-        $user_id = auth()->user()->id;
-        $this->conversations = ChatConversation::with([
-            'messages' => function ($query) {
-                // $query->orderBy('created_at', 'desc');
-                // $query->limit(1);
-                $query->with('chatParticipant.user');
-            },
-            'chatParticipants' => function($query) use ($user_id) {
-                $query->where('user_id', $user_id);
-            }
-        ])
-        ->whereHas('chatParticipants', function($query) use ($user_id) {
-            $query->where('user_id', $user_id);
-        })
-        ->get();
     }
 
     public function render()

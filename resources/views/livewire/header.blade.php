@@ -62,12 +62,12 @@
                                         <div class="notfication-details">
                                             <a href="{{ route('messages.index', $conversation->id) }}">
                                                 <div class="noty-user-img">
-                                                    <img src="{{ asset($conversation->messages[0]->chatParticipant->user->profile_image) }}" alt="Users profile image">
+                                                    <img src="{{ asset($conversation->messages[$conversation->total_number_of_messages-1]->chatParticipant->user->profile_image) }}" alt="Users profile image">
                                                 </div>
                                                 <div class="notification-info">
-                                                    <h3>{{ substr($conversation->messages[0]->chatParticipant->user->full_name, 0, 20) }}{{ (strlen($conversation->messages[0]->chatParticipant->user->full_name) > 20) ? '...' : '' }}</h3>
-                                                    <p>{{ $conversation->messages[0]->body }}</p>
-                                                    <span>{{ $conversation->messages[0]->created_at->diffForHumans() }}</span>
+                                                    <h3>{{ substr($conversation->messages[$conversation->total_number_of_messages-1]->chatParticipant->user->full_name, 0, 20) }}{{ (strlen($conversation->messages[0]->chatParticipant->user->full_name) > 20) ? '...' : '' }}</h3>
+                                                    <p>{{ $conversation->messages[$conversation->total_number_of_messages-1]->body }}</p>
+                                                    <span>{{ $conversation->messages[$conversation->total_number_of_messages-1]->created_at->diffForHumans() }}</span>
                                                 </div><!--notification-info -->
                                             </a>
                                         </div>
