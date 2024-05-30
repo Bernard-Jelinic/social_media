@@ -25,8 +25,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" title="" class="not-box-open">
-                            <span><img src="{{asset('assets/images/icon6.png') }}" alt=""></span>
+                        <a href="#" title="Messages" class="not-box-open">
+                            <span>
+                                <img src="{{asset('assets/images/icon6.png') }}" alt="Messages">
+                                @if ($total_number_of_unread_messages > 0)
+                                    <span class="badge badge-light">{{ $total_number_of_unread_messages }}</span>
+                                @endif
+                            </span>
                             Messages
                         </a>
                         <div class="notification-box msg">
@@ -40,12 +45,12 @@
                                         <div class="notfication-details">
                                             <a href="{{ route('messages.index', $conversation->id) }}">
                                                 <div class="noty-user-img">
-                                                    <img src="{{ asset($conversation->messages[$conversation->total_number_of_messages-1]->chatParticipant->user->profile_image) }}" alt="Users profile image">
+                                                    <img src="{{ asset($conversation->messages[$conversation->number_of_messages-1]->chatParticipant->user->profile_image) }}" alt="Users profile image">
                                                 </div>
                                                 <div class="notification-info">
-                                                    <h3>{{ substr($conversation->messages[$conversation->total_number_of_messages-1]->chatParticipant->user->full_name, 0, 20) }}{{ (strlen($conversation->messages[0]->chatParticipant->user->full_name) > 20) ? '...' : '' }}</h3>
-                                                    <p>{{ $conversation->messages[$conversation->total_number_of_messages-1]->body }}</p>
-                                                    <span>{{ $conversation->messages[$conversation->total_number_of_messages-1]->created_at->diffForHumans() }}</span>
+                                                    <h3>{{ substr($conversation->messages[$conversation->number_of_messages-1]->chatParticipant->user->full_name, 0, 20) }}{{ (strlen($conversation->messages[0]->chatParticipant->user->full_name) > 20) ? '...' : '' }}</h3>
+                                                    <p>{{ $conversation->messages[$conversation->number_of_messages-1]->body }}</p>
+                                                    <span>{{ $conversation->messages[$conversation->number_of_messages-1]->created_at->diffForHumans() }}</span>
                                                 </div><!--notification-info -->
                                             </a>
                                         </div>

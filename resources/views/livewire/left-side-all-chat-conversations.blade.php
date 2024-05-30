@@ -15,16 +15,16 @@
                             <li class="{{ $conversation->number_of_unread_messages > 0 ? 'active' : '' }}">
                                 <div class="usr-msg-details">
                                     <div class="usr-ms-img">
-                                        <img src="{{ asset($conversation->messages[$conversation->total_number_of_messages-1]->chatParticipant->user->profile_image) }}" alt="Profile image">
+                                        <img src="{{ asset($conversation->messages[$conversation->number_of_messages-1]->chatParticipant->user->profile_image) }}" alt="Profile image">
                                         <span class="msg-status"></span>
                                     </div>
                                     <div class="usr-mg-info">
-                                        <h3>{{ $conversation->messages[$conversation->total_number_of_messages-1]->chatParticipant->user->full_name }}</h3>
-                                        <p>{{ $conversation->messages[$conversation->total_number_of_messages-1]->body }}
+                                        <h3>{{ $conversation->messages[$conversation->number_of_messages-1]->chatParticipant->user->full_name }}</h3>
+                                        <p>{{ $conversation->messages[$conversation->number_of_messages-1]->body }}
                                             <img src="images/smley.png" alt="">
                                         </p>
                                     </div><!--usr-mg-info end-->
-                                    <span class="posted_time">{{ \Carbon\Carbon::parse($conversation->messages[$conversation->total_number_of_messages-1]->created_at)->diffForHumans() }}</span>
+                                    <span class="posted_time">{{ \Carbon\Carbon::parse($conversation->messages[$conversation->number_of_messages-1]->created_at)->diffForHumans() }}</span>
                                     <span class="{{ $conversation->number_of_unread_messages > 0 ? "msg-notifc" : "" }}">{{ $conversation->number_of_unread_messages ? $conversation->number_of_unread_messages : '' }}</span>
                                 </div><!--usr-msg-details end-->
                             </li>

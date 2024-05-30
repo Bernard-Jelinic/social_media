@@ -17,7 +17,7 @@ class ChatConversation extends Model
      *
      * @var array<string, string>
      */
-    public $appends = ['conversation_user', 'number_of_unread_messages', 'total_number_of_messages'];
+    public $appends = ['conversation_user', 'number_of_unread_messages', 'number_of_messages'];
 
     /**
      * Additional attribute
@@ -36,7 +36,7 @@ class ChatConversation extends Model
         return ChatMessage::where(['chat_conversation_id' => $this->id, 'is_read' => false])->count();
     }
 
-    function getTotalNumberOfMessagesAttribute()
+    function getNumberOfMessagesAttribute()
     {
         return ChatMessage::where('chat_conversation_id', $this->id)->count();
     }
