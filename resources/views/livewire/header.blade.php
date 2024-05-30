@@ -24,28 +24,6 @@
                             Pages
                         </a>
                     </li>
-                    <!--<li>
-                        <a href="projects.html" title="">
-                            <span><img src="{{asset('assets/images/icon3.png') }}" alt=""></span>
-                            Projects
-                        </a>
-                    </li>-->
-                    <!--<li>
-                        <a href="profiles.html" title="">
-                            <span><img src="{{asset('assets/images/icon4.png') }}" alt=""></span>
-                            Profiles
-                        </a>
-                        <ul>
-                            <li><a href="user-profile.html" title="">User Profile</a></li>
-                            <li><a href="my-profile-feed.html" title="">my-profile-feed</a></li>
-                        </ul>
-                    </li>-->
-                    <!--<li>
-                        <a href="jobs.html" title="">
-                            <span><img src="{{asset('assets/images/icon5.png') }}" alt=""></span>
-                            Jobs
-                        </a>
-                    </li>-->
                     <li>
                         <a href="#" title="" class="not-box-open">
                             <span><img src="{{asset('assets/images/icon6.png') }}" alt=""></span>
