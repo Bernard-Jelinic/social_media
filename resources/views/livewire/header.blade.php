@@ -44,8 +44,11 @@
                                     @if (count($conversation->messages) > 0)
                                         <div class="notfication-details">
                                             <a href="{{ route('messages.index', $conversation->id) }}">
-                                                <div class="noty-user-img">
-                                                    <img src="{{ asset($conversation->messages[$conversation->number_of_messages-1]->chatParticipant->user->profile_image) }}" alt="Users profile image">
+                                                <div class="chat-mg noty-user-img">
+                                                    <img style="height: 35px" src="{{ asset($conversation->messages[$conversation->number_of_messages-1]->chatParticipant->user->profile_image) }}" alt="Users profile image">
+                                                    @if ($conversation->number_of_unread_messages > 0)
+                                                        <span>{{ $conversation->number_of_unread_messages }}</span>
+                                                    @endif
                                                 </div>
                                                 <div class="notification-info">
                                                     <h3>{{ substr($conversation->messages[$conversation->number_of_messages-1]->chatParticipant->user->full_name, 0, 20) }}{{ (strlen($conversation->messages[0]->chatParticipant->user->full_name) > 20) ? '...' : '' }}</h3>
