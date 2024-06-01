@@ -5,7 +5,9 @@ namespace Tests\Feature\Livewire;
 use Tests\TestCase;
 use App\Models\Person;
 use App\Livewire\Header;
-use Musonza\Chat\Facades\ChatFacade as Chat;
+use App\Models\ChatMessage;
+use App\Models\ChatParticipant;
+use App\Models\ChatConversation;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class HeaderTest extends TestCase
@@ -32,36 +34,29 @@ class HeaderTest extends TestCase
         // // Create users
         $person_1 = Person::factory()->create();
         $person_2 = Person::factory()->create();
-        $person_3 = Person::factory()->create();
-        $person_4 = Person::factory()->create();
-        $person_5 = Person::factory()->create();
-        $person_6 = Person::factory()->create();
 
+        // // Creating conversation
+        $conversation_1_2 = ChatConversation::create();
+        // // Creating participants
+        $participants_1 = ChatParticipant::create([
+            'chat_conversation_id' => $conversation_1_2->id,
+            'user_id' => $person_1->id
+        ]);
+        $participants_2 = ChatParticipant::create([
+            'chat_conversation_id' => $conversation_1_2->id,
+            'user_id' => $person_2->id
+        ]);
         // // Creating messages
-        $participants_1_2 = [$person_1, $person_2];
-        $conversation_1_2 = Chat::createConversation($participants_1_2)->makeDirect();
-        $chat_1_2 = Chat::message('Hello from person_1 to person_2')->from($person_1)->to($conversation_1_2)->send();
-        $chat_1_2 = Chat::message('Hello to you to from person_2 to person_1')->from($person_2)->to($conversation_1_2)->send();
-
-        $participants_1_3 = [$person_1, $person_3];
-        $conversation_1_3 = Chat::createConversation($participants_1_3)->makeDirect();
-        $chat_1_3 = Chat::message('Hello from person_1 to person_3')->from($person_1)->to($conversation_1_3)->send();
-        $chat_1_3 = Chat::message('Hello to you to from person_3 to person_1')->from($person_3)->to($conversation_1_3)->send();
-
-        $participants_1_4 = [$person_1, $person_4];
-        $conversation_1_4 = Chat::createConversation($participants_1_4)->makeDirect();
-        $chat_1_4 = Chat::message('Hello from person_1 to person_4')->from($person_1)->to($conversation_1_4)->send();
-        $chat_1_4 = Chat::message('Hello to you to from person_4 to person_1')->from($person_4)->to($conversation_1_4)->send();
-    
-        $participants_1_5 = [$person_1, $person_5];
-        $conversation_1_5 = Chat::createConversation($participants_1_5)->makeDirect();
-        $chat_1_5 = Chat::message('Hello from person_1 to person_5')->from($person_1)->to($conversation_1_5)->send();
-        $chat_1_5 = Chat::message('Hello to you to from person_5 to person_1')->from($person_5)->to($conversation_1_5)->send();
-    
-        $participants_1_6 = [$person_1, $person_6];
-        $conversation_1_6 = Chat::createConversation($participants_1_6)->makeDirect();
-        $chat_1_6 = Chat::message('Hello from person_1 to person_6')->from($person_1)->to($conversation_1_6)->send();
-        $chat_1_6 = Chat::message('Hello to you to from person_6 to person_1')->from($person_6)->to($conversation_1_6)->send();
+        ChatMessage::create([
+            'chat_conversation_id' => $conversation_1_2->id,
+            'chat_participant_id' => $participants_1->id,
+            'body' => 'Hello from person_1 to person_2'
+        ]);
+        ChatMessage::create([
+            'chat_conversation_id' => $conversation_1_2->id,
+            'chat_participant_id' => $participants_2->id,
+            'body' => 'Hello to you to from person_2 to person_1'
+        ]);
 
         // // Acting as the authenticated user
         $this->actingAs($person_1);

@@ -3,8 +3,10 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use App\Models\User;
 use App\Models\Person;
+use App\Models\ChatMessage;
+use App\Models\ChatParticipant;
+use App\Models\ChatConversation;
 use Musonza\Chat\Facades\ChatFacade as Chat;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -17,11 +19,28 @@ class MessageTest extends TestCase
         $person_1 = Person::factory()->create();
         $person_2 = Person::factory()->create();
 
-        $participants = [$person_1, $person_2];
-        $chat_conversation = Chat::createConversation($participants)->makeDirect();
-
-        Chat::message('Hello')->from($person_1)->to($chat_conversation)->send();
-        Chat::message('Hello to you to')->from($person_2)->to($chat_conversation)->send();
+        // // Creating conversation
+        $chat_conversation = ChatConversation::create();
+        // // Creating participants
+        $participants_1 = ChatParticipant::create([
+            'chat_conversation_id' => $chat_conversation->id,
+            'user_id' => $person_1->id
+        ]);
+        $participants_2 = ChatParticipant::create([
+            'chat_conversation_id' => $chat_conversation->id,
+            'user_id' => $person_2->id
+        ]);
+        // // Creating messages
+        ChatMessage::create([
+            'chat_conversation_id' => $chat_conversation->id,
+            'chat_participant_id' => $participants_1->id,
+            'body' => 'Hello'
+        ]);
+        ChatMessage::create([
+            'chat_conversation_id' => $chat_conversation->id,
+            'chat_participant_id' => $participants_2->id,
+            'body' => 'Hello to you to'
+        ]);
 
         $response = $this->actingAs($person_1)
                         ->get('/messages');
@@ -34,11 +53,28 @@ class MessageTest extends TestCase
         $person_1 = Person::factory()->create();
         $person_2 = Person::factory()->create();
 
-        $participants = [$person_1, $person_2];
-        $chat_conversation = Chat::createConversation($participants)->makeDirect();
-
-        Chat::message('Hello')->from($person_1)->to($chat_conversation)->send();
-        Chat::message('Hello to you to')->from($person_2)->to($chat_conversation)->send();
+        // // Creating conversation
+        $chat_conversation = ChatConversation::create();
+        // // Creating participants
+        $participants_1 = ChatParticipant::create([
+            'chat_conversation_id' => $chat_conversation->id,
+            'user_id' => $person_1->id
+        ]);
+        $participants_2 = ChatParticipant::create([
+            'chat_conversation_id' => $chat_conversation->id,
+            'user_id' => $person_2->id
+        ]);
+        // // Creating messages
+        ChatMessage::create([
+            'chat_conversation_id' => $chat_conversation->id,
+            'chat_participant_id' => $participants_1->id,
+            'body' => 'Hello'
+        ]);
+        ChatMessage::create([
+            'chat_conversation_id' => $chat_conversation->id,
+            'chat_participant_id' => $participants_2->id,
+            'body' => 'Hello to you to'
+        ]);
 
         $this->actingAs($person_1)
             ->get('/messages/' . $chat_conversation->id);
@@ -56,11 +92,28 @@ class MessageTest extends TestCase
         $person_2->is_online = true;
         $person_2->save();
 
-        $participants = [$person_1, $person_2];
-        $chat_conversation = Chat::createConversation($participants)->makeDirect();
-
-        Chat::message('Hello')->from($person_1)->to($chat_conversation)->send();
-        Chat::message('Hello to you to')->from($person_2)->to($chat_conversation)->send();
+        // // Creating conversation
+        $chat_conversation = ChatConversation::create();
+        // // Creating participants
+        $participants_1 = ChatParticipant::create([
+            'chat_conversation_id' => $chat_conversation->id,
+            'user_id' => $person_1->id
+        ]);
+        $participants_2 = ChatParticipant::create([
+            'chat_conversation_id' => $chat_conversation->id,
+            'user_id' => $person_2->id
+        ]);
+        // // Creating messages
+        ChatMessage::create([
+            'chat_conversation_id' => $chat_conversation->id,
+            'chat_participant_id' => $participants_1->id,
+            'body' => 'Hello'
+        ]);
+        ChatMessage::create([
+            'chat_conversation_id' => $chat_conversation->id,
+            'chat_participant_id' => $participants_2->id,
+            'body' => 'Hello to you to'
+        ]);
 
         $this->actingAs($person_1)
             ->get('/messages/' . $chat_conversation->id)
@@ -77,11 +130,28 @@ class MessageTest extends TestCase
         $person_2->is_online = false;
         $person_2->save();
 
-        $participants = [$person_1, $person_2];
-        $chat_conversation = Chat::createConversation($participants)->makeDirect();
-
-        Chat::message('Hello')->from($person_1)->to($chat_conversation)->send();
-        Chat::message('Hello to you to')->from($person_2)->to($chat_conversation)->send();
+        // // Creating conversation
+        $chat_conversation = ChatConversation::create();
+        // // Creating participants
+        $participants_1 = ChatParticipant::create([
+            'chat_conversation_id' => $chat_conversation->id,
+            'user_id' => $person_1->id
+        ]);
+        $participants_2 = ChatParticipant::create([
+            'chat_conversation_id' => $chat_conversation->id,
+            'user_id' => $person_2->id
+        ]);
+        // // Creating messages
+        ChatMessage::create([
+            'chat_conversation_id' => $chat_conversation->id,
+            'chat_participant_id' => $participants_1->id,
+            'body' => 'Hello'
+        ]);
+        ChatMessage::create([
+            'chat_conversation_id' => $chat_conversation->id,
+            'chat_participant_id' => $participants_2->id,
+            'body' => 'Hello to you to'
+        ]);
 
         $this->actingAs($person_1)
             ->get('/messages/' . $chat_conversation->id)
