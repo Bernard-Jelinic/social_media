@@ -18,10 +18,10 @@ class MessageTest extends TestCase
         $person_2 = Person::factory()->create();
 
         $participants = [$person_1, $person_2];
-        $conversation = Chat::createConversation($participants)->makeDirect();
+        $chat_conversation = Chat::createConversation($participants)->makeDirect();
 
-        Chat::message('Hello')->from($person_1)->to($conversation)->send();
-        Chat::message('Hello to you to')->from($person_2)->to($conversation)->send();
+        Chat::message('Hello')->from($person_1)->to($chat_conversation)->send();
+        Chat::message('Hello to you to')->from($person_2)->to($chat_conversation)->send();
 
         $response = $this->actingAs($person_1)
                         ->get('/messages');
@@ -35,13 +35,13 @@ class MessageTest extends TestCase
         $person_2 = Person::factory()->create();
 
         $participants = [$person_1, $person_2];
-        $conversation = Chat::createConversation($participants)->makeDirect();
+        $chat_conversation = Chat::createConversation($participants)->makeDirect();
 
-        Chat::message('Hello')->from($person_1)->to($conversation)->send();
-        Chat::message('Hello to you to')->from($person_2)->to($conversation)->send();
+        Chat::message('Hello')->from($person_1)->to($chat_conversation)->send();
+        Chat::message('Hello to you to')->from($person_2)->to($chat_conversation)->send();
 
         $this->actingAs($person_1)
-            ->get('/messages/' . $conversation->id);
+            ->get('/messages/' . $chat_conversation->id);
 
         $this->assertTrue(true);
     }
@@ -57,13 +57,13 @@ class MessageTest extends TestCase
         $person_2->save();
 
         $participants = [$person_1, $person_2];
-        $conversation = Chat::createConversation($participants)->makeDirect();
+        $chat_conversation = Chat::createConversation($participants)->makeDirect();
 
-        Chat::message('Hello')->from($person_1)->to($conversation)->send();
-        Chat::message('Hello to you to')->from($person_2)->to($conversation)->send();
+        Chat::message('Hello')->from($person_1)->to($chat_conversation)->send();
+        Chat::message('Hello to you to')->from($person_2)->to($chat_conversation)->send();
 
         $this->actingAs($person_1)
-            ->get('/messages/' . $conversation->id)
+            ->get('/messages/' . $chat_conversation->id)
             ->assertSeeText('Online');
     }
 
@@ -78,13 +78,13 @@ class MessageTest extends TestCase
         $person_2->save();
 
         $participants = [$person_1, $person_2];
-        $conversation = Chat::createConversation($participants)->makeDirect();
+        $chat_conversation = Chat::createConversation($participants)->makeDirect();
 
-        Chat::message('Hello')->from($person_1)->to($conversation)->send();
-        Chat::message('Hello to you to')->from($person_2)->to($conversation)->send();
+        Chat::message('Hello')->from($person_1)->to($chat_conversation)->send();
+        Chat::message('Hello to you to')->from($person_2)->to($chat_conversation)->send();
 
         $this->actingAs($person_1)
-            ->get('/messages/' . $conversation->id)
+            ->get('/messages/' . $chat_conversation->id)
             ->assertSeeText('Offline');
     }
 }

@@ -20,10 +20,10 @@ class ChatConversationTest extends TestCase
         $person_2 = Person::factory()->create();
 
         $participants = [$person_1, $person_2];
-        $conversation = Chat::createConversation($participants)->makeDirect();
+        $chat_conversation = Chat::createConversation($participants)->makeDirect();
 
-        Chat::message('Hello')->from($person_1)->to($conversation)->send();
-        Chat::message('Hello to you to')->from($person_2)->to($conversation)->send();
+        Chat::message('Hello')->from($person_1)->to($chat_conversation)->send();
+        Chat::message('Hello to you to')->from($person_2)->to($chat_conversation)->send();
 
         // // Acting as the authenticated user
         $this->actingAs($person_1);

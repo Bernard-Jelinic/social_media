@@ -7,15 +7,15 @@ use App\Models\ChatMessage;
 use App\Models\ChatParticipant;
 use App\Models\ChatConversation;
 
-class ChatBaseComponent extends Component
+class ChatConversationBase extends Component
 {
-    public $conversations;
+    public $chat_conversations;
     public $total_number_of_unread_messages;
     
     public function refreshComponent(): void
     {
         $user_id = auth()->user()->id;
-        $this->conversations = ChatConversation::with([
+        $this->chat_conversations = ChatConversation::with([
             'messages' => function ($query) {
                 // $query->orderBy('created_at', 'desc');
                 // $query->limit(1);

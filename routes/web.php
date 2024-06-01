@@ -2,7 +2,7 @@
 
 use App\Models\User;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ConversationController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,8 +33,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('pages', PageController::class);
 
-    Route::get('/messages/{conversation_id?}', [MessageController::class, 'index'])->name('messages.index');
-    Route::get('/messages/create-open-conversation/{participant_one}/{participant_two}', [MessageController::class, 'createOpenConversation'])->name('messages.createOpenConversation');
+    Route::get('/messages/{conversation_id?}', [ConversationController::class, 'index'])->name('conversations.index');
+    Route::get('/messages/create-open-conversation/{participant_one}/{participant_two}', [ConversationController::class, 'createOpenConversation'])->name('conversations.createOpenConversation');
 });
 
 require __DIR__.'/auth.php';

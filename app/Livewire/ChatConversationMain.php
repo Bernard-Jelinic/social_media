@@ -2,11 +2,11 @@
 
 namespace App\Livewire;
 
-use App\Models\ChatConversation as Conversation;
+use App\Models\ChatConversation;
 use Livewire\Component;
 use Illuminate\Http\Request;
 
-class ChatConversation extends Component
+class ChatConversationMain extends Component
 {
     public $selected_conversation;
     public $selected_participant;
@@ -24,7 +24,7 @@ class ChatConversation extends Component
         if ($request->route('conversation_id')) {
             $this->conversation_id = $request->route('conversation_id');
             $this->is_message_exist = true;
-            $this->selected_conversation = Conversation::find($request->route('conversation_id'));
+            $this->selected_conversation = ChatConversation::find($request->route('conversation_id'));
         }
 
         $this->selected_participant = auth()->user();
@@ -32,12 +32,13 @@ class ChatConversation extends Component
 
     public function deleteConversation()
     {
-        $conversation = Conversation::find($this->conversation_id);
-        $conversation->delete();
+        $chat_conversation = ChatConversation::find($this->conversation_id);
+        $chat_conversation->delete();
+        redirect()->route('conversations.index');
     }
 
     public function render()
     {
-        return view('livewire.chat-conversation');
+        return view('livewire.chat-conversation-main');
     }
 }

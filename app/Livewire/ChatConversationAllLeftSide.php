@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 use App\Livewire\ChatConversationBase;
 
-class Header extends ChatConversationBase
+class ChatConversationAllLeftSide extends ChatConversationBase
 {
     public function mount(): void
     {
@@ -13,6 +13,6 @@ class Header extends ChatConversationBase
 
     public function render()
     {
-        return view('livewire.header');
+        return view('livewire.chat-conversation-all-left-side');
     }
 }

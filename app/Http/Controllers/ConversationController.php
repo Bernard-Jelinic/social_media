@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ChatConversation;
 use Illuminate\Http\Request;
 
-class MessageController extends Controller
+class ConversationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class MessageController extends Controller
         if ($request->route('conversation_id') !== null) {
             ChatConversation::markAllMessagesAsRead($request->route('conversation_id'));
         }
-        return view('messages.index');
+        return view('conversations.index');
     }
 
     /**
@@ -68,7 +68,7 @@ class MessageController extends Controller
 
     public function createOpenConversation(int $participant_one, int $participant_two)
     {
-        $conversation = ChatConversation::checkConversationExist($participant_one, $participant_two);
-        return redirect()->route('messages.index', ['conversation_id' => $conversation->id]);
+        $chat_conversation = ChatConversation::checkConversationExist($participant_one, $participant_two);
+        return redirect()->route('conversations.index', ['conversation_id' => $chat_conversation->id]);
     }
 }

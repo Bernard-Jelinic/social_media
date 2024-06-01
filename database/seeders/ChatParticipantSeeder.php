@@ -14,13 +14,13 @@ class ChatParticipantSeeder extends Seeder
      */
     public function run(): void
     {
-        $conversations = ChatConversation::get();
+        $chat_conversations = ChatConversation::get();
         $users = User::limit(4)->get();
 
-        foreach ($conversations as $conversation) {
+        foreach ($chat_conversations as $chat_conversation) {
             foreach ($users as $user) {
                 ChatParticipant::create([
-                        'chat_conversation_id' => $conversation->id,
+                        'chat_conversation_id' => $chat_conversation->id,
                         'user_id' => $user->id
                         ]);
             }

@@ -6,9 +6,9 @@
         <div class="container">
             <div class="messages-sec">
                 <div class="row">
-                    @livewire('left-side-all-chat-conversations')
+                    @livewire('chat-conversation-all-left-side')
                     <div class="col-lg-8 col-md-12 pd-right-none pd-left-none">
-                        @livewire('chat-conversation')
+                        @livewire('chat-conversation-main')
                     </div>
                 </div>
             </div><!--messages-sec end-->

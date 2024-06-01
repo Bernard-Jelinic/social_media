@@ -25,35 +25,34 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" title="Messages" class="not-box-open">
+                        <a href="#" title="Conversations" class="not-box-open">
                             <span>
-                                <img src="{{asset('assets/images/icon6.png') }}" alt="Messages">
+                                <img src="{{asset('assets/images/icon6.png') }}" alt="Conversations">
                                 @if ($total_number_of_unread_messages > 0)
                                     <span class="badge badge-light">{{ $total_number_of_unread_messages }}</span>
                                 @endif
                             </span>
-                            Messages
+                            Conversations
                         </a>
                         <div class="notification-box msg">
                             <div class="nt-title">
-                                <h4>Setting</h4>
-                                <a href="#" title="">Clear all</a>
+                                <h4>Conversations</h4>
                             </div>
                             <div class="nott-list">
-                                @foreach ($conversations as $conversation)
-                                    @if (count($conversation->messages) > 0)
+                                @foreach ($chat_conversations as $chat_conversation)
+                                    @if (count($chat_conversation->messages) > 0)
                                         <div class="notfication-details">
-                                            <a href="{{ route('messages.index', $conversation->id) }}">
+                                            <a href="{{ route('conversations.index', $chat_conversation->id) }}">
                                                 <div class="chat-mg noty-user-img">
-                                                    <img style="height: 35px" src="{{ asset($conversation->messages[$conversation->number_of_messages-1]->chatParticipant->user->profile_image) }}" alt="Users profile image">
-                                                    @if ($conversation->number_of_unread_messages > 0)
-                                                        <span>{{ $conversation->number_of_unread_messages }}</span>
+                                                    <img style="height: 35px" src="{{ asset($chat_conversation->messages[$chat_conversation->number_of_messages-1]->chatParticipant->user->profile_image) }}" alt="Users profile image">
+                                                    @if ($chat_conversation->number_of_unread_messages > 0)
+                                                        <span>{{ $chat_conversation->number_of_unread_messages }}</span>
                                                     @endif
                                                 </div>
                                                 <div class="notification-info">
-                                                    <h3>{{ substr($conversation->messages[$conversation->number_of_messages-1]->chatParticipant->user->full_name, 0, 20) }}{{ (strlen($conversation->messages[0]->chatParticipant->user->full_name) > 20) ? '...' : '' }}</h3>
-                                                    <p>{{ $conversation->messages[$conversation->number_of_messages-1]->body }}</p>
-                                                    <span>{{ $conversation->messages[$conversation->number_of_messages-1]->created_at->diffForHumans() }}</span>
+                                                    <h3>{{ substr($chat_conversation->messages[$chat_conversation->number_of_messages-1]->chatParticipant->user->full_name, 0, 20) }}{{ (strlen($chat_conversation->messages[0]->chatParticipant->user->full_name) > 20) ? '...' : '' }}</h3>
+                                                    <p>{{ $chat_conversation->messages[$chat_conversation->number_of_messages-1]->body }}</p>
+                                                    <span>{{ $chat_conversation->messages[$chat_conversation->number_of_messages-1]->created_at->diffForHumans() }}</span>
                                                 </div><!--notification-info -->
                                             </a>
                                         </div>
@@ -61,7 +60,7 @@
                                 @endforeach
 
                                 <div class="view-all-nots">
-                                    <a href="{{ route('messages.index') }}" title="View All Messages">View All Messsages</a>
+                                    <a href="{{ route('conversations.index') }}" title="View All Conversations">View All Conversations</a>
                                 </div>
                             </div><!--nott-list end-->
                         </div><!--notification-box end-->

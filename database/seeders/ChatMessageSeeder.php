@@ -14,9 +14,9 @@ class ChatMessageSeeder extends Seeder
      */
     public function run(): void
     {
-        $conversations = ChatConversation::get();
-        foreach ($conversations as $conversation) {
-            $chat_participants = ChatParticipant::where('chat_conversation_id', $conversation->id)->get();
+        $chat_conversations = ChatConversation::get();
+        foreach ($chat_conversations as $chat_conversation) {
+            $chat_participants = ChatParticipant::where('chat_conversation_id', $chat_conversation->id)->get();
             foreach ($chat_participants as $chat_participant) {
                 ChatMessage::create([
                     'chat_conversation_id' => $chat_participant->chat_conversation_id,
