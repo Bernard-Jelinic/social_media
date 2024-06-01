@@ -47,7 +47,7 @@ class ChatConversationTest extends TestCase
         // // Acting as the authenticated user
         $this->actingAs($person_1);
 
-        $this->get('/messages')
+        $this->get('/conversations')
             ->assertSeeLivewire(ChatConversationMain::class);
     }
 }

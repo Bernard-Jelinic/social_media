@@ -33,8 +33,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('pages', PageController::class);
 
-    Route::get('/messages/{conversation_id?}', [ConversationController::class, 'index'])->name('conversations.index');
-    Route::get('/messages/create-open-conversation/{participant_one}/{participant_two}', [ConversationController::class, 'createOpenConversation'])->name('conversations.createOpenConversation');
+    Route::get('/conversations/{conversation_id?}', [ConversationController::class, 'index'])->name('conversations.index');
+    Route::get('/conversations/create-open-conversation/{participant_one}/{participant_two}', [ConversationController::class, 'createOpenConversation'])->name('conversations.createOpenConversation');
 });
 
 require __DIR__.'/auth.php';
