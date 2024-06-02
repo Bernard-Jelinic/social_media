@@ -47,7 +47,7 @@ class ChatConversationAllLeftSideTest extends TestCase
         // // Acting as the authenticated user
         $this->actingAs($person_1);
 
-        $this->get('/conversations')
+        $this->get('/conversations/' . $chat_conversation->id)
                 ->assertSeeLivewire(ChatConversationAllLeftSide::class);
     }
 }

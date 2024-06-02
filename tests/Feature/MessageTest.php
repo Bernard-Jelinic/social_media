@@ -43,7 +43,7 @@ class MessageTest extends TestCase
         ]);
 
         $response = $this->actingAs($person_1)
-                        ->get('/conversations');
+                        ->get('/conversations/' . $chat_conversation->id);
 
         $response->assertOk();
     }
