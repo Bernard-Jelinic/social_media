@@ -19,7 +19,7 @@ class CountrySeeder extends Seeder
             $values = array();
 
             $countries = Http::get('https://restcountries.com/v3.1/all');
-    
+
             foreach ($countries->json() as $country) {
                 array_push($values, [
                     'name' => $country['name']['common']

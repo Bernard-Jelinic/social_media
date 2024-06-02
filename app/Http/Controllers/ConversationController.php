@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\ChatConversation;
+use App\Models\ChatMessage;
+use App\Models\ChatParticipant;
 use Illuminate\Http\Request;
 
 class ConversationController extends Controller
@@ -14,6 +16,10 @@ class ConversationController extends Controller
     {
         if ($request->route('conversation_id') !== null) {
             ChatConversation::markAllMessagesAsRead($request->route('conversation_id'));
+        } else {
+            $chat_participants = ChatParticipant::where('user_id', auth()->user()->id)->get('chat_conversation_id')->pluck('chat_conversation_id');
+            $chat_message = ChatMessage::whereIn('chat_conversation_id', $chat_participants)->orderBy('created_at', 'desc')->first();
+            return redirect()->route('conversations.index', ['conversation_id' => $chat_message->chat_conversation_id]);
         }
         return view('conversations.index');
     }
