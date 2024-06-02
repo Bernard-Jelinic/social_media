@@ -73,6 +73,10 @@
     @endif
     @script
         <script>
+            Echo.private('userEvent.' + {{ $selected_conversation->conversation_user->id }})
+                .listen('.user.change', function(data) {
+                    refreshLivewireComponent()
+                })
             Echo.private('message.' + {{ auth()->user()->id }})
                 .listen('.sent.message', function(data) {
                     refreshLivewireComponent()

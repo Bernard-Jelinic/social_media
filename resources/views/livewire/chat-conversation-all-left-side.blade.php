@@ -16,13 +16,11 @@
                                 <div class="usr-msg-details">
                                     <div class="usr-ms-img">
                                         <img src="{{ asset($chat_conversation->messages[$chat_conversation->number_of_messages-1]->chatParticipant->user->profile_image) }}" alt="Profile image">
-                                        <span class="msg-status"></span>
+                                        <span class="msg-status" style="{{ ($chat_conversation->messages[$chat_conversation->number_of_messages-1]->chatParticipant->user->is_online == true) ? 'background-color: green': '#e44d3a' }}" ></span>
                                     </div>
                                     <div class="usr-mg-info">
                                         <h3>{{ $chat_conversation->messages[$chat_conversation->number_of_messages-1]->chatParticipant->user->full_name }}</h3>
-                                        <p>{{ $chat_conversation->messages[$chat_conversation->number_of_messages-1]->body }}
-                                            <img src="images/smley.png" alt="">
-                                        </p>
+                                        <p>{{ $chat_conversation->messages[$chat_conversation->number_of_messages-1]->body }}</p>
                                     </div><!--usr-mg-info end-->
                                     <span class="posted_time">{{ \Carbon\Carbon::parse($chat_conversation->messages[$chat_conversation->number_of_messages-1]->created_at)->diffForHumans() }}</span>
                                     <span class="{{ $chat_conversation->number_of_unread_messages > 0 ? "msg-notifc" : "" }}">{{ $chat_conversation->number_of_unread_messages ? $chat_conversation->number_of_unread_messages : '' }}</span>

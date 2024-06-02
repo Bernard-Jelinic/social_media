@@ -20,3 +20,7 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 Broadcast::channel('message.{user_id}', function ($user, $user_id){
     return (int) $user->id === (int) $user_id;
 });
+
+Broadcast::channel('userEvent.{user_id}', function ($user, $user_id){
+    return auth()->check();
+});

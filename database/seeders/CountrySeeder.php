@@ -14,6 +14,7 @@ class CountrySeeder extends Seeder
      */
     public function run(): void
     {
+        // Country::create(['name' => 'Croatia']);
         if (Country::count() == 0) {
             $values = array();
 

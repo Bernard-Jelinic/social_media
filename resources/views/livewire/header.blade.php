@@ -134,7 +134,7 @@
                     <ul class="on-off-status">
                         <li>
                             <div class="fgt-sec">
-                                <input type="radio" name="cc" id="c5">
+                                <input wire:click="changeIsOnlineStatusToOnline" type="radio" name="cc" id="c5" {{ (auth()->user()->is_online == true) ? "checked" : "" }}>
                                 <label for="c5">
                                     <span></span>
                                 </label>
@@ -143,7 +143,7 @@
                         </li>
                         <li>
                             <div class="fgt-sec">
-                                <input type="radio" name="cc" id="c6">
+                                <input wire:click="changeIsOnlineStatusToOffline" type="radio" name="cc" id="c6" {{ (auth()->user()->is_online == false) ? "checked" : "" }}>
                                 <label for="c6">
                                     <span></span>
                                 </label>
@@ -158,13 +158,6 @@
                             <button type="submit">Ok</button>
                         </form>
                     </div><!--search_form end-->
-                    <h3>Setting</h3>
-                    <ul class="us-links">
-                        <li><a href="profile-account-setting.html" title="">Account Setting</a></li>
-                        <li><a href="#" title="">Privacy</a></li>
-                        <li><a href="#" title="">Faqs</a></li>
-                        <li><a href="#" title="">Terms & Conditions</a></li>
-                    </ul>
                     <h3 class="tc">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

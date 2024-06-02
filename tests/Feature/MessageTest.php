@@ -77,7 +77,7 @@ class MessageTest extends TestCase
         ]);
 
         $this->actingAs($person_1)
-            ->get('/messages/' . $chat_conversation->id);
+            ->get('/conversations/' . $chat_conversation->id);
 
         $this->assertTrue(true);
     }
@@ -116,7 +116,7 @@ class MessageTest extends TestCase
         ]);
 
         $this->actingAs($person_1)
-            ->get('/messages/' . $chat_conversation->id)
+            ->get('/conversations/' . $chat_conversation->id)
             ->assertSeeText('Online');
     }
 
@@ -154,7 +154,7 @@ class MessageTest extends TestCase
         ]);
 
         $this->actingAs($person_1)
-            ->get('/messages/' . $chat_conversation->id)
+            ->get('/conversations/' . $chat_conversation->id)
             ->assertSeeText('Offline');
     }
 }
