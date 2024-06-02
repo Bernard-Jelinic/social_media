@@ -14,19 +14,27 @@ class CountrySeeder extends Seeder
      */
     public function run(): void
     {
-        // Country::create(['name' => 'Croatia']);
-        if (Country::count() == 0) {
-            $values = array();
+        Country::create(['name' => 'Croatia']);
+        Country::create(['name' => 'Germany']);
+        Country::create(['name' => 'France']);
+        Country::create(['name' => 'Italia']);
+        Country::create(['name' => 'Slovenia']);
+        Country::create(['name' => 'Serbia']);
+        Country::create(['name' => 'UK']);
+        Country::create(['name' => 'Spain']);
+        Country::create(['name' => 'Portugal']);
+        // if (Country::count() == 0) {
+        //     $values = array();
 
-            $countries = Http::get('https://restcountries.com/v3.1/all');
+        //     $countries = Http::get('https://restcountries.com/v3.1/all');
 
-            foreach ($countries->json() as $country) {
-                array_push($values, [
-                    'name' => $country['name']['common']
-                ]);
-            }
+        //     foreach ($countries->json() as $country) {
+        //         array_push($values, [
+        //             'name' => $country['name']['common']
+        //         ]);
+        //     }
     
-            Country::insert($values);
-        }
+        //     Country::insert($values);
+        // }
     }
 }
