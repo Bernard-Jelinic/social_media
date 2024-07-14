@@ -99,6 +99,14 @@ class User extends Authenticatable
         return $this->belongsTo(Country::class);
     }
 
+    /**
+     * Get the user that owns the city.
+     */
+    public function city(): BelongsTo
+    {
+        return $this->belongsTo(City::class);
+    }
+
     public function profileViews(): HasMany
     {
         return $this->hasMany(ProfileView::class, 'user_id');

@@ -4,9 +4,8 @@ namespace App\Livewire;
 
 use App\Livewire\FriendBaseComponent;
 use Illuminate\View\View;
-use App\Enums\FriendStatus;
 
-class FriendRequest extends FriendBaseComponent
+class ProfileFriendRequest extends FriendBaseComponent
 {
     public $friendRequests = array();
 
@@ -22,6 +21,6 @@ class FriendRequest extends FriendBaseComponent
 
     public function render(): View
     {
-        return view('livewire.friend-request');
+        return view('livewire.profile-friend-request');
     }
 }

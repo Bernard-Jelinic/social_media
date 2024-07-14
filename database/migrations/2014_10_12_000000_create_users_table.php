@@ -20,6 +20,7 @@ return new class extends Migration
             $table->char('headline', 150)->nullable();
             $table->string('about')->nullable();
             $table->foreignId('country_id')->nullable()->default(null)->constrained()->cascadeOnDelete();
+            $table->foreignId('city_id')->nullable()->default(null)->constrained()->cascadeOnDelete();
             $table->string('profile_image')->default('assets/images/default_images/person.png');
             $table->string('cover_image')->nullable();
             $table->char('email', 50)->unique();

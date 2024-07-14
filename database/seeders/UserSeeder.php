@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\City;
 use App\Models\User;
 use App\Models\Country;
 use Illuminate\Database\Seeder;
@@ -20,10 +21,13 @@ class UserSeeder extends Seeder
             $jobTitle = fake()->jobTitle();
         }
 
+        $country_id = Country::where('name', 'Croatia')->first()->id;
+
         User::create([
             'first_name' => 'Bernard',
             'last_name' => 'Jelinić',
-            'country_id' => Country::where('name', 'Croatia')->first()->id,
+            'country_id' => $country_id,
+            'city_id' => City::where('country_id', $country_id)->first()->id,
             'headline' => $jobTitle,
             'about' => fake()->paragraph(),
             'email' => 'jelinic.bernard@gmail.com',

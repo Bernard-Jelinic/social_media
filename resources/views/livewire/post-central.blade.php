@@ -3,7 +3,7 @@
         <livewire:post-add />
     @endif
 
-    <div class="product-feed-tab current" id="feed-dd">
+    <div>
         <div class="posts-section">
             @foreach ($user->posts->reverse() as $key=>$post)
                 {{-- top profiles section --}}
