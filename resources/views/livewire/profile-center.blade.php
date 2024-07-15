@@ -56,7 +56,7 @@
         @if ($is_post_central_shown == true)
             <livewire:post-central :is_profile_of_logged_in_user="$is_profile_of_logged_in_user" :user="$user"/>
         @elseif($is_profile_info_shown == true)
-            <livewire:profile-info :user="$user"/>
+            <livewire:profile-info :is_profile_of_logged_in_user="$is_profile_of_logged_in_user" :user="$user"/>
         @elseif($is_profile_images_shown == true)
             <livewire:profile-images/>
         @elseif($is_profile_friend_request_shown == true)

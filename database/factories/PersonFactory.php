@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\City;
 use App\Models\Country;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -32,14 +33,19 @@ class PersonFactory extends Factory
             $about = fake()->paragraph();
         }
 
+        $country_id = Country::inRandomOrder()->first()->id;
+        $city_id = City::where('country_id', $country_id)->inRandomOrder()->first()->id;
+
         return [
             'is_page' => false,
             'is_online' => fake()->boolean,
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
+            'country_id' => $country_id,
+            // 'country_id' => (Country::inRandomOrder()->first() == null) ? null : Country::inRandomOrder()->first()->id,
+            'city_id' => $city_id,
             'headline' => $headline,
             'about' => $about,
-            'country_id' => (Country::inRandomOrder()->first() == null) ? null : Country::inRandomOrder()->first()->id,
             'profile_image' => 'assets/images/default_images/person.png',
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),

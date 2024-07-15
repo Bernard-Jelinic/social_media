@@ -21,13 +21,14 @@ class UserSeeder extends Seeder
             $jobTitle = fake()->jobTitle();
         }
 
-        $country_id = Country::where('name', 'Croatia')->first()->id;
+        $country_id = Country::inRandomOrder()->first()->id;
+        $city_id = City::where('country_id', $country_id)->inRandomOrder()->first()->id;
 
         User::create([
             'first_name' => 'Bernard',
             'last_name' => 'Jelinić',
             'country_id' => $country_id,
-            'city_id' => City::where('country_id', $country_id)->first()->id,
+            'city_id' => $city_id,
             'headline' => $jobTitle,
             'about' => fake()->paragraph(),
             'email' => 'jelinic.bernard@gmail.com',

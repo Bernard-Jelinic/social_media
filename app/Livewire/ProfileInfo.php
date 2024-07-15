@@ -21,6 +21,8 @@ class ProfileInfo extends Component
     public $countries;
     public $selectedCountry;
 
+    public $is_profile_of_logged_in_user;
+
     public function saveAbout()
     {
         $this->user->about = $this->about;
@@ -45,9 +47,10 @@ class ProfileInfo extends Component
         $this->user->save();
     }
 
-    public function mount(object $user): void
+    public function mount(object $user, bool $is_profile_of_logged_in_user): void
     {
         $this->get($user);
+        $this->is_profile_of_logged_in_user = $is_profile_of_logged_in_user;
     }
 
     public function get($user): void
