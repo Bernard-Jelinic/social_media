@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\City;
 use App\Models\Country;
 use Livewire\Component;
 
@@ -19,7 +20,8 @@ class ProfileInfo extends Component
     public $city_id;
 
     public $countries;
-    public $selectedCountry;
+    public $selectedCountry = null;
+    public $selectedCity;
 
     public $is_profile_of_logged_in_user;
 
@@ -57,7 +59,7 @@ class ProfileInfo extends Component
     {
         $this->user = $user;
         $this->countries = Country::all();
-        $this->selectedCountry = Country::find($this->user->country_id);
+        $this->selectedCity = City::where('country_id', Country::find($this->user->country_id)->id)->get();
 
         $this->first_name = $user->first_name;
         $this->last_name = $user->last_name;
@@ -67,6 +69,11 @@ class ProfileInfo extends Component
 
         $this->country_id = $this->user->country_id;
         $this->city_id = $this->user->city_id;
+    }
+
+    public function updatedSelectedCountry()
+    {
+        $this->selectedCity = City::where('country_id', $this->selectedCountry)->get();
     }
 
     public function render()

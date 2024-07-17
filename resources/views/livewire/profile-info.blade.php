@@ -42,27 +42,19 @@
         @if ($is_profile_of_logged_in_user == true)
             <form>
                 <div class="datefm">
-                    <select wire:model="country_id" wire:model.live="selectedCountry">
+                    <select wire:model.live="selectedCountry">
                         <option>Country</option>
                         @foreach ($countries as $country)
-                            <option value="{{ $country->id }}"
-                                @if ($country->id == $user->country->id)
-                                    selected="selected"
-                                @endif
-                                >{{ $country->name }}</option>
+                            <option value="{{ $country->id }}" @selected($country->id == $user->country_id ?? $selectedCountry == $country->id)>{{ $country->name }}</option>
                         @endforeach
                     </select>
                     <i class="fa fa-globe"></i>
                 </div>
                 <div class="datefm">
-                    <select wire:model="city_id" wire:model.live="selectedCity" wire:key="selectedCountry">
+                    <select wire:model="selectedCity">
                         <option>City</option>
-                        @foreach (App\Models\City::where('country_id', $selectedCountry->id)->get() as $city)
-                            <option value="{{ $city->id }}"
-                                @if ($city->id == $user->city->id)
-                                    selected="selected"
-                                @endif
-                                >{{ $city->name }}</option>
+                        @foreach ($selectedCity as $city)
+                            <option value="{{ $city->id }}" {{ $city->id == $user->city_id ? 'selected' : '' }}>{{ $city->name }}</option>
                         @endforeach
                     </select>
                     <i class="fa fa-map-marker"></i>
