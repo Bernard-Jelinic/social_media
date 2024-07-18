@@ -20,7 +20,8 @@ class ProfileInfo extends Component
     public $city_id;
 
     public $countries;
-    public $selectedCountry = null;
+    public $cities;
+    public $selectedCountry;
     public $selectedCity;
 
     public $is_profile_of_logged_in_user;
@@ -58,8 +59,10 @@ class ProfileInfo extends Component
     public function get($user): void
     {
         $this->user = $user;
+        $this->selectedCountry = $this->user->country_id;
+        $this->selectedCity = $this->user->city_id;
         $this->countries = Country::all();
-        $this->selectedCity = City::where('country_id', Country::find($this->user->country_id)->id)->get();
+        $this->cities = City::where('country_id', Country::find($this->user->country_id)->id)->get();
 
         $this->first_name = $user->first_name;
         $this->last_name = $user->last_name;
@@ -73,7 +76,7 @@ class ProfileInfo extends Component
 
     public function updatedSelectedCountry()
     {
-        $this->selectedCity = City::where('country_id', $this->selectedCountry)->get();
+        $this->cities = City::where('country_id', $this->selectedCountry)->get();
     }
 
     public function render()

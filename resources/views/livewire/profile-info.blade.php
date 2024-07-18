@@ -43,18 +43,18 @@
             <form>
                 <div class="datefm">
                     <select wire:model.live="selectedCountry">
-                        <option>Country</option>
+                        <option disabled>Country</option>
                         @foreach ($countries as $country)
-                            <option value="{{ $country->id }}" @selected($country->id == $user->country_id ?? $selectedCountry == $country->id)>{{ $country->name }}</option>
+                            <option value="{{ $country->id }}">{{ $country->name }}</option>
                         @endforeach
                     </select>
                     <i class="fa fa-globe"></i>
                 </div>
                 <div class="datefm">
                     <select wire:model="selectedCity">
-                        <option>City</option>
-                        @foreach ($selectedCity as $city)
-                            <option value="{{ $city->id }}" {{ $city->id == $user->city_id ? 'selected' : '' }}>{{ $city->name }}</option>
+                        <option disabled>City</option>
+                        @foreach ($cities as $city)
+                            <option value="{{ $city->id }}">{{ $city->name }}</option>
                         @endforeach
                     </select>
                     <i class="fa fa-map-marker"></i>
