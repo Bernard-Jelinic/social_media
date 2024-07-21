@@ -40,28 +40,26 @@
     <div class="user-profile-ov overview-edit">
         <h3>Location</h3>
         @if ($is_profile_of_logged_in_user == true)
-            <form>
-                <div class="datefm">
-                    <select wire:model.live="selectedCountry">
-                        <option disabled>Country</option>
-                        @foreach ($countries as $country)
-                            <option value="{{ $country->id }}">{{ $country->name }}</option>
-                        @endforeach
-                    </select>
-                    <i class="fa fa-globe"></i>
-                </div>
-                <div class="datefm">
-                    <select wire:model="selectedCity">
-                        <option disabled>City</option>
-                        @foreach ($cities as $city)
-                            <option value="{{ $city->id }}">{{ $city->name }}</option>
-                        @endforeach
-                    </select>
-                    <i class="fa fa-map-marker"></i>
-                </div>
-                <button class="save" wire:click="saveLocation">Save</button>
-                <button class="cancel">Cancel</button>
-            </form>
+            <div class="datefm">
+                <select wire:model.live="selectedCountry">
+                    <option disabled>Country</option>
+                    @foreach ($countries as $country)
+                        <option value="{{ $country->id }}">{{ $country->name }}</option>
+                    @endforeach
+                </select>
+                <i class="fa fa-globe"></i>
+            </div>
+            <div class="datefm">
+                <select wire:model="selectedCity">
+                    <option disabled>City</option>
+                    @foreach ($cities as $city)
+                        <option value="{{ $city->id }}">{{ $city->name }}</option>
+                    @endforeach
+                </select>
+                <i class="fa fa-map-marker"></i>
+            </div>
+            <button class="save" wire:click="saveLocation">Save</button>
+            <button class="cancel">Cancel</button>
         @else
             <h4>{{ $user->country->name }}</h4>
             <p>{{ $user->city->name }}</p>

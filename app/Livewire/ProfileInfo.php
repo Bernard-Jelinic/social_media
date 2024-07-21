@@ -26,13 +26,6 @@ class ProfileInfo extends Component
 
     public $is_profile_of_logged_in_user;
 
-    public function saveAbout()
-    {
-        $this->user->about = $this->about;
-
-        $this->user->save();
-    }
-
     public function savePersonalInformation()
     {
         $this->user->first_name = $this->first_name;
@@ -42,10 +35,17 @@ class ProfileInfo extends Component
         $this->user->save();
     }
 
+    public function saveAbout()
+    {
+        $this->user->about = $this->about;
+
+        $this->user->save();
+    }
+
     public function saveLocation()
     {
-        $this->user->country_id = $this->country_id;
-        $this->user->city_id = $this->city_id;
+        $this->user->country_id = $this->selectedCountry;
+        $this->user->city_id = $this->selectedCity;
 
         $this->user->save();
     }
