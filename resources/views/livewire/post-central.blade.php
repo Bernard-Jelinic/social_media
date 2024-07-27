@@ -91,14 +91,14 @@
                         <div class="job-status-bar">
                             <div class="comment_box">
                                 <form wire:submit="">
-                                    <button wire:click="changeCommentDisplay">Comment</button>
+                                    <button wire:click="changeCommentDisplay({{ $post->id }})">Comment</button>
                                     <button disabled>{{ count($post->comments) }} {{ count($post->comments) == 1 ? 'Comment' : 'Comments' }}</button>
                                     <button wire:click="likeDislikePost({{ $post->id }})">{{ $post->likes->contains('user_id', auth()->user()->id) ? 'Unlike this post' : 'Like this post' }}</button>
                                     <button disabled><i class="la la-heart"></i>{{ count($post->likes) }} {{ count($post->likes) == 1 ? 'Like' : 'Likes' }}</button>
                                 </form>
                             </div>
                         </div>
-                        @if ($is_comments_display)
+                        @if ($is_comments_display && $post->id == $post_id_to_display_comment)
                             <div class="comment-section">
                                 <div class="plus-ic">
                                     <i class="la la-plus"></i>

@@ -18,6 +18,7 @@ class PostCentral extends Component
 
     public $new_comment;
     public $is_comments_display = false;
+    public $post_id_to_display_comment = null;
 
     public function mount(bool $is_profile_of_logged_in_user, object $user, bool $show_top_profiles = false): void
     {
@@ -44,9 +45,10 @@ class PostCentral extends Component
         $this->new_comment = '';
     }
 
-    public function changeCommentDisplay(): void
+    public function changeCommentDisplay(int $post_id): void
     {
         $this->is_comments_display = !$this->is_comments_display;
+        $this->post_id_to_display_comment = $post_id;
     }
 
     public function likeDislikePost(int $post_id): void
