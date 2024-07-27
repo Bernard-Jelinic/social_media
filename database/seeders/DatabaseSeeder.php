@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             PersonSeeder::class,
             PageSeeder::class,
             PostSeeder::class,
+            LikeSeeder::class,
+            CommentSeeder::class,
             ProfileViewSeeder::class,
             ProfileViewSeeder::class,
             ProfileViewSeeder::class,

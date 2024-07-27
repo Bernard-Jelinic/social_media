@@ -44,7 +44,7 @@
                                         <div class="notfication-details">
                                             <a href="{{ route('conversations.index', $chat_conversation->id) }}">
                                                 <div class="chat-mg noty-user-img">
-                                                    <img style="height: 35px" src="{{ asset($chat_conversation->messages[$chat_conversation->number_of_messages-1]->chatParticipant->user->profile_image) }}" alt="Users profile image">
+                                                    <img class="profile-image-35" src="{{ asset($chat_conversation->messages[$chat_conversation->number_of_messages-1]->chatParticipant->user->profile_image) }}" alt="Users profile image">
                                                     @if ($chat_conversation->number_of_unread_messages > 0)
                                                         <span>{{ $chat_conversation->number_of_unread_messages }}</span>
                                                     @endif

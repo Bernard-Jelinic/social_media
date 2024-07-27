@@ -3640,6 +3640,18 @@ footer {
 	padding: 30px 20px;
 }
 
+.profile-image-30{
+	width: 30px
+}
+
+.profile-image-35{
+	width: 35px
+}
+
+.profile-image-40{
+	width: 40px
+}
+
 .overview-edit h3 {
 	color: #000000;
 	font-size: 18px;

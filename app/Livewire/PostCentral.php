@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Comment;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\View\View;
@@ -13,6 +14,8 @@ class PostCentral extends Component
     public $user;
     public $show_top_profiles;
     public $random_users;
+
+    public $new_comment;
 
     public function mount(bool $is_profile_of_logged_in_user, object $user, bool $show_top_profiles = false): void
     {
@@ -26,6 +29,17 @@ class PostCentral extends Component
     public function getPosts(): void
     {
         $this->user = User::find(auth()->user()->id);
+    }
+
+    public function addComment($post_id): void
+    {
+        Comment::create([
+            'user_id' => auth()->user()->id,
+            'post_id' => $post_id,
+            'content' => $this->new_comment,
+        ]);
+
+        $this->new_comment = '';
     }
 
     public function render(): View
