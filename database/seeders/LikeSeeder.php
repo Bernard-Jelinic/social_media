@@ -18,7 +18,8 @@ class LikeSeeder extends Seeder
 
         foreach ($posts as $post) {
             Like::create([
-                'post_id' => $post->id
+                'post_id' => $post->id,
+                'user_id' => 1
             ]);
         }
     }

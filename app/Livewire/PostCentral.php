@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Like;
 use App\Models\Comment;
 use App\Models\User;
 use Livewire\Component;
@@ -32,7 +33,7 @@ class PostCentral extends Component
         $this->user = User::find(auth()->user()->id);
     }
 
-    public function addComment($post_id): void
+    public function addComment(int $post_id): void
     {
         Comment::create([
             'user_id' => auth()->user()->id,
@@ -46,6 +47,19 @@ class PostCentral extends Component
     public function changeCommentDisplay(): void
     {
         $this->is_comments_display = !$this->is_comments_display;
+    }
+
+    public function likeDislikePost(int $post_id): void
+    {
+        $like = Like::where('post_id', $post_id)->where('user_id', auth()->user()->id)->first();
+        if ($like == null) {
+            Like::create([
+                'post_id' => $post_id,
+                'user_id' => auth()->user()->id
+            ]);
+        } else {
+            $like->delete();
+        }
     }
 
     public function render(): View
