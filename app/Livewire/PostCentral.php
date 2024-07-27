@@ -16,6 +16,7 @@ class PostCentral extends Component
     public $random_users;
 
     public $new_comment;
+    public $is_comments_display = false;
 
     public function mount(bool $is_profile_of_logged_in_user, object $user, bool $show_top_profiles = false): void
     {
@@ -40,6 +41,11 @@ class PostCentral extends Component
         ]);
 
         $this->new_comment = '';
+    }
+
+    public function changeCommentDisplay(): void
+    {
+        $this->is_comments_display = !$this->is_comments_display;
     }
 
     public function render(): View

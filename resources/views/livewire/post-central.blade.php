@@ -90,46 +90,49 @@
                         </div>
                         <div class="job-status-bar">
                             <div class="comment_box">
-                                <form wire:submit="addPost">
+                                <form wire:submit="">
+                                    <button wire:click="changeCommentDisplay">Comment</button>
                                     <button disabled>{{ count($post->comments) }} {{ count($post->comments) > 1 ? 'Comments' : 'Comment' }}</button>
                                     <button type="submit">Like this post</button>
                                     <button disabled><i class="la la-heart"></i>{{ count($post->likes) }} {{ count($post->likes) > 1 ? 'Likes' : 'Like' }}</button>
                                 </form>
                             </div>
                         </div>
-                        <div class="comment-section">
-                            <div class="plus-ic">
-                                <i class="la la-plus"></i>
-                            </div>
-                            @foreach ($post->comments as $comment)
-                                <div class="comment-sec">
-                                    <ul>
-                                        <li>
-                                            <div class="comment-list">
-                                                <div class="bg-img">
-                                                    <img class="profile-image-40" src="{{ asset($comment->user->profile_image) }}" alt="Users profile image">
-                                                </div>
-                                                <div class="comment">
-                                                    <h3>{{ $comment->user->full_name }}</h3>
-                                                    <span><img src="images/clock.png" alt="">{{ $comment->created_at->diffForHumans() }}</span>
-                                                    <p>{{ $comment->content }}</p>
-                                                </div>
-                                            </div><!--comment-list end-->
-                                        </li>
-                                    </ul>
-                                </div><!--comment-sec end-->
-                            @endforeach
-                            <ul>
-                                <li>
-                                    <div class="comment_box">
-                                        <form wire:submit="addComment({{ $post->id }})">
-                                            <input type="text" wire:model="new_comment" placeholder="Write comment...">
-                                            <button>Comment</button>
-                                        </form>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div><!--comment-section end-->
+                        @if ($is_comments_display)
+                            <div class="comment-section">
+                                <div class="plus-ic">
+                                    <i class="la la-plus"></i>
+                                </div>
+                                @foreach ($post->comments as $comment)
+                                    <div class="comment-sec">
+                                        <ul>
+                                            <li>
+                                                <div class="comment-list">
+                                                    <div class="bg-img">
+                                                        <img class="profile-image-40" src="{{ asset($comment->user->profile_image) }}" alt="Users profile image">
+                                                    </div>
+                                                    <div class="comment">
+                                                        <h3>{{ $comment->user->full_name }}</h3>
+                                                        <span><img src="images/clock.png" alt="">{{ $comment->created_at->diffForHumans() }}</span>
+                                                        <p>{{ $comment->content }}</p>
+                                                    </div>
+                                                </div><!--comment-list end-->
+                                            </li>
+                                        </ul>
+                                    </div><!--comment-sec end-->
+                                @endforeach
+                                <ul>
+                                    <li>
+                                        <div class="comment_box">
+                                            <form wire:submit="addComment({{ $post->id }})">
+                                                <input type="text" wire:model="new_comment" placeholder="Write comment...">
+                                                <button>Comment</button>
+                                            </form>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div><!--comment-section end-->
+                        @endif
                     </div><!--post-bar end-->
                 </div>
                 {{-- end --}}
