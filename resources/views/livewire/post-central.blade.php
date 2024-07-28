@@ -5,9 +5,9 @@
 
     <div>
         <div class="posts-section">
-            @foreach ($user->posts->reverse() as $key=>$post)
+            @foreach ($posts as $key=>$post)
                 {{-- top profiles section --}}
-                @if ($key == 1 && $show_top_profiles && count($user->posts) > 2)
+                @if ($key == 1 && $show_top_profiles && count($posts) > 2)
                     <div class="top-profiles">
                         <div class="pf-hd">
                             <h3>Top Profiles</h3>
@@ -46,9 +46,9 @@
                     <div class="post-bar">
                         <div class="post_topbar">
                             <div class="usy-dt">
-                                <img style="width: 50px" src="{{ asset($user->profile_image) }}" alt="">
+                                <img style="width: 50px" src="{{ asset($post->user->profile_image) }}" alt="">
                                 <div class="usy-name">
-                                    <h3>{{ $user->full_name }}</h3>
+                                    <h3>{{ $post->user->full_name }}</h3>
                                     <span><img src="{{ asset('assets/images/clock.png') }}" alt="">{{ $post->created_at->diffForHumans() }}</span>
                                 </div>
                             </div>
@@ -65,12 +65,12 @@
                         </div>
                         <div class="epi-sec">
                             <ul class="descp">
-                                <li><img style="height: 19px" src="{{ asset('assets/images/icon8.png') }}" alt="Headline icon"><span>{{ $user->headline }}</span></li>
-                                <li><img style="height: 19px" src="{{ asset('assets/images/icon10.png') }}" alt="Location icon"><span>{{ $user->country->name }}</span></li>
+                                <li><img style="height: 19px" src="{{ asset('assets/images/icon8.png') }}" alt="Headline icon"><span>{{ $post->user->headline }}</span></li>
+                                <li><img style="height: 19px" src="{{ asset('assets/images/icon10.png') }}" alt="Location icon"><span>{{ $post->user->country->name }}</span></li>
                             </ul>
                             <ul class="bk-links">
                                 {{-- <li><a href="#" title=""><i class="la la-bookmark"></i></a></li> --}}
-                                <li><a href="{{ route('conversations.createOpenConversation', ['participant_one' => auth()->id(), 'participant_two' => $user->id] ) }}" title=""><i class="la la-envelope"></i></a></li>
+                                <li><a href="{{ route('conversations.createOpenConversation', ['participant_one' => auth()->id(), 'participant_two' => $post->user->id] ) }}" title=""><i class="la la-envelope"></i></a></li>
                             </ul>
                         </div>
                         <div class="job_descp">

@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Like;
+use App\Models\Post;
 use App\Models\Comment;
 use App\Models\User;
 use Livewire\Component;
@@ -15,6 +16,7 @@ class PostCentral extends Component
     public $user;
     public $show_top_profiles;
     public $random_users;
+    public $posts;
 
     public $new_comment;
     public $is_comments_display = false;
@@ -26,6 +28,10 @@ class PostCentral extends Component
         $this->user = $user;
         $this->show_top_profiles = $show_top_profiles;
         $this->random_users = User::inRandomOrder()->whereNotIn('id', [auth()->user()->id])->limit(10)->get();
+
+        $friend_ids = $user->friends($user->id)->pluck('id')->toArray();
+        array_push($friend_ids, $user->id);
+        $this->posts = Post::whereIn('user_id', $friend_ids)->limit(10)->orderBy('created_at', 'desc')->get();
     }
 
     #[On('get-posts')]
