@@ -25,7 +25,7 @@ class FriendBaseComponent extends Component
         $this->request_in_process = false;
     }
 
-    public function acceptFriendRequest($sender_id): void
+    public function acceptFriendRequest(int $sender_id): void
     {
         $friend = auth()->user()->receivedRequestFrom()->withPivot('status')->where('sender_id', $sender_id)->first();
         if ($friend !== null) {
@@ -34,11 +34,23 @@ class FriendBaseComponent extends Component
         }
     }
 
-    public function denyFriendRequest($sender_id): void
+    public function acceptFriendRequestAndRefresh(int $sender_id): void
+    {
+        $this->acceptFriendRequest($sender_id);
+        $this->get();
+    }
+
+    public function denyFriendRequest(int $sender_id): void
     {
         $friend = auth()->user()->receivedRequestFrom()->withPivot('status')->where('sender_id', $sender_id)->first();
         if ($friend !== null) {
             $friend->pivot->delete();
         }
+    }
+
+    public function denyFriendRequestAndRefresh(int $sender_id): void
+    {
+        $this->denyFriendRequest($sender_id);
+        $this->get();
     }
 }
