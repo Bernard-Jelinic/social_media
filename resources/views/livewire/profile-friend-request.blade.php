@@ -18,10 +18,10 @@
                         <tr>
                             <td>{{ $friendRequest->full_name }}</td>
                             <td>
-                                <button wire:click="acceptFriendRequestAndRefresh({{ $friendRequest->id }})" type="button" class="btn btn-primary">
+                                <button wire:click="acceptFriendRequest({{ $friendRequest->id }})" type="button" class="btn btn-primary">
                                     <i class="la la-check"></i>Accept
                                 </button>
-                                <button wire:click="denyFriendRequestAndRefresh({{ $friendRequest->id }})" type="button" class="btn btn-danger">
+                                <button wire:click="denyFriendRequest({{ $friendRequest->id }})" type="button" class="btn btn-danger">
                                     <i class="la la-close"></i>Deny
                                 </button>
                             </td>
@@ -33,3 +33,14 @@
         </div>
     </div>
 </div>
+@script
+    <script>
+        Echo.private('friendRequest.' + {{ auth()->user()->id }})
+            .listen('.friendRequest.event', function(data) {
+                refreshLivewireComponent()
+            })
+        function refreshLivewireComponent() {
+            $wire.refreshComponent()
+        }
+    </script>
+@endscript

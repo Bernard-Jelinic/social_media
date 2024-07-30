@@ -19,6 +19,11 @@ class ProfileFriendRequest extends FriendBaseComponent
         $this->friendRequests = auth()->user()->receivedRequestFrom()->where('status', 10)->get();
     }
 
+    public function refreshComponent(): void
+    {
+        $this->get();
+    }
+
     public function render(): View
     {
         return view('livewire.profile-friend-request');

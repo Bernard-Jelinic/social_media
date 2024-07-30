@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Enums\FriendStatus;
+use App\Events\FriendRequestEvent;
 
 class FriendBaseComponent extends Component
 {
@@ -11,6 +12,9 @@ class FriendBaseComponent extends Component
     {
         auth()->user()->sentRequestTo()->attach($user['id']);
         $this->request_in_process = true;
+
+        event(new FriendRequestEvent(auth()->user()->id));
+        event(new FriendRequestEvent($user['id']));
     }
 
     public function addFriendAndRefresh(array $user): void
@@ -23,6 +27,9 @@ class FriendBaseComponent extends Component
     {
         auth()->user()->sentRequestTo()->detach($this->user_profile->id);
         $this->request_in_process = false;
+
+        event(new FriendRequestEvent(auth()->user()->id));
+        event(new FriendRequestEvent($this->user_profile->id));
     }
 
     public function acceptFriendRequest(int $sender_id): void
@@ -32,6 +39,9 @@ class FriendBaseComponent extends Component
             $friend->pivot->status = FriendStatus::ACCEPTED->value;
             $friend->pivot->save();
         }
+
+        event(new FriendRequestEvent(auth()->user()->id));
+        event(new FriendRequestEvent($sender_id));
     }
 
     public function acceptFriendRequestAndRefresh(int $sender_id): void
@@ -46,6 +56,9 @@ class FriendBaseComponent extends Component
         if ($friend !== null) {
             $friend->pivot->delete();
         }
+
+        event(new FriendRequestEvent(auth()->user()->id));
+        event(new FriendRequestEvent($sender_id));
     }
 
     public function denyFriendRequestAndRefresh(int $sender_id): void

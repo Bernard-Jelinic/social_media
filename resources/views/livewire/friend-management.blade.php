@@ -27,7 +27,7 @@
                 </a>
             </li>
         @else
-            <li wire:click="addFriendAndRefresh({{ $user_profile }})">
+            <li wire:click="addFriend({{ $user_profile }})">
                 <a href="#" title="" class="flww">
                     <i class="la la-plus"></i>Add Friend
                 </a>
@@ -47,3 +47,14 @@
         </li>-->
     </ul>
 </div><!--user_pro_status end-->
+@script
+    <script>
+        Echo.private('friendRequest.' + {{ auth()->user()->id }})
+            .listen('.friendRequest.event', function(data) {
+                refreshLivewireComponent()
+            })
+        function refreshLivewireComponent() {
+            $wire.refreshComponent()
+        }
+    </script>
+@endscript

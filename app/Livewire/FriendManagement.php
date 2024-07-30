@@ -55,6 +55,14 @@ class FriendManagement extends FriendBaseComponent
         }
     }
 
+    public function refreshComponent(): void
+    {
+        $this->request_in_process = false;
+        $this->request_accepted = false;
+        $this->is_this_sent_request = false;
+        $this->get();
+    }
+
     public function render(): View
     {
         return view('livewire.friend-management');
