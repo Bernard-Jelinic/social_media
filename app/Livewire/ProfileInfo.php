@@ -52,11 +52,11 @@ class ProfileInfo extends Component
 
     public function mount(object $user, bool $is_profile_of_logged_in_user): void
     {
-        $this->get($user);
+        $this->refreshComponent($user);
         $this->is_profile_of_logged_in_user = $is_profile_of_logged_in_user;
     }
 
-    public function get($user): void
+    public function refreshComponent($user): void
     {
         $this->user = $user;
         $this->selectedCountry = $this->user->country_id;

@@ -13,10 +13,10 @@ class PagesMostViewThisWeek extends Component
 
     public function mount(): void
     {
-        $this->get();
+        $this->refreshComponent();
     }
 
-    public function get(): void
+    public function refreshComponent(): void
     {
         $this->users = User::where('is_page', true)
                                         ->withCount('profileViews')

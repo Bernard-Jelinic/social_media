@@ -20,7 +20,7 @@ class FriendBaseComponent extends Component
     public function addFriendAndRefresh(array $user): void
     {
         $this->addFriend($user);
-        $this->get();
+        $this->refreshComponent();
     }
 
     public function cancelFriendRequest(): void

@@ -11,17 +11,12 @@ class ProfileFriendRequest extends FriendBaseComponent
 
     public function mount(): void
     {
-        $this->get();
-    }
-
-    public function get(): void
-    {
-        $this->friendRequests = auth()->user()->receivedRequestFrom()->where('status', 10)->get();
+        $this->refreshComponent();
     }
 
     public function refreshComponent(): void
     {
-        $this->get();
+        $this->friendRequests = auth()->user()->receivedRequestFrom()->where('status', 10)->get();
     }
 
     public function render(): View

@@ -12,10 +12,10 @@ class FriendSuggestions extends FriendBaseComponent
 
     public function mount(): void
     {
-        $this->get();
+        $this->refreshComponent();
     }
 
-    public function get(): void
+    public function refreshComponent(): void
     {
         $currentUser = auth()->user();
         $this->users = User::whereNotIn('id', function ($query) use ($currentUser) {

@@ -21,11 +21,15 @@ class FriendManagement extends FriendBaseComponent
     public function mount($user_profile): void
     {
         $this->user_profile = $user_profile;
-        $this->get();
+        $this->refreshComponent();
     }
 
-    public function get(): void
+    public function refreshComponent(): void
     {
+        $this->request_in_process = false;
+        $this->request_accepted = false;
+        $this->is_this_sent_request = false;
+
         if ($this->user_profile->is_page){
             $this->model = Page::class;
         } else {
@@ -53,14 +57,6 @@ class FriendManagement extends FriendBaseComponent
                 }
             }
         }
-    }
-
-    public function refreshComponent(): void
-    {
-        $this->request_in_process = false;
-        $this->request_accepted = false;
-        $this->is_this_sent_request = false;
-        $this->get();
     }
 
     public function render(): View
