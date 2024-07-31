@@ -130,6 +130,11 @@
                     <!--<i class="la la-sort-down"></i>-->
                 </div>
                 <div class="user-account-settingss">
+                    <h3>
+                        <a href="{{ route('profile.edit') }}" title="Show my profile">
+                            {{ auth()->user()->full_name }}
+                        </a>
+                    </h3>
                     <h3>Online Status</h3>
                     <ul class="on-off-status">
                         <li>
