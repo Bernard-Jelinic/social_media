@@ -22,16 +22,18 @@ class PostCentral extends Component
     public $is_comments_display = false;
     public $post_id_to_display_comment = null;
 
-    public function mount(bool $is_profile_of_logged_in_user, object $user, bool $show_top_profiles = false): void
+    public function mount(bool $is_profile_of_logged_in_user, object $user, bool $show_top_profiles = false, bool $is_dashboard = true): void
     {
         $this->is_profile_of_logged_in_user = $is_profile_of_logged_in_user;
         $this->user = $user;
         $this->show_top_profiles = $show_top_profiles;
         $this->random_users = User::inRandomOrder()->whereNotIn('id', [auth()->user()->id])->limit(10)->get();
 
-        $friend_ids = $user->friends($user->id)->pluck('id')->toArray();
-        array_push($friend_ids, $user->id);
-        $this->posts = Post::whereIn('user_id', $friend_ids)->limit(10)->orderBy('created_at', 'desc')->get();
+        $array_of_user_ids_to_display = array($user->id);
+        if ($is_dashboard) {
+            array_push($array_of_user_ids_to_display, $user->friends($user->id)->pluck('id')->toArray());
+        }
+        $this->posts = Post::whereIn('user_id', $array_of_user_ids_to_display)->limit(10)->orderBy('created_at', 'desc')->get();
     }
 
     #[On('get-posts')]
