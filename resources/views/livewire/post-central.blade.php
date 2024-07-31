@@ -46,9 +46,13 @@
                     <div class="post-bar">
                         <div class="post_topbar">
                             <div class="usy-dt">
-                                <img style="width: 50px" src="{{ asset($post->user->profile_image) }}" alt="">
+                                <a href="{{ route('profile.show', $post->user->id) }}">
+                                    <img style="width: 50px" src="{{ asset($post->user->profile_image) }}" alt="Profile image">
+                                </a>
                                 <div class="usy-name">
-                                    <h3>{{ $post->user->full_name }}</h3>
+                                    <a href="{{ route('profile.show', $post->user->id) }}">
+                                        <h3>{{ $post->user->full_name }}</h3>
+                                    </a>
                                     <span><img src="{{ asset('assets/images/clock.png') }}" alt="">{{ $post->created_at->diffForHumans() }}</span>
                                 </div>
                             </div>
