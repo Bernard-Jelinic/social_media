@@ -39,16 +39,18 @@
                             <span>Portfolio</span>
                         {{-- </a> --}}
                     </li>
-                    <li
-                    @if ($is_profile_friend_request_displayed_on_full_profile == true)
-                        class="active"
-                    @endif 
-                    wire:click="displayFriendRequest">
-                        {{-- <a href="#" title=""> --}}
-                            <img src="{{ asset('assets/images/ic6.png') }}" alt="">
-                            <span>Friend requests</span>
-                        {{-- </a> --}}
-                    </li>
+                    @if ($is_profile_of_logged_in_user)
+                        <li
+                        @if ($is_profile_friend_request_displayed_on_full_profile == true)
+                            class="active"
+                        @endif 
+                        wire:click="displayFriendRequest">
+                            {{-- <a href="#" title=""> --}}
+                                <img src="{{ asset('assets/images/ic6.png') }}" alt="">
+                                <span>Friend requests</span>
+                            {{-- </a> --}}
+                        </li>   
+                    @endif
                 </ul>
             </div><!-- tab-feed end-->
         </div><!--user-tab-sec end-->
