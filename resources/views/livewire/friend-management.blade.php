@@ -8,7 +8,7 @@
                     <i class="la la-check"></i>Accept
                 </a>
             </li>
-            <li wire:click="cancelFriendRequest">
+            <li wire:click="denyFriendRequest({{ $user_profile->id }})">
                 <a href="#" title="" class="btn-danger">
                     <i class="la la-close"></i>Deny
                 </a>
