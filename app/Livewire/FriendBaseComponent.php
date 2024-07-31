@@ -16,7 +16,7 @@ class FriendBaseComponent extends Component
         event(new FriendRequestEvent(auth()->user()->id));
         event(new FriendRequestEvent($user['id']));
     }
-
+    
     public function addFriendAndRefresh(array $user): void
     {
         $this->addFriend($user);
@@ -44,12 +44,6 @@ class FriendBaseComponent extends Component
         event(new FriendRequestEvent($sender_id));
     }
 
-    public function acceptFriendRequestAndRefresh(int $sender_id): void
-    {
-        $this->acceptFriendRequest($sender_id);
-        $this->get();
-    }
-
     public function denyFriendRequest(int $sender_id): void
     {
         $friend = auth()->user()->receivedRequestFrom()->withPivot('status')->where('sender_id', $sender_id)->first();
@@ -59,11 +53,5 @@ class FriendBaseComponent extends Component
 
         event(new FriendRequestEvent(auth()->user()->id));
         event(new FriendRequestEvent($sender_id));
-    }
-
-    public function denyFriendRequestAndRefresh(int $sender_id): void
-    {
-        $this->denyFriendRequest($sender_id);
-        $this->get();
     }
 }
