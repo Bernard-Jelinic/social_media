@@ -54,4 +54,19 @@ class FriendBaseComponent extends Component
         event(new FriendRequestEvent(auth()->user()->id));
         event(new FriendRequestEvent($sender_id));
     }
+
+    public function deleteFriendRequest(int $receiver_or_sender_id): void
+    {
+        $response = auth()->user()->sentRequestTo()->detach($receiver_or_sender_id);
+        if ($response == 0) {
+            $test = auth()->user()->receivedRequestFrom()->withPivot('status')->where('sender_id', $receiver_or_sender_id)->first();
+            if ($test !== null) {
+                $test->pivot->delete();
+            }
+        }
+        $this->request_in_process = false;
+
+        event(new FriendRequestEvent(auth()->user()->id));
+        event(new FriendRequestEvent($this->user_profile->id));
+    }
 }

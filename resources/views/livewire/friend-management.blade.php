@@ -21,7 +21,7 @@
                 </a>
             </li>
         @elseif ($request_accepted)
-            <li wire:click="denyFriendRequest({{ $user_profile->id }})">
+            <li wire:click="deleteFriendRequest({{ $user_profile->id }})">
                 <a href="#" title="" class="flww">
                     <i class="la la-plus"></i>Delete Friend
                 </a>
