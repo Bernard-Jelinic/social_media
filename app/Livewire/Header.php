@@ -3,10 +3,13 @@
 namespace App\Livewire;
 
 use App\Events\UserEvent;
+use App\Traits\PostTrait;
 use App\Livewire\ChatConversationBase;
 
 class Header extends ChatConversationBase
 {
+    use PostTrait;
+    
     public function mount(): void
     {
         $this->refreshComponent();

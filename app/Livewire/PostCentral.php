@@ -21,6 +21,7 @@ class PostCentral extends Component
     public $new_comment;
     public $is_comments_display = false;
     public $post_id_to_display_comment = null;
+    public $is_dashboard;
 
     public function mount(bool $is_profile_of_logged_in_user, object $user, bool $show_top_profiles = false, bool $is_dashboard = true): void
     {
@@ -29,17 +30,16 @@ class PostCentral extends Component
         $this->show_top_profiles = $show_top_profiles;
         $this->random_users = User::inRandomOrder()->whereNotIn('id', [auth()->user()->id])->limit(10)->get();
 
-        $array_of_user_ids_to_display = array($user->id);
-        if ($is_dashboard) {
-            array_push($array_of_user_ids_to_display, $user->friends($user->id)->pluck('id')->toArray());
-        }
-        $this->posts = Post::whereIn('user_id', $array_of_user_ids_to_display)->limit(10)->orderBy('created_at', 'desc')->get();
+        $this->refreshComponent();
     }
 
-    #[On('get-posts')]
-    public function getPosts(): void
+    public function refreshComponent(): void
     {
-        $this->user = User::find(auth()->user()->id);
+        $array_of_user_ids_to_display = array($this->user->id);
+        if ($this->is_dashboard) {
+            array_push($array_of_user_ids_to_display, $this->user->friends($this->user->id)->pluck('id')->toArray());
+        }
+        $this->posts = Post::whereIn('user_id', $array_of_user_ids_to_display)->limit(10)->orderBy('created_at', 'desc')->get();
     }
 
     public function addComment(int $post_id): void

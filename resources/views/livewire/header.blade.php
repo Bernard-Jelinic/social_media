@@ -158,9 +158,9 @@
                     </ul>
                     <h3>Custom Status</h3>
                     <div class="search_form">
-                        <form>
-                            <input type="text" name="search">
-                            <button type="submit">Ok</button>
+                        <form wire:submit="addPost">
+                            <input type="text" wire:model="content" placeholder="Post something">
+                            <button type="submit">Post</button>
                         </form>
                     </div><!--search_form end-->
                     <h3 class="tc">

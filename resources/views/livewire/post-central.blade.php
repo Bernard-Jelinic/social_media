@@ -151,3 +151,14 @@
         </div><!--posts-section end-->
     </div><!--product-feed-tab end-->
 </div>
+@script
+<script>
+    Echo.private('postEvent.' + {{ auth()->user()->id }})
+        .listen('.post.change', function(data) {
+            refreshLivewireComponent()
+        })
+    function refreshLivewireComponent() {
+        $wire.refreshComponent()
+    }
+</script>
+@endscript

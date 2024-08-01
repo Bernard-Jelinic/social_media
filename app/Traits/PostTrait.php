@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Traits;
 
-use Livewire\Component;
 use App\Models\Post;
 
-class PostBaseComponent extends Component
+trait PostTrait
 {
     public $content = '';
 
@@ -16,7 +15,5 @@ class PostBaseComponent extends Component
             'content' => $this->content
         ]);
         $this->content = '';
-
-        $this->dispatch('get-posts');
     }
 }

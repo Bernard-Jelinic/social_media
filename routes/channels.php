@@ -25,6 +25,10 @@ Broadcast::channel('userEvent.{user_id}', function ($user, $user_id){
     return auth()->check();
 });
 
+Broadcast::channel('postEvent.{user_id}', function ($user, $user_id){
+    return auth()->check();
+});
+
 Broadcast::channel('friendRequest.{user_id}', function ($user, $user_id){
     return (int) $user->id === (int) $user_id;
 });
