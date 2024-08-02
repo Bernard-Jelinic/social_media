@@ -41,7 +41,6 @@
                     </div><!--top-profiles end-->
                 @endif
                 {{-- <livewire:post :post="$post" :user="$post->user"/> --}}
-                {{-- start --}}
                 <div class="posty">
                     <div class="post-bar">
                         <div class="post_topbar">
@@ -139,15 +138,16 @@
                         @endif
                     </div><!--post-bar end-->
                 </div>
-                {{-- end --}}
             @endforeach
-            <div class="process-comm">
-                <div class="spinner">
-                    <div class="bounce1"></div>
-                    <div class="bounce2"></div>
-                    <div class="bounce3"></div>
-                </div>
-            </div><!--process-comm end-->
+            @if ( $number_of_all_posts > $number_of_posts_to_show )
+                <div wire:click="showMorePosts" class="process-comm">
+                    <div class="spinner">
+                        <div class="bounce1"></div>
+                        <div class="bounce2"></div>
+                        <div class="bounce3"></div>
+                    </div>
+                </div><!--process-comm end-->
+            @endif
         </div><!--posts-section end-->
     </div><!--product-feed-tab end-->
 </div>

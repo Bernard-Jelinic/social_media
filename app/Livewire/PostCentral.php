@@ -17,11 +17,12 @@ class PostCentral extends Component
     public $show_top_profiles;
     public $random_users;
     public $posts;
-
     public $new_comment;
     public $is_comments_display = false;
     public $post_id_to_display_comment = null;
     public $is_dashboard;
+    public $number_of_posts_to_show = 10;
+    public $number_of_all_posts;
 
     public function mount(bool $is_profile_of_logged_in_user, object $user, bool $show_top_profiles = false, bool $is_dashboard = true): void
     {
@@ -39,7 +40,8 @@ class PostCentral extends Component
         if ($this->is_dashboard) {
             array_push($array_of_user_ids_to_display, $this->user->friends($this->user->id)->pluck('id')->toArray());
         }
-        $this->posts = Post::whereIn('user_id', $array_of_user_ids_to_display)->limit(10)->orderBy('created_at', 'desc')->get();
+        $this->posts = Post::whereIn('user_id', $array_of_user_ids_to_display)->limit($this->number_of_posts_to_show)->orderBy('created_at', 'desc')->get();
+        $this->number_of_all_posts = Post::whereIn('user_id', $array_of_user_ids_to_display)->orderBy('created_at', 'desc')->count();
     }
 
     public function addComment(int $post_id): void
@@ -70,6 +72,11 @@ class PostCentral extends Component
         } else {
             $like->delete();
         }
+    }
+
+    public function showMorePosts()
+    {
+        $this->number_of_posts_to_show += 10;
     }
 
     public function render(): View
