@@ -29,16 +29,14 @@
                             <span>Info</span>
                         {{-- </a> --}}
                     </li>
-                    <li 
+                    {{-- <li 
                     @if ($is_profile_images_displayed_on_full_profile == true)
                         class="active"
                     @endif
                     wire:click="displayImages">
-                        {{-- <a href="#" title=""> --}}
                             <img src="{{ asset('assets/images/ic3.png') }}" alt="">
                             <span>Portfolio</span>
-                        {{-- </a> --}}
-                    </li>
+                    </li> --}}
                     @if ($is_profile_of_logged_in_user)
                         <li
                         @if ($is_profile_friend_request_displayed_on_full_profile == true)
@@ -59,8 +57,8 @@
             <livewire:post-central :is_profile_of_logged_in_user="$is_profile_of_logged_in_user" :user="$user" :is_dashboard="false"/>
         @elseif($is_profile_info_displayed_on_full_profile == true)
             <livewire:profile-info :is_profile_of_logged_in_user="$is_profile_of_logged_in_user" :user="$user"/>
-        @elseif($is_profile_images_displayed_on_full_profile == true)
-            <livewire:profile-images/>
+        {{-- @elseif($is_profile_images_displayed_on_full_profile == true)
+            <livewire:profile-images/> --}}
         @elseif($is_profile_friend_request_displayed_on_full_profile == true)
             <livewire:profile-friend-request />
         @endif
