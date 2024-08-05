@@ -5,9 +5,30 @@
                 <a href="{{ route('dashboard') }}" title=""><img src="{{asset('assets/images/logo.png') }}" alt=""></a>
             </div><!--logo end-->
             <div class="search-bar">
-                <form>
-                    <input type="text" name="search" placeholder="Search...">
-                    <button type="submit"><i class="la la-search"></i></button>
+                <form wire:submit="searchUsers">
+                    <input type="text" wire:model="search"name="search" placeholder="Search...">
+                    <button wire:click="searchUsers"><i class="la la-search"></i></button>
+                    @if (count($search_result) > 0)
+                        <div class="notification-box-active">
+                            <div class="nt-title">
+                                <h4>Search Result</h4>
+                            </div>
+                            <div class="nott-list">
+                                @foreach ($search_result as $result)
+                                    <div class="notfication-details">
+                                        <a href="{{ route('profile.show', $result->id) }}">
+                                            <div class="noty-user-img">
+                                                <img src="{{ asset($result->profile_image) }}" alt="Users profile image">
+                                            </div>
+                                            <div class="notification-info">
+                                                <span>{{ $result->full_name }}</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
                 </form>
             </div><!--search-bar end-->
             <nav>
@@ -43,8 +64,8 @@
                                     @if (count($chat_conversation->messages) > 0)
                                         <div class="notfication-details">
                                             <a href="{{ route('conversations.index', $chat_conversation->id) }}">
-                                                <div class="chat-mg noty-user-img">
-                                                    <img class="profile-image-35" src="{{ asset($chat_conversation->messages[$chat_conversation->number_of_messages-1]->chatParticipant->user->profile_image) }}" alt="Users profile image">
+                                                <div class="noty-user-img">
+                                                    <img src="{{ asset($chat_conversation->messages[$chat_conversation->number_of_messages-1]->chatParticipant->user->profile_image) }}" alt="Users profile image">
                                                     @if ($chat_conversation->number_of_unread_messages > 0)
                                                         <span>{{ $chat_conversation->number_of_unread_messages }}</span>
                                                     @endif

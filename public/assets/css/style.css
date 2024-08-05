@@ -581,6 +581,14 @@ nav ul ul li a {
 	z-index: 999999999;
 }
 
+.notification-box-active {
+	visibility: visible;
+	z-index: 999999999;
+	position: absolute;
+	width: 280px;
+	background-color: #fff;
+}
+
 .nt-title {
 	float: left;
 	width: 100%;
@@ -3640,12 +3648,19 @@ footer {
 	padding: 30px 20px;
 }
 
+.profile-image-25{
+	width: 25px;
+    height: 25px;
+}
+
 .profile-image-30{
-	width: 30px
+	width: 30px;
+	height: 30px;
 }
 
 .profile-image-35{
-	width: 35px
+	width: 35px;
+	height: 35px;
 }
 
 .profile-image-40{
