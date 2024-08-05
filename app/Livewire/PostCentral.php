@@ -29,6 +29,7 @@ class PostCentral extends Component
         $this->is_profile_of_logged_in_user = $is_profile_of_logged_in_user;
         $this->user = $user;
         $this->show_top_profiles = $show_top_profiles;
+        $this->is_dashboard = $is_dashboard;
         $this->random_users = User::inRandomOrder()->whereNotIn('id', [auth()->user()->id])->limit(10)->get();
 
         $this->refreshComponent();
