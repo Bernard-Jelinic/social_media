@@ -85,13 +85,14 @@
                             <div class="nott-list">
                                 @if (count(auth()->user()->unreadNotifications) > 0)
                                     @foreach (auth()->user()->unreadNotifications as $notification)
+                                    <?php $user_created_notification = App\Models\User::find($notification->user_id) ?>
                                     <a href="{{ route('profile.show', $notification->user_id) }}">
                                         <div class="notfication-details">
                                             <div class="noty-user-img">
-                                                <img src="{{asset(App\Models\User::find($notification->user_id)->profile_image) }}" alt="Profile Image">
+                                                <img src="{{asset($user_created_notification->profile_image) }}" alt="Profile Image">
                                             </div>
                                             <div class="notification-info">
-                                                <h3>{{ $notification->notifiable->full_name }} {{ $notification->data['data'] }}</h3>
+                                                <h3>{{ $user_created_notification->full_name }} {{ $notification->data['data'] }}</h3>
                                                 <span>{{ $notification->created_at->diffForHumans() }}</span>
                                             </div><!--notification-info -->
                                         </div>
