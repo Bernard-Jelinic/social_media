@@ -67,54 +67,46 @@
                     </li>
                     <li>
                         <a href="#" title="" class="not-box-open">
-                            <span><img src="{{asset('assets/images/icon7.png') }}" alt=""></span>
+                            <span>
+                                <img src="{{asset('assets/images/icon7.png') }}" alt="Notification">
+                                @if (count(auth()->user()->unreadNotifications) > 0)
+                                    <span class="badge badge-light">{{ count(auth()->user()->unreadNotifications) }}</span>
+                                @endif
+                            </span>
                             Notification
                         </a>
                         <div class="notification-box">
                             <div class="nt-title">
                                 <h4>Setting</h4>
-                                <a href="#" title="">Clear all</a>
+                                @if (count(auth()->user()->unreadNotifications) > 0)
+                                    <a wire:click="clearAll" href="#" title="">Clear all</a>
+                                @endif
                             </div>
                             <div class="nott-list">
-                                <div class="notfication-details">
-                                      <div class="noty-user-img">
-                                          <img src="{{asset('assets/images/resources/ny-img1.png') }}" alt="">
-                                      </div>
-                                      <div class="notification-info">
-                                          <h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-                                          <span>2 min ago</span>
-                                      </div><!--notification-info -->
-                                  </div>
-                                  <div class="notfication-details">
-                                      <div class="noty-user-img">
-                                          <img src="{{asset('assets/images/resources/ny-img2.png') }}" alt="">
-                                      </div>
-                                      <div class="notification-info">
-                                          <h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-                                          <span>2 min ago</span>
-                                      </div><!--notification-info -->
-                                  </div>
-                                  <div class="notfication-details">
-                                      <div class="noty-user-img">
-                                          <img src="{{asset('assets/images/resources/ny-img3.png') }}" alt="">
-                                      </div>
-                                      <div class="notification-info">
-                                          <h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-                                          <span>2 min ago</span>
-                                      </div><!--notification-info -->
-                                  </div>
-                                  <div class="notfication-details">
-                                      <div class="noty-user-img">
-                                          <img src="{{asset('assets/images/resources/ny-img2.png') }}" alt="">
-                                      </div>
-                                      <div class="notification-info">
-                                          <h3><a href="#" title="">Jassica William</a> Comment on your project.</h3>
-                                          <span>2 min ago</span>
-                                      </div><!--notification-info -->
-                                  </div>
-                                  <div class="view-all-nots">
-                                      <a href="#" title="">View All Notification</a>
-                                  </div>
+                                @if (count(auth()->user()->unreadNotifications) > 0)
+                                    @foreach (auth()->user()->unreadNotifications as $notification)
+                                    <a href="{{ route('profile.show', $notification->user_id) }}">
+                                        <div class="notfication-details">
+                                            <div class="noty-user-img">
+                                                <img src="{{asset(App\Models\User::find($notification->user_id)->profile_image) }}" alt="Profile Image">
+                                            </div>
+                                            <div class="notification-info">
+                                                <h3>{{ $notification->notifiable->full_name }} {{ $notification->data['data'] }}</h3>
+                                                <span>{{ $notification->created_at->diffForHumans() }}</span>
+                                            </div><!--notification-info -->
+                                        </div>
+                                    </a>
+                                    @endforeach
+                                @else
+                                    <div class="notfication-details">
+                                        <div class="notification-info">
+                                            <h3>There are no new notifications.</h3>
+                                        </div><!--notification-info -->
+                                    </div>
+                                @endif
+                                {{-- <div class="view-all-nots">
+                                    <a href="#" title="">View All Notification</a>
+                                </div> --}}
                             </div><!--nott-list end-->
                         </div><!--notification-box end-->
                     </li>
@@ -183,6 +175,10 @@
     <script>
         Echo.private('message.' + {{ auth()->user()->id }})
             .listen('.sent.message', function(data) {
+                refreshLivewireComponent()
+            })
+        Echo.private('friendRequest.' + {{ auth()->user()->id }})
+            .listen('.friendRequest.event', function(data) {
                 refreshLivewireComponent()
             })
         function refreshLivewireComponent() {

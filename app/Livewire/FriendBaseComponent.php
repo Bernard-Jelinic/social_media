@@ -2,9 +2,12 @@
 
 namespace App\Livewire;
 
+use App\Models\User;
 use Livewire\Component;
 use App\Enums\FriendStatus;
 use App\Events\FriendRequestEvent;
+use App\Notifications\FriendRequestCreated;
+use Illuminate\Support\Facades\Notification;
 
 class FriendBaseComponent extends Component
 {
@@ -15,6 +18,8 @@ class FriendBaseComponent extends Component
 
         event(new FriendRequestEvent(auth()->user()->id));
         event(new FriendRequestEvent($user['id']));
+
+        Notification::send(User::find($user['id']), new FriendRequestCreated(auth()->user()->id));
     }
     
     public function addFriendAndRefresh(array $user): void
