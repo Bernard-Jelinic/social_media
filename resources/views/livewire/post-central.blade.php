@@ -103,9 +103,9 @@
                         </div>
                         @if ($is_comments_display && $post->id == $post_id_to_display_comment)
                             <div class="comment-section">
-                                <div class="plus-ic">
+                                {{-- <div class="plus-ic">
                                     <i class="la la-plus"></i>
-                                </div>
+                                </div> --}}
                                 @foreach ($post->comments as $comment)
                                     <div class="comment-sec">
                                         <ul>
