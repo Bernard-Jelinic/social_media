@@ -33,7 +33,42 @@ class PersonFactory extends Factory
             $about = fake()->paragraph();
         }
 
+        if (count(Country::get()) == 0) {
+            Country::create(['name' => 'Croatia']);
+            Country::create(['name' => 'Germany']);
+            Country::create(['name' => 'France']);
+            Country::create(['name' => 'Italia']);
+            Country::create(['name' => 'Slovenia']);
+            Country::create(['name' => 'Serbia']);
+            Country::create(['name' => 'UK']);
+            Country::create(['name' => 'Spain']);
+            Country::create(['name' => 'Portugal']);
+        }
         $country_id = Country::inRandomOrder()->first()->id;
+
+        if (City::count() == 0) {
+            $values = array();
+
+            $countries = Country::all();
+
+            foreach ($countries as $country) {
+                array_push($values, [
+                    'country_id' => $country['id'],
+                    'name' => $country['name'] . ' City_1'
+                ]);
+                array_push($values, [
+                    'country_id' => $country['id'],
+                    'name' => $country['name'] . ' City_2'
+                ]);
+                array_push($values, [
+                    'country_id' => $country['id'],
+                    'name' => $country['name'] . ' City_3'
+                ]);
+            }
+    
+            City::insert($values);
+        }
+
         $city_id = City::where('country_id', $country_id)->inRandomOrder()->first()->id;
 
         return [
