@@ -55,6 +55,12 @@ class PostCentral extends Component
         $this->new_comment = '';
     }
 
+    public function deletePost(int $post_id)
+    {
+        $post = Post::find($post_id);
+        $post->delete();
+    }
+
     public function changeCommentDisplay(int $post_id): void
     {
         $this->is_comments_display = !$this->is_comments_display;

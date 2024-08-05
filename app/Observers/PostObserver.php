@@ -28,7 +28,7 @@ class PostObserver
      */
     public function deleted(Post $post): void
     {
-        //
+        event(new PostEvent($post->user_id));
     }
 
     /**

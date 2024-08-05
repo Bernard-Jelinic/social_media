@@ -55,16 +55,18 @@
                                     <span><img src="{{ asset('assets/images/clock.png') }}" alt="">{{ $post->created_at->diffForHumans() }}</span>
                                 </div>
                             </div>
-                            <div class="ed-opts">
-                                <a href="#" title="" class="ed-opts-open"><i class="la la-ellipsis-v"></i></a>
-                                <ul class="ed-options">
-                                    <li><a href="#" title="">Edit Post</a></li>
-                                    {{-- <li><a href="#" title="">Unsaved</a></li>
-                                    <li><a href="#" title="">Unbid</a></li>
-                                    <li><a href="#" title="">Close</a></li>
-                                    <li><a href="#" title="">Hide</a></li> --}}
-                                </ul>
-                            </div>
+                            @if ($is_profile_of_logged_in_user)
+                                <div class="ed-opts">
+                                    <a href="#" title="" class="ed-opts-open"><i class="la la-ellipsis-v"></i></a>
+                                    <ul class="ed-options">
+                                        <li wire:click="deletePost({{ $post->id }})"><a href="#" title="">Delete Post</a></li>
+                                        {{-- <li><a href="#" title="">Unsaved</a></li>
+                                        <li><a href="#" title="">Unbid</a></li>
+                                        <li><a href="#" title="">Close</a></li>
+                                        <li><a href="#" title="">Hide</a></li> --}}
+                                    </ul>
+                                </div>
+                            @endif
                         </div>
                         <div class="epi-sec">
                             <ul class="descp">
