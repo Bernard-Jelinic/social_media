@@ -2,10 +2,7 @@
 
 @section('content')
 
-    <section class="cover-sec">
-        <img src="http://via.placeholder.com/1600x400" alt="">
-        <a href="#" title=""><i class="fa fa-camera"></i> Change Image</a>
-    </section>
+    <livewire:upload-cover-image :is_profile_of_logged_in_user="$is_profile_of_logged_in_user" :user_profile="$user"/>
 
     <main>
         <div class="main-section">

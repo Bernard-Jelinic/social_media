@@ -81,7 +81,7 @@ class PersonFactory extends Factory
             'city_id' => $city_id,
             'headline' => $headline,
             'about' => $about,
-            'profile_image' => 'assets/images/default_images/person.png',
+            'profile_image' => 'assets/images/default_profile_images/person.png',
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),

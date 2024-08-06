@@ -46,7 +46,7 @@ class PageFactory extends Factory
             'city_id' => $city_id,
             'headline' => $headline,
             'about' => $about,
-            'profile_image' => 'assets/images/default_images/page.png',
+            'profile_image' => 'assets/images/default_profile_images/page.png',
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),

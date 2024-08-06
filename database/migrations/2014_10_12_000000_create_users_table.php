@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('about')->nullable();
             $table->foreignId('country_id')->nullable()->default(null)->constrained()->cascadeOnDelete();
             $table->foreignId('city_id')->nullable()->default(null)->constrained()->cascadeOnDelete();
-            $table->string('profile_image')->default('assets/images/default_images/person.png');
-            $table->string('cover_image')->nullable();
+            $table->string('profile_image')->default('assets/images/default_profile_images/person.png');
+            $table->string('cover_image')->default('assets/images/default_cover_images/cover.png');
             $table->char('email', 50)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
