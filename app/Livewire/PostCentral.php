@@ -39,10 +39,11 @@ class PostCentral extends Component
     {
         $array_of_user_ids_to_display = array($this->user->id);
         if ($this->is_dashboard) {
+            // // ids of friends
             $push_to_array = $this->user->friends($this->user->id)->pluck('id')->toArray();
             // // in case if logged in user don't have friends
-            if ($push_to_array !== []) {
-                array_push($array_of_user_ids_to_display, $this->user->friends($this->user->id)->pluck('id')->toArray());
+            if (count($push_to_array) > 0) {
+                $array_of_user_ids_to_display = array_merge($array_of_user_ids_to_display, $push_to_array);
             }
         }
         $this->posts = Post::whereIn('user_id', $array_of_user_ids_to_display)->limit($this->number_of_posts_to_show)->orderBy('created_at', 'desc')->get();
