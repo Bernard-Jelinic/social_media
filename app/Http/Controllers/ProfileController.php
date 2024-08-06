@@ -46,9 +46,13 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $number_of_friends = count(User::friends($request->user()->id));
+        $number_of_posts = count($request->user()->posts);
         return view('profile.edit', [
             'user' => $request->user(),
-            'is_profile_of_logged_in_user' => true
+            'is_profile_of_logged_in_user' => true,
+            'number_of_friends' => $number_of_friends,
+            'number_of_posts' => $number_of_posts
         ]);
     }
 

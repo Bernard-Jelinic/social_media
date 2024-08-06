@@ -22,7 +22,9 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $number_of_friends = count(User::friends(auth()->user()->id));
+    $number_of_posts = count(auth()->user()->posts);
+    return view('dashboard', compact('number_of_friends', 'number_of_posts'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

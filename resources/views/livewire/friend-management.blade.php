@@ -36,15 +36,15 @@
 
         <!--<li><a href="#" title="" class="hre">Hire</a></li>-->
     </ul>
-    <ul class="flw-status">
+    <ul class="user-fw-status">
         <li>
-            <span>Number of friends</span>
-            <b>{{ $number_of_friends }}</b>
+            <h4>Number of friends</h4>
+            <span>{{ $number_of_friends }}</span>
         </li>
-        <!--<li>
-            <span>Followers</span>
-            <b>155</b>
-        </li>-->
+        <li>
+            <h4>Number of posts</h4>
+            <span>{{ $number_of_posts }}</span>
+        </li>
     </ul>
 </div><!--user_pro_status end-->
 @script

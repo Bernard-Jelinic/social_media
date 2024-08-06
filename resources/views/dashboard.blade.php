@@ -26,12 +26,12 @@
                                     </div><!--user-profile end-->
                                     <ul class="user-fw-status">
                                         <li>
-                                            <h4>Following</h4>
-                                            <span>34</span>
+                                            <h4>Number of friends</h4>
+                                            <span>{{ $number_of_friends }}</span>
                                         </li>
                                         <li>
-                                            <h4>Followers</h4>
-                                            <span>155</span>
+                                            <h4>Number of posts</h4>
+                                            <span>{{ $number_of_posts }}</span>
                                         </li>
                                         <li>
                                             <a href="{{ route('profile.edit') }}" title="">View Profile</a>

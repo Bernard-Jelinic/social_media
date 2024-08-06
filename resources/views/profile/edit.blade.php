@@ -16,6 +16,17 @@
                                     
                                     @if (!$is_profile_of_logged_in_user)
                                         <livewire:friend-management :user_profile="$user"/>
+                                    @else
+                                        <ul class="user-fw-status">
+                                            <li>
+                                                <h4>Number of friends</h4>
+                                                <span>{{ $number_of_friends }}</span>
+                                            </li>
+                                            <li>
+                                                <h4>Number of posts</h4>
+                                                <span>{{ $number_of_posts }}</span>
+                                            </li>
+                                        </ul>
                                     @endif
 
                                 </div><!--user_profile end-->

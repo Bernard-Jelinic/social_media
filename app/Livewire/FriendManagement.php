@@ -16,6 +16,7 @@ class FriendManagement extends FriendBaseComponent
     public $request_accepted = false;
     public $is_this_sent_request = false;
     public $number_of_friends = 0;
+    public $number_of_posts = 0;
     public $model = User::class;
 
     public function mount($user_profile): void
@@ -35,6 +36,7 @@ class FriendManagement extends FriendBaseComponent
         } else {
             $this->model = Person::class;
             $this->number_of_friends = count($this->model::friends($this->user_profile->id));
+            $this->number_of_posts = count(User::find($this->user_profile->id)->posts);
         }
 
         $friend = auth()->user()->sentRequestTo()->withPivot('status')->where('receiver_id', $this->user_profile->id)->first();
