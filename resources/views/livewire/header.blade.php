@@ -2,7 +2,7 @@
     <div class="container">
         <div class="header-data">
             <div class="logo">
-                <a href="{{ route('dashboard') }}" title=""><img src="{{asset('assets/images/logo.png') }}" alt=""></a>
+                <a href="{{ route('dashboard') }}" title=""><img src="{{asset('assets/images/home.png') }}" style="height: 34px" alt=""></a>
             </div><!--logo end-->
             <div class="search-bar">
                 <form wire:submit="searchUsers">
