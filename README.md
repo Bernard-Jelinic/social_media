@@ -1,14 +1,15 @@
 # Social Media app
 
 ## Overview
+
 This project aims to develop a social networking platform where users can:
 
-    Create new user accounts
-    Update personal information
-    Post the status
-    Comment on and like status
-    Manage friend requests (send, accept, decline)
-    Send and receive messages (chat)
+    - Create new user accounts
+    - Update personal information
+    - Post the status
+    - Comment on and like status
+    - Manage friend requests (send, accept, decline)
+    - Send and receive messages (chat)
 
 ## Usage
 
